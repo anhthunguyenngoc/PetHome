@@ -20,7 +20,7 @@
          <children>
             <BorderPane layoutX="10.0" layoutY="10.0" prefHeight="645.0" prefWidth="1528.0" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="115.0">
                <top>
-                  <Label alignment="BOTTOM_CENTER" prefHeight="81.0" prefWidth="410.0" text="Thú cưng làm đẹp" textFill="NAVY" BorderPane.alignment="CENTER">
+                  <Label alignment="BOTTOM_CENTER" prefHeight="81.0" prefWidth="410.0" text="Tên dịch vụ" textFill="NAVY" BorderPane.alignment="CENTER">
                      <font>
                         <Font name="Segoe UI Bold" size="48.0" />
                      </font>
@@ -31,7 +31,7 @@
                      <children>
                         <AnchorPane layoutX="16.0" layoutY="72.0" prefHeight="423.0" prefWidth="1510.0" style="-fx-border-color: navy; -fx-border-width: 3; -fx-border-radius: 50;" AnchorPane.bottomAnchor="38.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="81.0">
                            <children>
-                              <FlowPane hgap="20.0" layoutX="75.0" layoutY="86.0" prefHeight="331.0" prefWidth="1361.0" vgap="20.0">
+                              <FlowPane hgap="20.0" layoutX="81.0" layoutY="89.0" prefHeight="312.0" prefWidth="1352.0" vgap="20.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="78.0" AnchorPane.rightAnchor="62.0" AnchorPane.topAnchor="86.0">
                                  <children>
                                     <BorderPane prefHeight="277.0" prefWidth="251.0" style="-fx-background-color: D7E4F2;" styleClass="rs-30-corner" stylesheets="@../css/style.css">
                                        <effect>
@@ -40,7 +40,7 @@
                                        <bottom>
                                           <AnchorPane prefHeight="56.0" prefWidth="251.0" BorderPane.alignment="CENTER">
                                              <children>
-                                                <Button fx:id="btnRegister112" layoutX="126.0" layoutY="8.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="67.0" style="-fx-background-color: D7E4F2;" styleClass="rs-30-corner" stylesheets="@../css/style.css" text="Sửa" textFill="NAVY">
+                                                <Button fx:id="btnRegister112" layoutX="59.0" layoutY="8.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="134.0" style="-fx-background-color: D7E4F2;" styleClass="rs-30-corner" stylesheets="@../css/style.css" text="Xem chi tiết" textFill="NAVY">
                                                    <font>
                                                       <Font name="Segoe UI Bold" size="18.0" />
                                                    </font>
@@ -59,7 +59,7 @@
                               </FlowPane>
                               <AnchorPane layoutX="6.0" layoutY="6.0" prefHeight="65.0" prefWidth="1473.0" AnchorPane.leftAnchor="3.0" AnchorPane.rightAnchor="3.0" AnchorPane.topAnchor="3.0">
                                  <children>
-                                    <Button fx:id="btnRegister12" layoutY="18.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="106.0" style="-fx-background-color: D7E4F2;" styleClass="rs-30-corner" stylesheets="@../css/style.css" text="Lọc" textFill="NAVY" AnchorPane.leftAnchor="60.0">
+                                    <Button fx:id="btnRegister1211" layoutX="181.0" layoutY="18.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="135.0" style="-fx-background-color: D7E4F2;" styleClass="rs-30-corner" stylesheets="@../css/style.css" text="Sắp xếp" textFill="NAVY" AnchorPane.leftAnchor="181.0">
                                        <font>
                                           <Font name="Segoe UI Bold" size="20.0" />
                                        </font>
@@ -69,8 +69,15 @@
                                        <effect>
                                           <DropShadow />
                                        </effect>
+                                       <graphic>
+                                          <ImageView fitHeight="23.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../images/arange.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
                                     </Button>
-                                    <Button fx:id="btnRegister121" layoutX="181.0" layoutY="18.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="106.0" style="-fx-background-color: D7E4F2;" styleClass="rs-30-corner" stylesheets="@../css/style.css" text="Sắp xếp" textFill="NAVY">
+                                    <Button fx:id="btnRegister121" layoutX="60.0" layoutY="18.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="106.0" style="-fx-background-color: D7E4F2;" styleClass="rs-30-corner" stylesheets="@../css/style.css" text="Lọc" textFill="NAVY">
                                        <font>
                                           <Font name="Segoe UI Bold" size="20.0" />
                                        </font>
@@ -80,23 +87,19 @@
                                        <effect>
                                           <DropShadow />
                                        </effect>
+                                       <graphic>
+                                          <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../images/filter.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
                                     </Button>
                                  </children>
                               </AnchorPane>
                            </children>
                         </AnchorPane>
                         <Button fx:id="btnRegister1" layoutX="1070.0" layoutY="14.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="150.0" style="-fx-background-color: D7E4F2;" styleClass="rs-30-corner" stylesheets="@../css/style.css" text="+ Thêm mới" textFill="NAVY" AnchorPane.rightAnchor="328.0">
-                           <font>
-                              <Font name="Segoe UI Bold" size="20.0" />
-                           </font>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                           <effect>
-                              <DropShadow />
-                           </effect>
-                        </Button>
-                        <Button fx:id="btnRegister11" layoutX="1398.0" layoutY="13.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="134.0" style="-fx-background-color: D7E4F2;" styleClass="rs-30-corner" stylesheets="@../css/style.css" text="Hoàn tác" textFill="NAVY" AnchorPane.rightAnchor="49.0">
                            <font>
                               <Font name="Segoe UI Bold" size="20.0" />
                            </font>
@@ -117,6 +120,24 @@
                            <effect>
                               <DropShadow />
                            </effect>
+                        </Button>
+                        <Button fx:id="btnRegister113" layoutX="1357.0" layoutY="13.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="150.0" style="-fx-background-color: D7E4F2;" styleClass="rs-30-corner" stylesheets="@../css/style.css" text="Hoàn tác" textFill="NAVY">
+                           <font>
+                              <Font name="Segoe UI Bold" size="20.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                           <graphic>
+                              <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/undo.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
                         </Button>
                      </children>
                   </AnchorPane>
@@ -197,7 +218,7 @@
                                     </VBox>
                                  </content>
                               </ScrollPane>
-                              <ScrollPane hbarPolicy="NEVER" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="115.0" prefWidth="215.0" vbarPolicy="NEVER">
+                              <ScrollPane hbarPolicy="NEVER" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="115.0" prefWidth="215.0" vbarPolicy="NEVER" visible="false">
                                  <content>
                                     <VBox>
                                        <children>
@@ -248,7 +269,7 @@
                                     </VBox>
                                  </content>
                               </ScrollPane>
-                              <ScrollPane hbarPolicy="NEVER" layoutX="225.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="115.0" prefWidth="215.0" vbarPolicy="NEVER">
+                              <ScrollPane hbarPolicy="NEVER" layoutX="225.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="115.0" prefWidth="215.0" vbarPolicy="NEVER" visible="false">
                                  <content>
                                     <VBox>
                                        <children>

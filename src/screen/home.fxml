@@ -15,11 +15,14 @@
 
 <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="800.0" prefWidth="1550.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.HomeController">
    <content>
-      <AnchorPane prefHeight="800.0" prefWidth="1529.0">
+      <AnchorPane>
          <children>
-            <BorderPane layoutY="115.0" prefHeight="645.0" prefWidth="1528.0" AnchorPane.bottomAnchor="60.0" AnchorPane.topAnchor="115.0" />
-            <AnchorPane prefHeight="60.0" prefWidth="1550.0" style="-fx-background-color: #c6def1;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
-            <AnchorPane style="-fx-background-color: B0c4de;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <BorderPane fx:id="borPaneCenter" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="115.0">
+               <bottom>
+                  <AnchorPane prefHeight="60.0" prefWidth="1550.0" style="-fx-background-color: #c6def1;" BorderPane.alignment="CENTER" />
+               </bottom>
+            </BorderPane>
+            <AnchorPane prefHeight="115.0" style="-fx-background-color: B0c4de;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
                   <AnchorPane prefHeight="116.0" prefWidth="380.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
@@ -227,10 +230,13 @@
                   </AnchorPane>
                   <AnchorPane layoutX="1168.0" layoutY="10.0" prefHeight="115.0" prefWidth="390.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="272.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="18.0" AnchorPane.rightAnchor="38.0" AnchorPane.topAnchor="18.0">
+                        <ImageView fx:id="imaUserInfo" fitHeight="80.0" fitWidth="80.0" layoutX="272.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="18.0" AnchorPane.rightAnchor="38.0" AnchorPane.topAnchor="18.0">
                            <image>
                               <Image url="@../images/user.png" />
                            </image>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </ImageView>
                         <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="205.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="38.0" AnchorPane.rightAnchor="146.29032135009766" AnchorPane.topAnchor="38.0">
                            <image>
