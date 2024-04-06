@@ -12,7 +12,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 
-public class HomeController {
+public class CusHomeController {
 	String ENTERED_COLOR = "#4682b4";     		//SteelBlue
 	String MENU_BTN_DEFAULT_COLOR = "B0c4de";
 	String PRESSED_COLOR = "D7E4F2";
