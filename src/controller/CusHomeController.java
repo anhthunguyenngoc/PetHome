@@ -66,7 +66,7 @@ public class CusHomeController {
     	
     	imaUserInfo.setOnMouseClicked(e -> {
     		try {
-            		AnchorPane ancPane = (AnchorPane) FXMLLoader.load(getClass().getResource("pet-list.fxml"));
+            		AnchorPane ancPane = (AnchorPane) FXMLLoader.load(getClass().getResource("/screen/pet-list.fxml"));
             		borPaneCenter.setCenter(ancPane);
 				} catch (IOException e1) {
 					// TODO Auto-generated catch block
