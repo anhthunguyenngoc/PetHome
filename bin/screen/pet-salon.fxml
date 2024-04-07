@@ -68,12 +68,12 @@
                                     <Font size="22.0" />
                                  </font>
                               </Label>
-                              <Label alignment="TOP_LEFT" prefHeight="68.0" prefWidth="37.0" text="Giá:" textFill="#403a3a" GridPane.rowIndex="3">
+                              <Label alignment="TOP_LEFT" prefHeight="68.0" prefWidth="121.0" text="Mô tả giá:" textFill="#403a3a" GridPane.rowIndex="3">
                                  <font>
                                     <Font size="22.0" />
                                  </font>
                               </Label>
-                              <Label text="Ghi chú:" textFill="#403a3a" GridPane.rowIndex="4">
+                              <Label alignment="TOP_LEFT" prefHeight="36.0" prefWidth="79.0" text="Ghi chú:" textFill="#403a3a" GridPane.rowIndex="4">
                                  <font>
                                     <Font size="22.0" />
                                  </font>
@@ -81,8 +81,11 @@
                               <TextField GridPane.columnIndex="1" />
                               <TextArea prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                               <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                              <TextField maxWidth="200.0" prefHeight="25.0" prefWidth="50.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                              <TextArea prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                              <TextArea prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                 <GridPane.margin>
+                                    <Insets top="20.0" />
+                                 </GridPane.margin></TextArea>
+                              <TextArea maxHeight="80.0" prefHeight="90.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                            </children>
                         </GridPane>
                         <Button layoutX="298.0" layoutY="422.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="124.0" text="TẠO" textFill="NAVY">

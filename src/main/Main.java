@@ -1,4 +1,4 @@
-package screen;
+package main;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -21,7 +21,7 @@ public class Main extends Application{
 	public void start(Stage stage) throws Exception {
 		try {
 			
-			Parent root = FXMLLoader.load(getClass().getResource("customer-home.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource("/screen/customer-home.fxml"));
 			Scene scene = new Scene(root);
 			stage.setOnCloseRequest(event -> {
 				event.consume();

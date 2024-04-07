@@ -28,20 +28,31 @@
                   </Label>
                </top>
                <center>
-                  <AnchorPane prefHeight="578.0" prefWidth="1535.0" BorderPane.alignment="CENTER">
+                  <AnchorPane prefHeight="514.0" prefWidth="1535.0" BorderPane.alignment="CENTER">
                      <children>
                         <AnchorPane layoutX="22.0" layoutY="72.0" maxHeight="800.0" prefWidth="1483.0" style="-fx-border-color: navy; -fx-border-width: 3; -fx-border-radius: 50;" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="24.0" AnchorPane.rightAnchor="24.0" AnchorPane.topAnchor="81.0">
                            <children>
                               <FlowPane columnHalignment="CENTER" hgap="25.0" layoutX="64.0" layoutY="91.0" prefWidth="1361.0" prefWrapLength="0.0" vgap="25.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="88.0">
                                  <children>
-                                    <BorderPane prefHeight="240.0" prefWidth="321.0" style="-fx-background-color: D7E4F2;" styleClass="rs-30-corner" stylesheets="@../css/style.css">
+                                    <BorderPane prefHeight="236.0" prefWidth="377.0" style="-fx-background-color: D7E4F2;" styleClass="rs-30-corner" stylesheets="@../css/style.css">
                                        <effect>
                                           <DropShadow />
                                        </effect>
                                        <bottom>
                                           <AnchorPane prefHeight="59.0" prefWidth="301.0" BorderPane.alignment="CENTER">
                                              <children>
-                                                <Button fx:id="btnRegister112" layoutX="74.0" layoutY="17.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="148.0" style="-fx-background-color: D7E4F2;" styleClass="rs-30-corner" stylesheets="@../css/style.css" text="Xem chi tiết" textFill="NAVY" AnchorPane.bottomAnchor="17.0" AnchorPane.leftAnchor="74.0" AnchorPane.rightAnchor="74.0" AnchorPane.topAnchor="7.0">
+                                                <Button fx:id="btnRegister112" layoutX="16.0" layoutY="5.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="172.0" style="-fx-background-color: D7E4F2;" styleClass="rs-30-corner" stylesheets="@../css/style.css" text="Xem chi tiết" textFill="NAVY" AnchorPane.bottomAnchor="19.0" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="208.0" AnchorPane.topAnchor="5.0">
+                                                   <font>
+                                                      <Font name="Segoe UI Bold" size="18.0" />
+                                                   </font>
+                                                   <cursor>
+                                                      <Cursor fx:constant="HAND" />
+                                                   </cursor>
+                                                   <effect>
+                                                      <DropShadow />
+                                                   </effect>
+                                                </Button>
+                                                <Button fx:id="btnRegister1123" layoutX="197.0" layoutY="5.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="169.0" style="-fx-background-color: D7E4F2;" styleClass="rs-30-corner" stylesheets="@../css/style.css" text="Cập nhập" textFill="NAVY">
                                                    <font>
                                                       <Font name="Segoe UI Bold" size="18.0" />
                                                    </font>
@@ -58,7 +69,7 @@
                                        <center>
                                           <AnchorPane prefHeight="181.0" prefWidth="202.0" BorderPane.alignment="CENTER">
                                              <children>
-                                                <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="21.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+                                                <ImageView fitHeight="122.0" fitWidth="150.0" layoutX="21.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
                                                    <image>
                                                       <Image url="@../images/PET00001.jpg" />
                                                    </image>
@@ -67,24 +78,24 @@
                                           </AnchorPane>
                                        </center>
                                        <right>
-                                          <AnchorPane prefHeight="181.0" prefWidth="129.0" BorderPane.alignment="CENTER">
+                                          <AnchorPane prefHeight="243.0" prefWidth="207.0" BorderPane.alignment="CENTER">
                                              <children>
-                                                <Label layoutY="23.0" text="Bobby" textAlignment="CENTER" textFill="NAVY" AnchorPane.leftAnchor="0.0">
+                                                <Label layoutY="19.0" prefHeight="28.0" prefWidth="127.0" text="Tắm spa" textAlignment="CENTER" textFill="NAVY" AnchorPane.leftAnchor="0.0">
                                                    <font>
                                                       <Font name="Segoe UI Bold" size="20.0" />
                                                    </font>
                                                 </Label>
-                                                <Label layoutX="1.0" layoutY="58.0" text="Chó Husky" AnchorPane.leftAnchor="0.0">
+                                                <Label layoutX="1.0" layoutY="58.0" text="Dành cho: chó, mèo" AnchorPane.leftAnchor="0.0">
                                                    <font>
                                                       <Font size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label layoutX="-1.0" layoutY="93.0" text="26/01/2021" AnchorPane.leftAnchor="0.0">
+                                                <Label layoutX="-1.0" layoutY="93.0" text="Giá chỉ từ 150K" AnchorPane.leftAnchor="0.0">
                                                    <font>
                                                       <Font size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label layoutX="6.0" layoutY="133.0" text="Đực" AnchorPane.leftAnchor="0.0">
+                                                <Label layoutX="6.0" layoutY="133.0" AnchorPane.leftAnchor="0.0">
                                                    <font>
                                                       <Font name="Segoe UI" size="18.0" />
                                                    </font>
@@ -93,14 +104,25 @@
                                           </AnchorPane>
                                        </right>
                                     </BorderPane>
-                                    <BorderPane layoutX="10.0" layoutY="10.0" prefHeight="221.0" prefWidth="321.0" style="-fx-background-color: D7E4F2;" styleClass="rs-30-corner" stylesheets="@../css/style.css">
+                                    <BorderPane prefHeight="236.0" prefWidth="377.0" style="-fx-background-color: D7E4F2;" styleClass="rs-30-corner" stylesheets="@../css/style.css">
                                        <effect>
                                           <DropShadow />
                                        </effect>
                                        <bottom>
                                           <AnchorPane prefHeight="59.0" prefWidth="301.0" BorderPane.alignment="CENTER">
                                              <children>
-                                                <Button fx:id="btnRegister1121" layoutX="74.0" layoutY="17.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="148.0" style="-fx-background-color: D7E4F2;" styleClass="rs-30-corner" stylesheets="@../css/style.css" text="Xem chi tiết" textFill="NAVY" AnchorPane.bottomAnchor="17.0" AnchorPane.leftAnchor="74.0" AnchorPane.rightAnchor="74.0" AnchorPane.topAnchor="7.0">
+                                                <Button fx:id="btnRegister1121" layoutX="16.0" layoutY="5.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="172.0" style="-fx-background-color: D7E4F2;" styleClass="rs-30-corner" stylesheets="@../css/style.css" text="Xem chi tiết" textFill="NAVY" AnchorPane.bottomAnchor="19.0" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="208.0" AnchorPane.topAnchor="5.0">
+                                                   <font>
+                                                      <Font name="Segoe UI Bold" size="18.0" />
+                                                   </font>
+                                                   <cursor>
+                                                      <Cursor fx:constant="HAND" />
+                                                   </cursor>
+                                                   <effect>
+                                                      <DropShadow />
+                                                   </effect>
+                                                </Button>
+                                                <Button fx:id="btnRegister11231" layoutX="197.0" layoutY="5.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="169.0" style="-fx-background-color: D7E4F2;" styleClass="rs-30-corner" stylesheets="@../css/style.css" text="Cập nhập" textFill="NAVY">
                                                    <font>
                                                       <Font name="Segoe UI Bold" size="18.0" />
                                                    </font>
@@ -115,35 +137,35 @@
                                           </AnchorPane>
                                        </bottom>
                                        <center>
-                                          <AnchorPane prefHeight="175.0" prefWidth="192.0" BorderPane.alignment="CENTER">
+                                          <AnchorPane prefHeight="181.0" prefWidth="202.0" BorderPane.alignment="CENTER">
                                              <children>
-                                                <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="21.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+                                                <ImageView fitHeight="122.0" fitWidth="150.0" layoutX="21.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
                                                    <image>
-                                                      <Image url="@../images/user.png" />
+                                                      <Image url="@../images/PET00001.jpg" />
                                                    </image>
                                                 </ImageView>
                                              </children>
                                           </AnchorPane>
                                        </center>
                                        <right>
-                                          <AnchorPane prefHeight="185.0" prefWidth="129.0" BorderPane.alignment="CENTER">
+                                          <AnchorPane prefHeight="243.0" prefWidth="207.0" BorderPane.alignment="CENTER">
                                              <children>
-                                                <Label layoutY="23.0" text="Pucaa" textAlignment="CENTER" textFill="NAVY" AnchorPane.leftAnchor="0.0">
+                                                <Label layoutY="19.0" prefHeight="28.0" prefWidth="127.0" text="Cạo lông" textAlignment="CENTER" textFill="NAVY" AnchorPane.leftAnchor="0.0">
                                                    <font>
                                                       <Font name="Segoe UI Bold" size="20.0" />
                                                    </font>
                                                 </Label>
-                                                <Label layoutX="1.0" layoutY="58.0" text="Mèo đen" AnchorPane.leftAnchor="0.0">
+                                                <Label layoutX="1.0" layoutY="58.0" text="Dành cho: chó, mèo" AnchorPane.leftAnchor="0.0">
                                                    <font>
                                                       <Font size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label layoutX="-1.0" layoutY="93.0" text="28/12/2021" AnchorPane.leftAnchor="0.0">
+                                                <Label layoutX="-1.0" layoutY="93.0" text="Giá chỉ từ 200K" AnchorPane.leftAnchor="0.0">
                                                    <font>
                                                       <Font size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label layoutX="6.0" layoutY="133.0" text="Cái" AnchorPane.leftAnchor="0.0">
+                                                <Label layoutX="6.0" layoutY="133.0" AnchorPane.leftAnchor="0.0">
                                                    <font>
                                                       <Font name="Segoe UI" size="18.0" />
                                                    </font>
@@ -151,15 +173,29 @@
                                              </children>
                                           </AnchorPane>
                                        </right>
+                                       <FlowPane.margin>
+                                          <Insets left="80.0" />
+                                       </FlowPane.margin>
                                     </BorderPane>
-                                    <BorderPane layoutX="331.0" layoutY="10.0" prefHeight="221.0" prefWidth="321.0" style="-fx-background-color: D7E4F2;" styleClass="rs-30-corner" stylesheets="@../css/style.css">
+                                    <BorderPane prefHeight="236.0" prefWidth="377.0" style="-fx-background-color: D7E4F2;" styleClass="rs-30-corner" stylesheets="@../css/style.css">
                                        <effect>
                                           <DropShadow />
                                        </effect>
                                        <bottom>
                                           <AnchorPane prefHeight="59.0" prefWidth="301.0" BorderPane.alignment="CENTER">
                                              <children>
-                                                <Button fx:id="btnRegister11211" layoutX="74.0" layoutY="17.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="148.0" style="-fx-background-color: D7E4F2;" styleClass="rs-30-corner" stylesheets="@../css/style.css" text="Xem chi tiết" textFill="NAVY" AnchorPane.bottomAnchor="17.0" AnchorPane.leftAnchor="74.0" AnchorPane.rightAnchor="74.0" AnchorPane.topAnchor="7.0">
+                                                <Button fx:id="btnRegister1122" layoutX="16.0" layoutY="5.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="172.0" style="-fx-background-color: D7E4F2;" styleClass="rs-30-corner" stylesheets="@../css/style.css" text="Xem chi tiết" textFill="NAVY" AnchorPane.bottomAnchor="19.0" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="208.0" AnchorPane.topAnchor="5.0">
+                                                   <font>
+                                                      <Font name="Segoe UI Bold" size="18.0" />
+                                                   </font>
+                                                   <cursor>
+                                                      <Cursor fx:constant="HAND" />
+                                                   </cursor>
+                                                   <effect>
+                                                      <DropShadow />
+                                                   </effect>
+                                                </Button>
+                                                <Button fx:id="btnRegister11232" layoutX="197.0" layoutY="5.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="169.0" style="-fx-background-color: D7E4F2;" styleClass="rs-30-corner" stylesheets="@../css/style.css" text="Cập nhập" textFill="NAVY">
                                                    <font>
                                                       <Font name="Segoe UI Bold" size="18.0" />
                                                    </font>
@@ -174,35 +210,35 @@
                                           </AnchorPane>
                                        </bottom>
                                        <center>
-                                          <AnchorPane prefHeight="185.0" prefWidth="165.0" BorderPane.alignment="CENTER">
+                                          <AnchorPane prefHeight="181.0" prefWidth="202.0" BorderPane.alignment="CENTER">
                                              <children>
-                                                <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="37.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+                                                <ImageView fitHeight="122.0" fitWidth="150.0" layoutX="21.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
                                                    <image>
-                                                      <Image url="@../images/PET00002.jpg" />
+                                                      <Image url="@../images/PET00001.jpg" />
                                                    </image>
                                                 </ImageView>
                                              </children>
                                           </AnchorPane>
                                        </center>
                                        <right>
-                                          <AnchorPane prefHeight="185.0" prefWidth="129.0" BorderPane.alignment="CENTER">
+                                          <AnchorPane prefHeight="243.0" prefWidth="207.0" BorderPane.alignment="CENTER">
                                              <children>
-                                                <Label layoutY="23.0" text="Pinguu" textAlignment="CENTER" textFill="NAVY" AnchorPane.leftAnchor="0.0">
+                                                <Label layoutY="19.0" prefHeight="28.0" prefWidth="127.0" text="Nhuộm lông" textAlignment="CENTER" textFill="NAVY" AnchorPane.leftAnchor="0.0">
                                                    <font>
                                                       <Font name="Segoe UI Bold" size="20.0" />
                                                    </font>
                                                 </Label>
-                                                <Label layoutX="1.0" layoutY="58.0" text="Chim cánh cụt" AnchorPane.leftAnchor="0.0">
+                                                <Label layoutX="1.0" layoutY="58.0" text="Dành cho: chó, mèo, thỏ" AnchorPane.leftAnchor="0.0">
                                                    <font>
                                                       <Font size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label layoutX="-1.0" layoutY="93.0" text="16/5/2023" AnchorPane.leftAnchor="0.0">
+                                                <Label layoutX="-1.0" layoutY="93.0" text="Giá chỉ từ 300K" AnchorPane.leftAnchor="0.0">
                                                    <font>
                                                       <Font size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label layoutX="6.0" layoutY="133.0" text="Đực" AnchorPane.leftAnchor="0.0">
+                                                <Label layoutX="6.0" layoutY="133.0" AnchorPane.leftAnchor="0.0">
                                                    <font>
                                                       <Font name="Segoe UI" size="18.0" />
                                                    </font>
@@ -210,242 +246,9 @@
                                              </children>
                                           </AnchorPane>
                                        </right>
-                                    </BorderPane>
-                                    <BorderPane layoutX="652.0" layoutY="10.0" prefHeight="221.0" prefWidth="321.0" style="-fx-background-color: D7E4F2;" styleClass="rs-30-corner" stylesheets="@../css/style.css">
-                                       <effect>
-                                          <DropShadow />
-                                       </effect>
-                                       <bottom>
-                                          <AnchorPane prefHeight="59.0" prefWidth="301.0" BorderPane.alignment="CENTER">
-                                             <children>
-                                                <Button fx:id="btnRegister112111" layoutX="74.0" layoutY="17.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="148.0" style="-fx-background-color: D7E4F2;" styleClass="rs-30-corner" stylesheets="@../css/style.css" text="Xem chi tiết" textFill="NAVY" AnchorPane.bottomAnchor="17.0" AnchorPane.leftAnchor="74.0" AnchorPane.rightAnchor="74.0" AnchorPane.topAnchor="7.0">
-                                                   <font>
-                                                      <Font name="Segoe UI Bold" size="18.0" />
-                                                   </font>
-                                                   <cursor>
-                                                      <Cursor fx:constant="HAND" />
-                                                   </cursor>
-                                                   <effect>
-                                                      <DropShadow />
-                                                   </effect>
-                                                </Button>
-                                             </children>
-                                          </AnchorPane>
-                                       </bottom>
-                                       <center>
-                                          <AnchorPane prefHeight="185.0" prefWidth="165.0" BorderPane.alignment="CENTER">
-                                             <children>
-                                                <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="21.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
-                                                   <image>
-                                                      <Image url="@../images/PET00004.jpg" />
-                                                   </image>
-                                                </ImageView>
-                                             </children>
-                                          </AnchorPane>
-                                       </center>
-                                       <right>
-                                          <AnchorPane prefHeight="185.0" prefWidth="129.0" BorderPane.alignment="CENTER">
-                                             <children>
-                                                <Label layoutY="23.0" text="Mimi" textAlignment="CENTER" textFill="NAVY" AnchorPane.leftAnchor="0.0">
-                                                   <font>
-                                                      <Font name="Segoe UI Bold" size="20.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label layoutX="1.0" layoutY="58.0" text="Mèo trắng" AnchorPane.leftAnchor="0.0">
-                                                   <font>
-                                                      <Font size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label layoutX="-1.0" layoutY="93.0" text="03/08/2022" AnchorPane.leftAnchor="0.0">
-                                                   <font>
-                                                      <Font size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label layoutX="6.0" layoutY="133.0" text="Cái" AnchorPane.leftAnchor="0.0">
-                                                   <font>
-                                                      <Font name="Segoe UI" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                             </children>
-                                          </AnchorPane>
-                                       </right>
-                                    </BorderPane>
-                                    <BorderPane layoutX="1048.0" layoutY="10.0" prefHeight="240.0" prefWidth="321.0" style="-fx-background-color: D7E4F2;" styleClass="rs-30-corner" stylesheets="@../css/style.css">
-                                       <effect>
-                                          <DropShadow />
-                                       </effect>
-                                       <bottom>
-                                          <AnchorPane prefHeight="59.0" prefWidth="301.0" BorderPane.alignment="CENTER">
-                                             <children>
-                                                <Button fx:id="btnRegister1121111" layoutX="74.0" layoutY="17.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="148.0" style="-fx-background-color: D7E4F2;" styleClass="rs-30-corner" stylesheets="@../css/style.css" text="Xem chi tiết" textFill="NAVY" AnchorPane.bottomAnchor="17.0" AnchorPane.leftAnchor="74.0" AnchorPane.rightAnchor="74.0" AnchorPane.topAnchor="7.0">
-                                                   <font>
-                                                      <Font name="Segoe UI Bold" size="18.0" />
-                                                   </font>
-                                                   <cursor>
-                                                      <Cursor fx:constant="HAND" />
-                                                   </cursor>
-                                                   <effect>
-                                                      <DropShadow />
-                                                   </effect>
-                                                </Button>
-                                             </children>
-                                          </AnchorPane>
-                                       </bottom>
-                                       <center>
-                                          <AnchorPane prefHeight="185.0" prefWidth="165.0" BorderPane.alignment="CENTER">
-                                             <children>
-                                                <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="21.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
-                                                   <image>
-                                                      <Image url="@../images/PET00005.jpg" />
-                                                   </image>
-                                                </ImageView>
-                                             </children>
-                                          </AnchorPane>
-                                       </center>
-                                       <right>
-                                          <AnchorPane prefHeight="185.0" prefWidth="129.0" BorderPane.alignment="CENTER">
-                                             <children>
-                                                <Label layoutY="23.0" text="Susu" textAlignment="CENTER" textFill="NAVY" AnchorPane.leftAnchor="0.0">
-                                                   <font>
-                                                      <Font name="Segoe UI Bold" size="20.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label layoutX="1.0" layoutY="58.0" text="Chuột hamster" AnchorPane.leftAnchor="0.0">
-                                                   <font>
-                                                      <Font size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label layoutX="-1.0" layoutY="93.0" text="26/07/2022" AnchorPane.leftAnchor="0.0">
-                                                   <font>
-                                                      <Font size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label layoutX="6.0" layoutY="133.0" text="Cái" AnchorPane.leftAnchor="0.0">
-                                                   <font>
-                                                      <Font name="Segoe UI" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                             </children>
-                                          </AnchorPane>
-                                       </right>
-                                    </BorderPane>
-                                    <BorderPane layoutX="10.0" layoutY="275.0" prefHeight="240.0" prefWidth="321.0" style="-fx-background-color: D7E4F2;" styleClass="rs-30-corner" stylesheets="@../css/style.css">
-                                       <effect>
-                                          <DropShadow />
-                                       </effect>
-                                       <bottom>
-                                          <AnchorPane prefHeight="59.0" prefWidth="301.0" BorderPane.alignment="CENTER">
-                                             <children>
-                                                <Button fx:id="btnRegister11211111" layoutX="74.0" layoutY="17.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="148.0" style="-fx-background-color: D7E4F2;" styleClass="rs-30-corner" stylesheets="@../css/style.css" text="Xem chi tiết" textFill="NAVY" AnchorPane.bottomAnchor="17.0" AnchorPane.leftAnchor="74.0" AnchorPane.rightAnchor="74.0" AnchorPane.topAnchor="7.0">
-                                                   <font>
-                                                      <Font name="Segoe UI Bold" size="18.0" />
-                                                   </font>
-                                                   <cursor>
-                                                      <Cursor fx:constant="HAND" />
-                                                   </cursor>
-                                                   <effect>
-                                                      <DropShadow />
-                                                   </effect>
-                                                </Button>
-                                             </children>
-                                          </AnchorPane>
-                                       </bottom>
-                                       <center>
-                                          <AnchorPane prefHeight="185.0" prefWidth="165.0" BorderPane.alignment="CENTER">
-                                             <children>
-                                                <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="21.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
-                                                   <image>
-                                                      <Image url="@../images/PET00006.jpg" />
-                                                   </image>
-                                                </ImageView>
-                                             </children>
-                                          </AnchorPane>
-                                       </center>
-                                       <right>
-                                          <AnchorPane prefHeight="185.0" prefWidth="129.0" BorderPane.alignment="CENTER">
-                                             <children>
-                                                <Label layoutY="23.0" text="Snowy" textAlignment="CENTER" textFill="NAVY" AnchorPane.leftAnchor="0.0">
-                                                   <font>
-                                                      <Font name="Segoe UI Bold" size="20.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label layoutX="1.0" layoutY="58.0" text="Mèo trắng" AnchorPane.leftAnchor="0.0">
-                                                   <font>
-                                                      <Font size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label layoutX="-1.0" layoutY="93.0" text="02/11/2021" AnchorPane.leftAnchor="0.0">
-                                                   <font>
-                                                      <Font size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label layoutX="6.0" layoutY="133.0" text="Cái" AnchorPane.leftAnchor="0.0">
-                                                   <font>
-                                                      <Font name="Segoe UI" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                             </children>
-                                          </AnchorPane>
-                                       </right>
-                                    </BorderPane>
-                                    <BorderPane layoutX="356.0" layoutY="275.0" prefHeight="240.0" prefWidth="321.0" style="-fx-background-color: D7E4F2;" styleClass="rs-30-corner" stylesheets="@../css/style.css">
-                                       <effect>
-                                          <DropShadow />
-                                       </effect>
-                                       <bottom>
-                                          <AnchorPane prefHeight="59.0" prefWidth="301.0" BorderPane.alignment="CENTER">
-                                             <children>
-                                                <Button fx:id="btnRegister112111111" layoutX="74.0" layoutY="17.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="148.0" style="-fx-background-color: D7E4F2;" styleClass="rs-30-corner" stylesheets="@../css/style.css" text="Xem chi tiết" textFill="NAVY" AnchorPane.bottomAnchor="17.0" AnchorPane.leftAnchor="74.0" AnchorPane.rightAnchor="74.0" AnchorPane.topAnchor="7.0">
-                                                   <font>
-                                                      <Font name="Segoe UI Bold" size="18.0" />
-                                                   </font>
-                                                   <cursor>
-                                                      <Cursor fx:constant="HAND" />
-                                                   </cursor>
-                                                   <effect>
-                                                      <DropShadow />
-                                                   </effect>
-                                                </Button>
-                                             </children>
-                                          </AnchorPane>
-                                       </bottom>
-                                       <center>
-                                          <AnchorPane prefHeight="185.0" prefWidth="165.0" BorderPane.alignment="CENTER">
-                                             <children>
-                                                <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="21.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
-                                                   <image>
-                                                      <Image url="@../images/PET00007.jpg" />
-                                                   </image>
-                                                </ImageView>
-                                             </children>
-                                          </AnchorPane>
-                                       </center>
-                                       <right>
-                                          <AnchorPane prefHeight="185.0" prefWidth="129.0" BorderPane.alignment="CENTER">
-                                             <children>
-                                                <Label layoutY="23.0" text="Boo" textAlignment="CENTER" textFill="NAVY" AnchorPane.leftAnchor="0.0">
-                                                   <font>
-                                                      <Font name="Segoe UI Bold" size="20.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label layoutX="1.0" layoutY="58.0" text="Vịt trắng" AnchorPane.leftAnchor="0.0">
-                                                   <font>
-                                                      <Font size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label layoutX="-1.0" layoutY="93.0" text="19/04/2021" AnchorPane.leftAnchor="0.0">
-                                                   <font>
-                                                      <Font size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label layoutX="6.0" layoutY="133.0" text="Đực" AnchorPane.leftAnchor="0.0">
-                                                   <font>
-                                                      <Font name="Segoe UI" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                             </children>
-                                          </AnchorPane>
-                                       </right>
+                                       <FlowPane.margin>
+                                          <Insets left="80.0" />
+                                       </FlowPane.margin>
                                     </BorderPane>
                                  </children>
                                  <padding>
