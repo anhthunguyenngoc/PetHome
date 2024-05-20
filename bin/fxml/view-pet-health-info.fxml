@@ -1,0 +1,910 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.TextFlow?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="1529.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <BorderPane prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <top>
+            <AnchorPane prefWidth="1529.0" BorderPane.alignment="CENTER">
+               <children>
+                  <VBox prefWidth="1529.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <Label alignment="BOTTOM_CENTER" prefHeight="90.0" prefWidth="1529.0" text="Cập nhật bệnh án" textFill="NAVY">
+                           <font>
+                              <Font name="Segoe UI Bold" size="48.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
+         </top>
+         <center>
+            <VBox prefHeight="1040.0" prefWidth="1368.0" spacing="15.0" style="-fx-background-color: #e7ecf2; -fx-background-radius: 40; -fx-border-radius: 40; -fx-border-color: navy; -fx-border-width: 5;" BorderPane.alignment="CENTER">
+               <children>
+                  <HBox spacing="35.0">
+                     <VBox.margin>
+                        <Insets left="70.0" right="70.0" top="30.0" />
+                     </VBox.margin>
+                     <children>
+                        <TextFlow prefHeight="32.0" prefWidth="549.0">
+                           <children>
+                              <Text fill="NAVY" strokeType="OUTSIDE" strokeWidth="0.0" text="Loại khám: ">
+                                 <font>
+                                    <Font name="Segoe UI Bold Italic" size="24.0" />
+                                 </font>
+                              </Text>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Khác" wrappingWidth="98.234375">
+                                 <font>
+                                    <Font name="Segoe UI Italic" size="24.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </TextFlow>
+                        <TextFlow prefHeight="32.0" prefWidth="277.0">
+                           <children>
+                              <Text fill="NAVY" strokeType="OUTSIDE" strokeWidth="0.0" text="Bắt đầu: ">
+                                 <font>
+                                    <Font name="Segoe UI Bold Italic" size="24.0" />
+                                 </font>
+                              </Text>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text=" 8:00 06/04/2024">
+                                 <font>
+                                    <Font name="Segoe UI Italic" size="22.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </TextFlow>
+                        <TextFlow prefHeight="32.0" prefWidth="310.0">
+                           <children>
+                              <Text fill="NAVY" strokeType="OUTSIDE" strokeWidth="0.0" text="Kết thúc:  ">
+                                 <font>
+                                    <Font name="Segoe UI Bold Italic" size="24.0" />
+                                 </font>
+                              </Text>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="10:00 06/04/2024">
+                                 <font>
+                                    <Font name="Segoe UI Italic" size="22.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </TextFlow>
+                     </children>
+                  </HBox>
+                  <BorderPane prefHeight="411.0" prefWidth="1529.0">
+                     <top>
+                        <HBox alignment="CENTER_LEFT" spacing="25.0">
+                           <children>
+                              <Label prefHeight="66.0" prefWidth="450.0" text="I. Thông tin thú cưng " textFill="NAVY" underline="true">
+                                 <font>
+                                    <Font name="Segoe UI Bold" size="36.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="70.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <Button fx:id="btnViewPetInfo" mnemonicParsing="false" prefHeight="40.0" style="-fx-background-color: D7E4F2;" styleClass="rs-30-corner" stylesheets="@../css/style.css" text="Xem chi tiết thông tin thú cưng" textFill="NAVY">
+                                 <font>
+                                    <Font name="Segoe UI Bold" size="22.0" />
+                                 </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <effect>
+                                    <DropShadow />
+                                 </effect>
+                              </Button>
+                           </children>
+                        </HBox>
+                     </top>
+                     <left>
+                        <AnchorPane prefHeight="257.0" prefWidth="515.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <ImageView fitHeight="216.0" fitWidth="216.0" layoutX="177.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/PET00001.jpg" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </AnchorPane>
+                     </left>
+                     <center>
+                        <AnchorPane prefHeight="322.0" prefWidth="949.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <HBox layoutX="14.0" layoutY="17.0" spacing="30.0">
+                                 <children>
+                                    <VBox prefHeight="176.0" prefWidth="431.0" spacing="10.0">
+                                       <children>
+                                          <Text fill="NAVY" layoutX="10.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="a. Thông tin thú cưng">
+                                             <font>
+                                                <Font name="Segoe UI Bold" size="22.0" />
+                                             </font>
+                                          </Text>
+                                          <TextFlow prefHeight="18.0" prefWidth="431.0">
+                                             <children>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Tên: ">
+                                                   <font>
+                                                      <Font name="Segoe UI" size="18.0" />
+                                                   </font>
+                                                </Text>
+                                                <Text layoutX="10.0" layoutY="10.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bobby">
+                                                   <font>
+                                                      <Font name="Segoe UI" size="18.0" />
+                                                   </font>
+                                                </Text>
+                                             </children>
+                                          </TextFlow>
+                                          <TextFlow layoutX="10.0" layoutY="65.0" prefHeight="2.0" prefWidth="431.0">
+                                             <children>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Chủng loại: ">
+                                                   <font>
+                                                      <Font name="Segoe UI" size="18.0" />
+                                                   </font>
+                                                </Text>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Chó Husky">
+                                                   <font>
+                                                      <Font name="Segoe UI" size="18.0" />
+                                                   </font>
+                                                </Text>
+                                             </children>
+                                          </TextFlow>
+                                          <TextFlow layoutX="10.0" layoutY="170.0" prefHeight="0.0" prefWidth="431.0">
+                                             <children>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Giới tính: ">
+                                                   <font>
+                                                      <Font name="Segoe UI" size="18.0" />
+                                                   </font>
+                                                </Text>
+                                                <Label text="Đực">
+                                                   <font>
+                                                      <Font name="Segoe UI" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </TextFlow>
+                                          <TextFlow layoutX="10.0" layoutY="275.0" prefHeight="11.0" prefWidth="431.0">
+                                             <children>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Dị ứng: ">
+                                                   <font>
+                                                      <Font name="Segoe UI" size="18.0" />
+                                                   </font>
+                                                </Text>
+                                                <Label text="Không có">
+                                                   <font>
+                                                      <Font name="Segoe UI" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </TextFlow>
+                                          <TextFlow prefHeight="18.0" prefWidth="431.0">
+                                             <children>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Thuốc đã/đang sử dụng: ">
+                                                   <font>
+                                                      <Font name="Segoe UI" size="18.0" />
+                                                   </font>
+                                                </Text>
+                                                <Label text="NULL">
+                                                   <font>
+                                                      <Font size="18.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </TextFlow>
+                                       </children>
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                       <padding>
+                                          <Insets top="15.0" />
+                                       </padding>
+                                    </VBox>
+                                    <VBox prefHeight="225.0" prefWidth="325.0" spacing="10.0">
+                                       <children>
+                                          <Text fill="NAVY" layoutX="10.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="b. Thông tin chủ nuôi">
+                                             <font>
+                                                <Font name="Segoe UI Bold" size="22.0" />
+                                             </font>
+                                          </Text>
+                                          <TextFlow prefHeight="15.0" prefWidth="325.0">
+                                             <children>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Tên: ">
+                                                   <font>
+                                                      <Font name="Segoe UI" size="18.0" />
+                                                   </font>
+                                                </Text>
+                                                <Text layoutX="10.0" layoutY="10.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Thư">
+                                                   <font>
+                                                      <Font name="Segoe UI" size="18.0" />
+                                                   </font>
+                                                </Text>
+                                             </children>
+                                          </TextFlow>
+                                          <TextFlow layoutX="10.0" layoutY="172.0" prefHeight="0.0" prefWidth="269.0">
+                                             <children>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Sđt chủ nuôi: ">
+                                                   <font>
+                                                      <Font name="Segoe UI" size="18.0" />
+                                                   </font>
+                                                </Text>
+                                                <Label text="0123456789">
+                                                   <font>
+                                                      <Font name="Segoe UI" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </TextFlow>
+                                          <TextFlow layoutX="10.0" layoutY="275.0" prefHeight="14.0" prefWidth="269.0">
+                                             <children>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Email: ">
+                                                   <font>
+                                                      <Font name="Segoe UI" size="18.0" />
+                                                   </font>
+                                                </Text>
+                                                <Label text="a@gmail.com">
+                                                   <font>
+                                                      <Font name="Segoe UI" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </TextFlow>
+                                       </children>
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                       <padding>
+                                          <Insets top="15.0" />
+                                       </padding>
+                                    </VBox>
+                                 </children>
+                              </HBox>
+                           </children>
+                           <padding>
+                              <Insets bottom="15.0" />
+                           </padding>
+                        </AnchorPane>
+                     </center>
+                     <bottom>
+                        <AnchorPane prefHeight="15.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <Line endX="628.928955078125" endY="-8.2843017578125" fill="NAVY" layoutX="703.0" layoutY="15.0" startX="-646.0" startY="-8.284271240234375" stroke="NAVY" strokeWidth="5.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" />
+                           </children>
+                        </AnchorPane>
+                     </bottom>
+                  </BorderPane>
+                  <BorderPane layoutX="10.0" layoutY="10.0" prefHeight="171.0" prefWidth="1529.0">
+                     <top>
+                        <BorderPane BorderPane.alignment="CENTER">
+                           <center>
+                              <Button fx:id="btnResult" mnemonicParsing="false" prefHeight="44.0" prefWidth="200.0" style="-fx-background-color: D7E4F2;" styleClass="rs-30-corner" stylesheets="@../css/style.css" text="Cập nhật" textFill="NAVY">
+                                 <font>
+                                    <Font name="Segoe UI Bold" size="22.0" />
+                                 </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <effect>
+                                    <DropShadow />
+                                 </effect>
+                              </Button>
+                           </center>
+                           <left>
+                              <Label prefHeight="66.0" prefWidth="538.0" text="II. Kết quả khám" textFill="NAVY" underline="true" BorderPane.alignment="CENTER">
+                                 <font>
+                                    <Font name="Segoe UI Bold" size="36.0" />
+                                 </font>
+                              </Label>
+                           </left>
+                           <right>
+                              <AnchorPane BorderPane.alignment="CENTER">
+                                 <children>
+                                    <TextFlow layoutY="20.0" prefHeight="26.0" prefWidth="339.0">
+                                       <children>
+                                          <Text fill="NAVY" strokeType="OUTSIDE" strokeWidth="0.0" text="Lần cập nhật cuối: ">
+                                             <font>
+                                                <Font name="Segoe UI Bold Italic" size="20.0" />
+                                             </font>
+                                          </Text>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text=" 10:15 06/04/2024">
+                                             <font>
+                                                <Font name="Segoe UI Italic" size="20.0" />
+                                             </font>
+                                          </Text>
+                                       </children>
+                                    </TextFlow>
+                                 </children>
+                              </AnchorPane>
+                           </right>
+                           <BorderPane.margin>
+                              <Insets left="70.0" right="70.0" top="13.0" />
+                           </BorderPane.margin>
+                        </BorderPane>
+                     </top>
+                     <center>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <HBox layoutX="116.0" spacing="50.0">
+                                 <children>
+                                    <VBox prefHeight="221.0" prefWidth="430.0" spacing="10.0">
+                                       <children>
+                                          <VBox spacing="5.0">
+                                             <children>
+                                                <Text fill="NAVY" strokeType="OUTSIDE" strokeWidth="0.0" text="a. Quan sát ban đầu: ">
+                                                   <font>
+                                                      <Font name="Segoe UI Bold" size="20.0" />
+                                                   </font>
+                                                </Text>
+                                                <TextFlow prefHeight="15.0" prefWidth="430.0">
+                                                   <children>
+                                                      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Triệu chứng: ">
+                                                         <font>
+                                                            <Font name="Segoe UI" size="18.0" />
+                                                         </font>
+                                                      </Text>
+                                                      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="NULL">
+                                                         <font>
+                                                            <Font name="Segoe UI" size="18.0" />
+                                                         </font>
+                                                      </Text>
+                                                   </children>
+                                                </TextFlow>
+                                                <TextFlow layoutX="10.0" layoutY="42.0" prefHeight="0.0" prefWidth="430.0">
+                                                   <children>
+                                                      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Thay đổi trong hành vi: ">
+                                                         <font>
+                                                            <Font name="Segoe UI" size="18.0" />
+                                                         </font>
+                                                      </Text>
+                                                      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="NULL">
+                                                         <font>
+                                                            <Font name="Segoe UI" size="18.0" />
+                                                         </font>
+                                                      </Text>
+                                                   </children>
+                                                </TextFlow>
+                                                <TextFlow layoutX="10.0" layoutY="71.0" prefHeight="0.0" prefWidth="430.0">
+                                                   <children>
+                                                      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Mức độ năng lượng: ">
+                                                         <font>
+                                                            <Font name="Segoe UI" size="18.0" />
+                                                         </font>
+                                                      </Text>
+                                                      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="NULL">
+                                                         <font>
+                                                            <Font name="Segoe UI" size="18.0" />
+                                                         </font>
+                                                      </Text>
+                                                   </children>
+                                                </TextFlow>
+                                             </children>
+                                          </VBox>
+                                          <VBox prefHeight="101.0" prefWidth="430.0" spacing="5.0">
+                                             <children>
+                                                <Text fill="NAVY" strokeType="OUTSIDE" strokeWidth="0.0" text="b. Kiểm tra thể chất: ">
+                                                   <font>
+                                                      <Font name="Segoe UI Bold" size="20.0" />
+                                                   </font>
+                                                </Text>
+                                                <TextFlow layoutX="10.0" layoutY="42.0" prefHeight="25.0" prefWidth="430.0">
+                                                   <children>
+                                                      <Text layoutX="10.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cân nặng:  ">
+                                                         <font>
+                                                            <Font name="Segoe UI" size="18.0" />
+                                                         </font>
+                                                      </Text>
+                                                      <Text layoutX="95.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NULL">
+                                                         <font>
+                                                            <Font name="Segoe UI" size="18.0" />
+                                                         </font>
+                                                      </Text>
+                                                   </children>
+                                                </TextFlow>
+                                                <TextFlow prefHeight="25.0" prefWidth="430.0">
+                                                   <children>
+                                                      <Text layoutX="10.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kiểm tra da và lông:  ">
+                                                         <font>
+                                                            <Font name="Segoe UI" size="18.0" />
+                                                         </font>
+                                                      </Text>
+                                                      <Text layoutX="95.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NULL">
+                                                         <font>
+                                                            <Font name="Segoe UI" size="18.0" />
+                                                         </font>
+                                                      </Text>
+                                                   </children>
+                                                </TextFlow>
+                                                <TextFlow layoutX="10.0" layoutY="10.0" prefHeight="38.0" prefWidth="430.0">
+                                                   <children>
+                                                      <Text layoutX="10.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kiểm tra tai, mũi, miệng: ">
+                                                         <font>
+                                                            <Font name="Segoe UI" size="18.0" />
+                                                         </font>
+                                                      </Text>
+                                                      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Mồm có mùi hôi, chảy nhiều nước bọt hơn bình thường, môi và lưỡi thâm.">
+                                                         <font>
+                                                            <Font name="Segoe UI" size="18.0" />
+                                                         </font>
+                                                      </Text>
+                                                   </children>
+                                                </TextFlow>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                       <padding>
+                                          <Insets top="15.0" />
+                                       </padding>
+                                    </VBox>
+                                    <VBox prefWidth="350.0" spacing="10.0">
+                                       <children>
+                                          <VBox spacing="5.0">
+                                             <children>
+                                                <TextFlow prefHeight="17.0" prefWidth="350.0">
+                                                   <children>
+                                                      <Text fill="NAVY" strokeType="OUTSIDE" strokeWidth="0.0" text="c. Lắng nghe tim và phổi " wrappingWidth="198.521484375">
+                                                         <font>
+                                                            <Font name="Segoe UI Bold" size="20.0" />
+                                                         </font>
+                                                      </Text>
+                                                   </children>
+                                                </TextFlow>
+                                                <TextFlow prefHeight="0.0" prefWidth="350.0">
+                                                   <children>
+                                                      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nhiệt độ: ">
+                                                         <font>
+                                                            <Font name="Segoe UI" size="18.0" />
+                                                         </font>
+                                                      </Text>
+                                                      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="NULL">
+                                                         <font>
+                                                            <Font name="Segoe UI" size="18.0" />
+                                                         </font>
+                                                      </Text>
+                                                   </children>
+                                                </TextFlow>
+                                                <TextFlow prefHeight="0.0" prefWidth="350.0">
+                                                   <children>
+                                                      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nhịp tim: ">
+                                                         <font>
+                                                            <Font name="Segoe UI" size="18.0" />
+                                                         </font>
+                                                      </Text>
+                                                      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="NULL">
+                                                         <font>
+                                                            <Font name="Segoe UI" size="18.0" />
+                                                         </font>
+                                                      </Text>
+                                                   </children>
+                                                </TextFlow>
+                                                <TextFlow layoutX="10.0" layoutY="100.0" prefHeight="0.0" prefWidth="350.0">
+                                                   <children>
+                                                      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nhịp hô hấp: ">
+                                                         <font>
+                                                            <Font name="Segoe UI" size="18.0" />
+                                                         </font>
+                                                      </Text>
+                                                      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="NULL">
+                                                         <font>
+                                                            <Font name="Segoe UI" size="18.0" />
+                                                         </font>
+                                                      </Text>
+                                                   </children>
+                                                </TextFlow>
+                                             </children>
+                                          </VBox>
+                                          <VBox spacing="5.0">
+                                             <children>
+                                                <Text fill="NAVY" strokeType="OUTSIDE" strokeWidth="0.0" text="d. Kết quả sờ nắn: ">
+                                                   <font>
+                                                      <Font name="Segoe UI Bold" size="20.0" />
+                                                   </font>
+                                                </Text>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="NULL">
+                                                   <font>
+                                                      <Font name="Segoe UI" size="18.0" />
+                                                   </font>
+                                                </Text>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                       <padding>
+                                          <Insets top="15.0" />
+                                       </padding>
+                                    </VBox>
+                                    <VBox prefHeight="249.0" prefWidth="318.0" spacing="10.0">
+                                       <children>
+                                          <TextFlow layoutX="10.0" layoutY="101.0" prefHeight="200.0" prefWidth="200.0">
+                                             <children>
+                                                <Text fill="NAVY" strokeType="OUTSIDE" strokeWidth="0.0" text="e. Kết quả các xét nghiệm: ">
+                                                   <font>
+                                                      <Font name="Segoe UI Bold" size="20.0" />
+                                                   </font>
+                                                </Text>
+                                             </children>
+                                          </TextFlow>
+                                          <TextFlow prefHeight="200.0" prefWidth="200.0">
+                                             <children>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Xét nghiệm máu: ">
+                                                   <font>
+                                                      <Font name="Segoe UI" size="18.0" />
+                                                   </font>
+                                                </Text>
+                                                <Text layoutX="10.0" layoutY="10.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NULL">
+                                                   <font>
+                                                      <Font name="Segoe UI" size="18.0" />
+                                                   </font>
+                                                </Text>
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets />
+                                             </VBox.margin>
+                                          </TextFlow>
+                                          <TextFlow layoutX="10.0" layoutY="71.0" prefHeight="200.0" prefWidth="200.0">
+                                             <children>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Xét nghiệm nước tiểu: ">
+                                                   <font>
+                                                      <Font name="Segoe UI" size="18.0" />
+                                                   </font>
+                                                </Text>
+                                                <Text layoutX="10.0" layoutY="10.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NULL">
+                                                   <font>
+                                                      <Font name="Segoe UI" size="18.0" />
+                                                   </font>
+                                                </Text>
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets />
+                                             </VBox.margin>
+                                          </TextFlow>
+                                          <TextFlow layoutX="10.0" layoutY="105.0" prefHeight="200.0" prefWidth="200.0">
+                                             <children>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Xét nghiệm tiêu hóa: ">
+                                                   <font>
+                                                      <Font name="Segoe UI" size="18.0" />
+                                                   </font>
+                                                </Text>
+                                                <Text layoutX="10.0" layoutY="10.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NULL">
+                                                   <font>
+                                                      <Font name="Segoe UI" size="18.0" />
+                                                   </font>
+                                                </Text>
+                                             </children>
+                                          </TextFlow>
+                                          <TextFlow layoutX="10.0" layoutY="59.0" prefHeight="200.0" prefWidth="200.0">
+                                             <children>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Xét nghiệm phân: ">
+                                                   <font>
+                                                      <Font name="Segoe UI" size="18.0" />
+                                                   </font>
+                                                </Text>
+                                                <Label text="NULL">
+                                                   <font>
+                                                      <Font size="18.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </TextFlow>
+                                          <TextFlow layoutX="10.0" layoutY="154.0" prefHeight="200.0" prefWidth="200.0">
+                                             <children>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Siêu âm: ">
+                                                   <font>
+                                                      <Font name="Segoe UI" size="18.0" />
+                                                   </font>
+                                                </Text>
+                                                <Text layoutX="10.0" layoutY="10.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NULL">
+                                                   <font>
+                                                      <Font name="Segoe UI" size="18.0" />
+                                                   </font>
+                                                </Text>
+                                             </children>
+                                          </TextFlow>
+                                          <TextFlow layoutX="10.0" layoutY="164.0" prefHeight="200.0" prefWidth="200.0">
+                                             <children>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Chụp X-quang: ">
+                                                   <font>
+                                                      <Font name="Segoe UI" size="18.0" />
+                                                   </font>
+                                                </Text>
+                                                <Text layoutX="10.0" layoutY="10.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NULL">
+                                                   <font>
+                                                      <Font name="Segoe UI" size="18.0" />
+                                                   </font>
+                                                </Text>
+                                             </children>
+                                          </TextFlow>
+                                       </children>
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                       <padding>
+                                          <Insets top="15.0" />
+                                       </padding>
+                                    </VBox>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </AnchorPane>
+                     </center>
+                     <bottom>
+                        <AnchorPane prefHeight="72.0" prefWidth="1389.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <TextFlow layoutX="50.0" layoutY="14.0" prefHeight="40.0" prefWidth="1288.0" style="-fx-background-color: D7E4F2;" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="51.0">
+                                 <children>
+                                    <Text fill="NAVY" strokeType="OUTSIDE" strokeWidth="0.0" text="Chẩn đoán bệnh: ">
+                                       <font>
+                                          <Font name="Segoe UI Bold" size="28.0" />
+                                       </font>
+                                    </Text>
+                                    <Text fill="NAVY" layoutX="10.0" layoutY="10.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mồm thối">
+                                       <font>
+                                          <Font name="Segoe UI Bold" size="28.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                                 <padding>
+                                    <Insets left="65.0" />
+                                 </padding>
+                              </TextFlow>
+                              <Line endX="632.0" fill="NAVY" layoutX="701.0" layoutY="68.0" startX="-646.0" stroke="NAVY" strokeWidth="5.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" />
+                           </children>
+                        </AnchorPane>
+                     </bottom>
+                  </BorderPane>
+                  <BorderPane layoutX="10.0" layoutY="940.0" prefHeight="171.0" prefWidth="1529.0">
+                     <center>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <HBox layoutX="116.0" prefHeight="168.0" prefWidth="1195.0" spacing="35.0">
+                                 <children>
+                                    <VBox prefHeight="168.0" prefWidth="347.0" spacing="10.0">
+                                       <children>
+                                          <Text fill="NAVY" strokeType="OUTSIDE" strokeWidth="0.0" text="a. Thuốc: ">
+                                             <font>
+                                                <Font name="Segoe UI Bold" size="20.0" />
+                                             </font>
+                                          </Text>
+                                          <TextFlow layoutX="10.0" layoutY="65.0" prefHeight="200.0" prefWidth="200.0">
+                                             <children>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Tên thuốc: ">
+                                                   <font>
+                                                      <Font name="Segoe UI" size="18.0" />
+                                                   </font>
+                                                </Text>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Coolgate">
+                                                   <font>
+                                                      <Font name="Segoe UI" size="18.0" />
+                                                   </font>
+                                                </Text>
+                                             </children>
+                                          </TextFlow>
+                                          <TextFlow prefHeight="200.0" prefWidth="200.0">
+                                             <children>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Liều lượng: ">
+                                                   <font>
+                                                      <Font name="Segoe UI" size="18.0" />
+                                                   </font>
+                                                </Text>
+                                                <Text layoutX="10.0" layoutY="10.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1 nửa đốt ngón tay/lần">
+                                                   <font>
+                                                      <Font name="Segoe UI" size="18.0" />
+                                                   </font>
+                                                </Text>
+                                             </children>
+                                          </TextFlow>
+                                          <TextFlow layoutX="10.0" layoutY="130.0" prefHeight="200.0" prefWidth="200.0">
+                                             <children>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Lưu ý: ">
+                                                   <font>
+                                                      <Font name="Segoe UI" size="18.0" />
+                                                   </font>
+                                                </Text>
+                                                <Text layoutX="10.0" layoutY="10.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NULL">
+                                                   <font>
+                                                      <Font name="Segoe UI" size="18.0" />
+                                                   </font>
+                                                </Text>
+                                             </children>
+                                          </TextFlow>
+                                       </children>
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                       <padding>
+                                          <Insets top="15.0" />
+                                       </padding>
+                                    </VBox>
+                                    <VBox prefHeight="168.0" prefWidth="438.0" spacing="10.0">
+                                       <children>
+                                          <Text fill="NAVY" strokeType="OUTSIDE" strokeWidth="0.0" text="b. Chế độ dinh dưỡng: ">
+                                             <font>
+                                                <Font name="Segoe UI Bold" size="20.0" />
+                                             </font>
+                                          </Text>
+                                          <TextFlow layoutX="10.0" layoutY="65.0" prefHeight="200.0" prefWidth="200.0">
+                                             <children>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Loại thức ăn: ">
+                                                   <font>
+                                                      <Font name="Segoe UI" size="18.0" />
+                                                   </font>
+                                                </Text>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="thực phẩm khô, rau và trái cây tươi, thực phẩm giàu chất xơ, nước sạch">
+                                                   <font>
+                                                      <Font name="Segoe UI" size="18.0" />
+                                                   </font>
+                                                </Text>
+                                             </children>
+                                          </TextFlow>
+                                          <TextFlow prefHeight="200.0" prefWidth="200.0">
+                                             <children>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Lượng thức ăn: ">
+                                                   <font>
+                                                      <Font name="Segoe UI" size="18.0" />
+                                                   </font>
+                                                </Text>
+                                                <Text layoutX="10.0" layoutY="10.0" strokeType="OUTSIDE" strokeWidth="0.0" text="250-300 gram/lần">
+                                                   <font>
+                                                      <Font name="Segoe UI" size="18.0" />
+                                                   </font>
+                                                </Text>
+                                             </children>
+                                          </TextFlow>
+                                          <TextFlow layoutX="10.0" layoutY="130.0" prefHeight="200.0" prefWidth="200.0">
+                                             <children>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Thời gian cho ăn: ">
+                                                   <font>
+                                                      <Font name="Segoe UI" size="18.0" />
+                                                   </font>
+                                                </Text>
+                                                <Text layoutX="10.0" layoutY="10.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2-3 lần/ngày">
+                                                   <font>
+                                                      <Font name="Segoe UI" size="18.0" />
+                                                   </font>
+                                                </Text>
+                                             </children>
+                                          </TextFlow>
+                                       </children>
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                       <padding>
+                                          <Insets top="15.0" />
+                                       </padding>
+                                    </VBox>
+                                    <VBox layoutX="391.0" layoutY="10.0" prefHeight="168.0" prefWidth="411.0" spacing="10.0">
+                                       <children>
+                                          <Text fill="NAVY" strokeType="OUTSIDE" strokeWidth="0.0" text="c. Chế độ tập luyện: ">
+                                             <font>
+                                                <Font name="Segoe UI Bold" size="20.0" />
+                                             </font>
+                                          </Text>
+                                          <TextFlow layoutX="10.0" layoutY="149.0" prefHeight="200.0" prefWidth="200.0">
+                                             <children>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Loại bài tập: ">
+                                                   <font>
+                                                      <Font name="Segoe UI" size="18.0" />
+                                                   </font>
+                                                </Text>
+                                                <Text layoutX="10.0" layoutY="10.0" strokeType="OUTSIDE" strokeWidth="0.0" text="đánh răng">
+                                                   <font>
+                                                      <Font name="Segoe UI" size="18.0" />
+                                                   </font>
+                                                </Text>
+                                             </children>
+                                          </TextFlow>
+                                          <TextFlow prefHeight="200.0" prefWidth="200.0">
+                                             <children>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Thời gian tập thể dục: ">
+                                                   <font>
+                                                      <Font name="Segoe UI" size="18.0" />
+                                                   </font>
+                                                </Text>
+                                                <Text layoutX="10.0" layoutY="10.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2 lần/ngày, sáng và tối">
+                                                   <font>
+                                                      <Font name="Segoe UI" size="18.0" />
+                                                   </font>
+                                                </Text>
+                                             </children>
+                                          </TextFlow>
+                                          <TextFlow layoutX="10.0" layoutY="130.0" prefHeight="200.0" prefWidth="200.0">
+                                             <children>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Mức độ vận động: ">
+                                                   <font>
+                                                      <Font name="Segoe UI" size="18.0" />
+                                                   </font>
+                                                </Text>
+                                                <Text layoutX="10.0" layoutY="10.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2 phút/lần">
+                                                   <font>
+                                                      <Font name="Segoe UI" size="18.0" />
+                                                   </font>
+                                                </Text>
+                                             </children>
+                                          </TextFlow>
+                                       </children>
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                       <padding>
+                                          <Insets top="15.0" />
+                                       </padding>
+                                    </VBox>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </AnchorPane>
+                     </center>
+                     <VBox.margin>
+                        <Insets bottom="30.0" />
+                     </VBox.margin>
+                     <top>
+                        <BorderPane BorderPane.alignment="CENTER">
+                           <center>
+                              <Button fx:id="btnMedicine" mnemonicParsing="false" prefHeight="44.0" prefWidth="200.0" style="-fx-background-color: D7E4F2;" styleClass="rs-30-corner" stylesheets="@../css/style.css" text="Cập nhật" textFill="NAVY">
+                                 <font>
+                                    <Font name="Segoe UI Bold" size="22.0" />
+                                 </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <effect>
+                                    <DropShadow />
+                                 </effect>
+                              </Button>
+                           </center>
+                           <left>
+                              <Label prefHeight="66.0" text="III. Thuốc và chế độ dinh dưỡng" textFill="NAVY" underline="true" BorderPane.alignment="CENTER">
+                                 <font>
+                                    <Font name="Segoe UI Bold" size="36.0" />
+                                 </font>
+                              </Label>
+                           </left>
+                           <right>
+                              <AnchorPane BorderPane.alignment="CENTER">
+                                 <children>
+                                    <TextFlow layoutY="20.0" prefHeight="26.0" prefWidth="339.0">
+                                       <children>
+                                          <Text fill="NAVY" strokeType="OUTSIDE" strokeWidth="0.0" text="Lần cập nhật cuối: ">
+                                             <font>
+                                                <Font name="Segoe UI Bold Italic" size="20.0" />
+                                             </font>
+                                          </Text>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text=" 10:30 06/04/2024">
+                                             <font>
+                                                <Font name="Segoe UI Italic" size="20.0" />
+                                             </font>
+                                          </Text>
+                                       </children>
+                                    </TextFlow>
+                                 </children>
+                              </AnchorPane>
+                           </right>
+                           <BorderPane.margin>
+                              <Insets left="70.0" right="70.0" top="15.0" />
+                           </BorderPane.margin>
+                        </BorderPane>
+                     </top>
+                  </BorderPane>
+               </children>
+               <BorderPane.margin>
+                  <Insets bottom="25.0" left="70.0" right="70.0" top="25.0" />
+               </BorderPane.margin>
+            </VBox>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>
