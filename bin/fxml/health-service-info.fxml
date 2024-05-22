@@ -56,7 +56,6 @@
                         <RowConstraints maxHeight="273.0" minHeight="10.0" prefHeight="75.0" vgrow="SOMETIMES" />
                         <RowConstraints maxHeight="273.0" minHeight="10.0" prefHeight="75.0" vgrow="SOMETIMES" />
                         <RowConstraints maxHeight="273.0" minHeight="10.0" prefHeight="75.0" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="273.0" minHeight="10.0" prefHeight="75.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
                         <Label alignment="TOP_LEFT" prefHeight="30.0" prefWidth="127.0" text="Giới thiệu:" textAlignment="CENTER" textFill="#403a3a" GridPane.columnIndex="1">
@@ -99,14 +98,6 @@
                               <Insets left="30.0" />
                            </GridPane.margin>
                         </Text>
-                        <Label text="Ghi chú:" textFill="#403a3a" GridPane.columnIndex="1" GridPane.rowIndex="3">
-                           <font>
-                              <Font size="22.0" />
-                           </font>
-                           <GridPane.margin>
-                              <Insets left="30.0" />
-                           </GridPane.margin>
-                        </Label>
                         <Text fx:id="symtom" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" GridPane.columnIndex="2" GridPane.rowIndex="1">
                            <font>
                               <Font size="22.0" />
@@ -123,15 +114,7 @@
                               <Insets left="30.0" />
                            </GridPane.margin>
                         </Text>
-                        <Text fx:id="note" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" GridPane.columnIndex="2" GridPane.rowIndex="3">
-                           <font>
-                              <Font size="22.0" />
-                           </font>
-                           <GridPane.margin>
-                              <Insets left="30.0" />
-                           </GridPane.margin>
-                        </Text>
-                        <Label text="Giá:" textFill="#403a3a" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                        <Label text="Giá:" textFill="#403a3a" GridPane.columnIndex="1" GridPane.rowIndex="3">
                            <font>
                               <Font size="22.0" />
                            </font>
@@ -139,7 +122,7 @@
                               <Insets left="30.0" />
                            </GridPane.margin>
                         </Label>
-                        <Text fx:id="price" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" GridPane.columnIndex="2" GridPane.rowIndex="4">
+                        <Text fx:id="price" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" GridPane.columnIndex="2" GridPane.rowIndex="3">
                            <font>
                               <Font size="22.0" />
                            </font>
