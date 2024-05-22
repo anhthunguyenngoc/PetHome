@@ -1,21 +1,23 @@
 package handler;
 
 import entity.pet.Pet;
+import entity.user.Owner;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
+import main.Main;
 import screen.InfoPetScreen;
 import utils.API;
 
-public class ItemPetInfoHandler extends BaseHandler{
+public class PetInfoItemHandler extends BaseHandler{
 
 	BorderPane borPane;
 	Pet pet = new Pet();
 	API api = new API();
 	
-	public ItemPetInfoHandler(BorderPane borPane, Pet pet) {
+	public PetInfoItemHandler(BorderPane borPane, Pet pet) {
 		this.borPane = borPane;
 		this.pet = pet;
 	}
@@ -57,6 +59,7 @@ public class ItemPetInfoHandler extends BaseHandler{
 		
 		btnDel.setOnMouseClicked(e -> {
 			api.delData("http://localhost:8080/pets/"+pet.getPet_ID());
+			((Owner)Main.user).removePet(pet);
 		});
 		
 	}

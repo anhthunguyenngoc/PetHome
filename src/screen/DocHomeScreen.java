@@ -1,9 +1,9 @@
 package screen;
-import handler.DocHomeHandler;
+import handler.BaseHandler;
 
 public class DocHomeScreen extends BaseScreen{
 	
-	public DocHomeScreen(){
-		super("doctor-home", new DocHomeHandler());
+	public DocHomeScreen(BaseHandler controller){
+		super("doctor-home", controller);
 	}
 }

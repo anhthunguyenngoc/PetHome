@@ -1,16 +1,23 @@
 package handler;
 
+import javafx.scene.Cursor;
 import javafx.scene.Node;
+import javafx.scene.layout.BorderPane;
+import utils.API;
 
-public class BaseHandler {
+public abstract class BaseHandler {
 	
 	String ENTERED_COLOR = "#4682b4";     		//SteelBlue
 	String MENU_BTN_DEFAULT_COLOR = "B0c4de";
 	String PRESSED_COLOR = "D7E4F2";
 	String LIGHT_GRAYISH_BLUE = "D7E4F2";
+	protected BorderPane borPane;
+	protected API api = new API();
 	
     //đổi màu button khi thực hiện các thao tác = chuột
     protected void setMouseEvent (Node node, String enterColor, String pressColor, String clickColor) {
+    	node.setCursor(Cursor.HAND);
+    	
     	// Được gọi khi nút chuột được nhấn (nhấn và thả) trên một thành phần
     	node.setOnMouseClicked(e -> {
     		node.setStyle("-fx-background-color: "+ enterColor + ";");
