@@ -1,8 +1,8 @@
 package handler;
 
-import screen.ListPetInfoScreen;
+import screen.PetInfoListScreen;
 import screen.UpdatePetHealthScreen;
-
+import utils.API;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
@@ -12,6 +12,15 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 
 public class DocHomeHandler extends BaseHandler{
+	
+	BorderPane borPane;
+	ScrollPane scrollPane = new ScrollPane();
+	API api = new API();
+	
+	public DocHomeHandler(BorderPane borPane, ScrollPane scrollPane) {
+		this.borPane = borPane;
+		this.scrollPane = scrollPane;
+	}
 	
 	@FXML
     private BorderPane borPaneCenter;
@@ -130,8 +139,8 @@ public class DocHomeHandler extends BaseHandler{
     	setMouseEvent(mItemPetInfo, "white", 3);
     	
     	mItemPetInfo.setOnMouseClicked(e -> {
-    		ListPetInfoHandler controller = new ListPetInfoHandler(borPaneCenter);
-    		ListPetInfoScreen screen = new ListPetInfoScreen(controller);
+    		PetInfoListHandler controller = new PetInfoListHandler(borPaneCenter);
+    		PetInfoListScreen screen = new PetInfoListScreen(controller);
     		borPaneCenter.setCenter(screen.getContent());
     		menuItemUser.setVisible(false);
     		sPaneUser.setPrefHeight(115.0);
@@ -148,11 +157,6 @@ public class DocHomeHandler extends BaseHandler{
     	
     	//Event khi click vào menuItem "Lịch khám" trên menu bar
     	setMouseEvent(mItemHthSche, "white", 3);
-    	
-    	//Event khi click vào menuItem "Đăng ký" trên menu bar
-    	setMouseEvent(btnRegister, "white", 3);
-    	
-    	//Event khi click vào menuItem "Đăng nhập" trên menu bar
-    	setMouseEvent(btnLogIn, "white", 3);
+
     }
 }

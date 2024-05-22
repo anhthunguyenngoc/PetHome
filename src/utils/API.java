@@ -37,13 +37,20 @@ public class API {
 	    try {
 	    	HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
 	        try {
-	        	JSONArray jsonArray = new JSONArray(response.body());
+	        	
+	        	System.out.println(response.statusCode());        	
+
+	            if(!(response.statusCode() == 200)) {
+	            	System.out.println(response.body());
+	            }else {
+	            JSONArray jsonArray = new JSONArray(response.body());
 	            result.add(""+jsonArray.length());
 	            for (int i = 0; i < jsonArray.length(); i++) {
 	                JSONObject jsonObject = jsonArray.getJSONObject(i);
 	                for(int j=0; j< varGet.size(); j++) {
 		            	result.add(""+jsonObject.get(varGet.get(j)));
 		    		}
+	            }
 	            }
 	        } catch (JSONException e) {
 	            e.printStackTrace();
@@ -86,8 +93,8 @@ public class API {
         return null;
     }
 	
-	public ArrayList<String> putData(ArrayList<String> varPost, ArrayList<String> varGet, ArrayList<String> arr, String url) {
-		ArrayList<String> result = new ArrayList<>();
+	public int putData(ArrayList<String> varPost, ArrayList<String> arr, String url) {
+		int result = 500;
 		
 		JSONObject data = new JSONObject();
 		
@@ -105,14 +112,7 @@ public class API {
         try {
         HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());       
         	try {
-        		JSONArray jsonArray = new JSONArray(response.body());
-	            result.add(""+jsonArray.length());
-	            for (int i = 0; i < jsonArray.length(); i++) {
-	                JSONObject jsonObject = jsonArray.getJSONObject(i);
-	                for(int j=0; j< varGet.size(); j++) {
-		            	result.add(""+jsonObject.get(varGet.get(j)));
-		    		}
-	            }
+        		result = response.statusCode();        	
 	        } catch (JSONException e) {
 	            e.printStackTrace();
 	        }
@@ -120,10 +120,11 @@ public class API {
         } catch (Exception e) {
             e.printStackTrace();
         }
-		return null;
+		return result;
     }
 	
-	public void delData(String url) {
+	public int delData(String url) {
+		int result = -1;
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder()
               .uri(URI.create(url))
@@ -132,9 +133,10 @@ public class API {
 
         try {
             HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
-            System.out.println(response.body());
+            result = response.statusCode();
         } catch (Exception e) {
             e.printStackTrace();
         }
+		return result;
     }
 }

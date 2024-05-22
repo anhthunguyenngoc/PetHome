@@ -1,5 +1,7 @@
 package entity.pet;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 
 public class Pet {
@@ -17,7 +19,7 @@ public class Pet {
 		super();
 		Pet_ID = pet_ID;
 		Name = name;
-		DOB = dOB;
+		DOB = formatDate(dOB);
 		Gender = gender;
 		Type = type;
 		Hobby = hobby;
@@ -53,7 +55,7 @@ public class Pet {
 	}
 
 	public void setDOB(String dOB) {
-		DOB = dOB;
+		DOB = formatDate(dOB);
 	}
 
 	public String getGender() {
@@ -87,5 +89,15 @@ public class Pet {
 	public String getOwner() {
 		return Owner;
 	}   
+	
+	public static String formatDate (String dateString) {
+		String formattedDate = null;
+		if(!dateString.equals("null")) {	
+	    	LocalDateTime dateTime = LocalDateTime.parse(dateString, DateTimeFormatter.ISO_DATE_TIME);
+	        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+	        formattedDate = dateTime.format(formatter);
+		}
+        return formattedDate;
+    }
 	
 }

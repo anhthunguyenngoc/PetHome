@@ -14,10 +14,14 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <AnchorPane>
+      <BorderPane fx:id="borPaneCenter" layoutY="116.0" prefHeight="684.0" prefWidth="1548.0" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="116.0">
+         <bottom>
+            <AnchorPane prefHeight="60.0" prefWidth="1550.0" style="-fx-background-color: #c6def1;" BorderPane.alignment="CENTER" />
+         </bottom>
+      </BorderPane>
+      <AnchorPane AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Pane prefHeight="116.0" prefWidth="200.0" style="-fx-background-color: B0c4de;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
             <HBox prefHeight="116.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -54,7 +58,7 @@
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </Button>
-                              <ScrollPane fx:id="sPaneDV" hbarPolicy="NEVER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="116.0" prefWidth="215.0" vbarPolicy="NEVER">
+                              <ScrollPane fx:id="sPaneDV" hbarPolicy="NEVER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="115.0" vbarPolicy="NEVER">
                                  <content>
                                     <VBox>
                                        <children>
@@ -130,9 +134,9 @@
                   </AnchorPane>
                </children>
             </HBox>
-            <AnchorPane layoutX="1301.0" prefHeight="116.0" prefWidth="217.0">
+            <AnchorPane layoutX="1301.0" prefHeight="116.0" AnchorPane.rightAnchor="0.0">
                <children>
-                  <ScrollPane fx:id="sPaneUser" hbarPolicy="NEVER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="115.0" prefWidth="217.0" vbarPolicy="NEVER">
+                  <ScrollPane fx:id="sPaneUser" fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="115.0" prefWidth="209.0" vbarPolicy="NEVER" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <content>
                         <VBox style="-fx-background-color: B0c4de;">
                            <children>
@@ -158,26 +162,22 @@
                               </AnchorPane>
                               <VBox fx:id="menuItemUser" visible="false">
                                  <children>
-                                    <Button fx:id="mItemUserInfo" alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="43.0" prefWidth="215.0" style="-fx-background-color: white;" text="Thông tin cá nhân" textFill="NAVY">
-                                       <graphic>
-                                          <ImageView fitHeight="31.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" />
-                                       </graphic>
+                                    <Button fx:id="btnUserInfo" alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="43.0" prefWidth="215.0" style="-fx-background-color: white;" text="Thông tin cá nhân" textFill="NAVY">
                                        <font>
                                           <Font name="Segoe UI" size="18.0" />
                                        </font>
                                     </Button>
-                                    <Button fx:id="mItemPetInfo" alignment="TOP_LEFT" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="215.0" style="-fx-background-color: white;" text="Thông tin thú cưng" textFill="NAVY">
-                                       <graphic>
-                                          <ImageView fitHeight="31.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" />
-                                       </graphic>
+                                    <Button fx:id="btnPetInfo" alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="43.0" prefWidth="215.0" style="-fx-background-color: white;" text="Thông tin thú cưng" textFill="NAVY">
                                        <font>
                                           <Font name="Segoe UI" size="18.0" />
                                        </font>
                                     </Button>
-                                    <Button fx:id="mItemLogOut" alignment="TOP_LEFT" layoutX="10.0" layoutY="53.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="215.0" style="-fx-background-color: white;" text="Đăng xuất" textFill="NAVY">
-                                       <graphic>
-                                          <ImageView fitHeight="31.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" />
-                                       </graphic>
+                                    <Button fx:id="btnSetting" alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="43.0" prefWidth="215.0" style="-fx-background-color: white;" text="Cài đặt" textFill="NAVY">
+                                       <font>
+                                          <Font name="Segoe UI" size="18.0" />
+                                       </font>
+                                    </Button>
+                                    <Button fx:id="btnLogOut" alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="43.0" prefWidth="215.0" style="-fx-background-color: white;" text="Đăng xuất" textFill="NAVY">
                                        <font>
                                           <Font name="Segoe UI" size="18.0" />
                                        </font>
@@ -192,10 +192,5 @@
             </AnchorPane>
          </children>
       </AnchorPane>
-      <BorderPane fx:id="borPaneCenter" layoutY="116.0" prefHeight="684.0" prefWidth="1548.0" AnchorPane.topAnchor="116.0">
-         <bottom>
-            <AnchorPane prefHeight="60.0" prefWidth="1550.0" style="-fx-background-color: #c6def1;" BorderPane.alignment="CENTER" />
-         </bottom>
-      </BorderPane>
    </children>
 </AnchorPane>

@@ -1,5 +1,6 @@
 package main;
 
+import entity.system.System;
 import entity.user.User;
 import javafx.application.Application;
 import javafx.scene.Parent;
@@ -12,7 +13,7 @@ import screen.HomeScreen;
 
 public class Main extends Application{
 	public static User user = new User();
-	public static String userType = null;
+	public static System system = new System();
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

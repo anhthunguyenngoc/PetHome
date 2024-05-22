@@ -1,16 +1,19 @@
 package handler;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 import entity.pet.Pet;
 import entity.user.Owner;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import main.Main;
-import screen.ListPetInfoScreen;
+import screen.PetInfoListScreen;
 import utils.API;
 
 public class AddInfoPetHandler extends BaseHandler{
@@ -29,7 +32,7 @@ public class AddInfoPetHandler extends BaseHandler{
     private TextField textFType;
 
     @FXML
-    private TextField textFDob;
+    private DatePicker textFDob;
 
     @FXML
     private TextField textFGender;
@@ -52,29 +55,33 @@ public class AddInfoPetHandler extends BaseHandler{
 		
     	btnAdd.setOnMouseClicked(e -> {
 
-    		ArrayList<String> varPost = new ArrayList<>();
-    		varPost.add("id");
+    		ArrayList<String> varPost = new ArrayList<>();   		
     		varPost.add("name");
     		varPost.add("dob");
     		varPost.add("gender");
     		varPost.add("type");
     		varPost.add("hobby");    		
+    		varPost.add("owner_id");
+
+    		LocalDate dateOfBirth = textFDob.getValue();
+    	   	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+    	   	String data = dateOfBirth.format(formatter);
     		
-    		ArrayList<String> arr = new ArrayList<>();  	
-    		arr.add(""+Main.user.getID());
+    		ArrayList<String> arr = new ArrayList<>();  	  		
     		arr.add(textFName.getText());
-    		arr.add(textFDob.getText());
+    		arr.add(data);
     		arr.add(textFGender.getText());
     		arr.add(textFType.getText()); 		
     		arr.add(textFHobby.getText());
+    		arr.add(""+Main.user.getID());
     		
     		ArrayList<String> varGet = new ArrayList<>();
     		varGet.add("id");
     		
     		ArrayList<String> result = api.postData(varPost, varGet, arr, "http://localhost:8080/pets");
-    		Pet pet = new Pet(result.get(1), textFName.getText(), textFDob.getText(), textFGender.getText(), textFType.getText(), textFHobby.getText(), ""+Main.user.getID());
+    		Pet pet = new Pet(result.get(1), textFName.getText(), textFDob.getValue().toString(), textFGender.getText(), textFType.getText(), textFHobby.getText(), ""+Main.user.getID());
 			((Owner)Main.user).addPet(pet);
-    					ListPetInfoHandler controller = new ListPetInfoHandler(borPane);			ListPetInfoScreen screen = new ListPetInfoScreen(controller);
+    					PetInfoListHandler controller = new PetInfoListHandler(borPane);			PetInfoListScreen screen = new PetInfoListScreen(controller);
 			borPane.setCenter(screen.getContent());
 		});
     }

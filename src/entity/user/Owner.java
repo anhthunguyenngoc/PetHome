@@ -1,11 +1,12 @@
 package entity.user;
 
-import java.util.ArrayList;
 import entity.pet.Pet;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 public class Owner extends User {
-	private String membership;	
-	private ArrayList<Pet> petlist = new ArrayList<>();
+	private String membership;
+	private ObservableList<Pet> petlist = FXCollections.<Pet>observableArrayList();
 	
 	public Owner(int i) {
 		super(i);		
@@ -15,13 +16,19 @@ public class Owner extends User {
 		this.petlist.add(pet);
 	}
 
-	public ArrayList<Pet> getPetlist() {
+	public ObservableList<Pet> getPetlist() {
 		return petlist;
 	}
 	
 	public void printPetInfo(Pet pet) {
 		if(petlist.contains(pet)) {		//Ktra media có trong giỏ hàng không?
 			pet.printInfo();										
+		}
+	}
+	
+	public void removePet(Pet pet) {
+		if(petlist.contains(pet)) {		//Ktra media có trong giỏ hàng không?
+			petlist.remove(pet);										
 		}
 	}
 }

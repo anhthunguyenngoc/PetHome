@@ -14,15 +14,16 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <ScrollPane fx:id="scrollPane" fitToHeight="true" fitToWidth="true" prefHeight="800.0" prefWidth="1550.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <content>
-      <BorderPane fx:id="borPaneCenter" prefHeight="800.0" prefWidth="1548.0">
-         <bottom>
-            <AnchorPane prefHeight="60.0" prefWidth="1550.0" style="-fx-background-color: #c6def1;" BorderPane.alignment="CENTER" />
-         </bottom>
-         <top>
-            <AnchorPane prefHeight="115.0" style="-fx-background-color: B0c4de;" BorderPane.alignment="CENTER">
+      <AnchorPane>
+         <children>
+            <BorderPane fx:id="borPaneCenter" prefHeight="800.0" prefWidth="1548.0" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="115.0">
+               <bottom>
+                  <AnchorPane prefHeight="60.0" prefWidth="1550.0" style="-fx-background-color: #c6def1;" BorderPane.alignment="CENTER" />
+               </bottom>
+            </BorderPane>
+            <AnchorPane prefHeight="115.0" style="-fx-background-color: B0c4de;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
                   <AnchorPane prefHeight="115.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
@@ -56,7 +57,7 @@
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </Button>
-                              <ScrollPane fx:id="sPaneDV" hbarPolicy="NEVER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="115.0" vbarPolicy="NEVER">
+                              <ScrollPane fx:id="sPaneDV" hbarPolicy="NEVER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="115.0" prefWidth="217.0" vbarPolicy="NEVER">
                                  <content>
                                     <VBox>
                                        <children>
@@ -119,7 +120,7 @@
                         </HBox>
                      </children>
                   </AnchorPane>
-                  <HBox alignment="CENTER" layoutX="1246.0" layoutY="19.0" spacing="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <HBox alignment="CENTER" layoutX="1246.0" layoutY="19.0" spacing="30.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
                         <Button fx:id="btnRegister" mnemonicParsing="false" prefHeight="60.0" prefWidth="131.0" style="-fx-background-color: white;" styleClass="rs-30-corner" stylesheets="@../css/style.css" text="Đăng ký" textFill="NAVY">
                            <font>
@@ -150,7 +151,7 @@
                   </HBox>
                </children>
             </AnchorPane>
-         </top>
-      </BorderPane>
+         </children>
+      </AnchorPane>
    </content>
 </ScrollPane>
