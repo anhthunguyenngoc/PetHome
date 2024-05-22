@@ -93,11 +93,6 @@ public class PetInfoUpdateHandler extends BaseHandler{
     		varGet.add("id");
     		
     		int result = api.putData(varPost, arr, "http://localhost:8080/pets/"+pet.getPet_ID());
-    		pet.setName(textFName.getText());
-    		pet.setDOB(textFDob.getPromptText());
-    		pet.setGender(textFGender.getText());
-    		pet.setType(textFType.getText());
-    		pet.setHobby(textFHobby.getText());
     					InfoPetHandler controller = new InfoPetHandler(borPane, pet);			InfoPetScreen screen = new InfoPetScreen(controller);
 			borPane.setCenter(screen.getContent());
 		});

@@ -31,4 +31,8 @@ public class Owner extends User {
 			petlist.remove(pet);										
 		}
 	}
+	
+	public void freePet() {
+		petlist.clear();
+	}
 }

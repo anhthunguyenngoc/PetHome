@@ -1,17 +1,18 @@
 package handler;
 
+import java.util.ArrayList;
+
 import entity.pet.Pet;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
+import main.Main;
 import screen.PetInfoUpdateScreen;
 import utils.API;
 
 public class InfoPetHandler extends BaseHandler{
-	BorderPane borPane;
 	Pet pet = new Pet();
-	API api = new API();
 	
 	public InfoPetHandler(BorderPane borPane, Pet pet) {
 		this.borPane = borPane;
@@ -45,11 +46,21 @@ public class InfoPetHandler extends BaseHandler{
 	@FXML
 	private void initialize() {
 		
-		labelName.setText(pet.getName());
-		labelType.setText(pet.getType());
-		labelDob.setText(pet.getDOB());
-		labelGender.setText(pet.getGender());
-		labelHobby.setText(pet.getHobby());
+		ArrayList<String> var = new ArrayList<>();
+		var.add("id");
+		var.add("name");
+		var.add("dob");
+		var.add("gender");
+		var.add("type");
+		var.add("hobby"); 		   				
+
+		ArrayList<String> petInfo = api.getData(var, "http://localhost:8080/pets/detail/"+pet.getPet_ID());
+		
+		labelName.setText(petInfo.get(1));
+		labelType.setText(petInfo.get(2));
+		labelDob.setText(petInfo.get(3));
+		labelGender.setText(petInfo.get(4));
+		labelHobby.setText(petInfo.get(5));
 		
 		setMouseEvent(btnBook, LIGHT_GRAYISH_BLUE, 3);
 		setMouseEvent(btnUpload, LIGHT_GRAYISH_BLUE, 3);
@@ -60,7 +71,6 @@ public class InfoPetHandler extends BaseHandler{
 			PetInfoUpdateScreen screen = new PetInfoUpdateScreen(controller);
 			borPane.setCenter(screen.getContent());
 		});
-		
 		
 	}
 	

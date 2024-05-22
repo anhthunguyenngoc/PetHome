@@ -9,14 +9,13 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import main.Main;
 import screen.InfoPetScreen;
+import screen.PetInfoListScreen;
 import utils.API;
 
 public class PetInfoItemHandler extends BaseHandler{
 
-	BorderPane borPane;
 	Pet pet = new Pet();
-	API api = new API();
-	
+
 	public PetInfoItemHandler(BorderPane borPane, Pet pet) {
 		this.borPane = borPane;
 		this.pet = pet;
@@ -59,7 +58,11 @@ public class PetInfoItemHandler extends BaseHandler{
 		
 		btnDel.setOnMouseClicked(e -> {
 			api.delData("http://localhost:8080/pets/"+pet.getPet_ID());
-			((Owner)Main.user).removePet(pet);
+			
+			//tải lại trang
+			PetInfoListHandler controller = new PetInfoListHandler(borPane);
+			PetInfoListScreen screen = new PetInfoListScreen(controller);
+			borPane.setCenter(screen.getContent());
 		});
 		
 	}

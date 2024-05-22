@@ -86,24 +86,6 @@ public class LoginHandler extends BaseHandler{
     			Main.user = new Doctor(Integer.parseInt(""+userId.get(1)));
     		}
     		
-    		ArrayList<String> var = new ArrayList<>();
-    		var.add("id");
-    		var.add("name");
-    		var.add("dob");
-    		var.add("gender");
-    		var.add("type");
-    		var.add("hobby"); 		   				
-
-    		ArrayList<String> petInfoList = api.getData(var, "http://localhost:8080/pets/"+Main.user.getID());
-    		int size = Integer.parseInt(petInfoList.get(0));
-    		int varListSize = var.size();
-
-    		for(int i=0; i < size; i++) {
-    			Pet pet = new Pet(petInfoList.get(1+varListSize*i), petInfoList.get(2+varListSize*i), petInfoList.get(3+varListSize*i), petInfoList.get(4+varListSize*i), petInfoList.get(5+varListSize*i), petInfoList.get(6+varListSize*i), ""+Main.user.getID());
-    			((Owner)Main.user).addPet(pet);
-    			pet.printInfo();
-    		}
-    		
 //    		if(Main.userType.equals("owner")) {
 	    		CusHomeHandler controller = new CusHomeHandler(borPane, scrollPane);
 	    		CusHomeScreen screen = new CusHomeScreen(controller);	    		 

@@ -60,6 +60,7 @@ public class HomeHandler extends BaseHandler{
     @FXML
     private void initialize() {
     	
+    	/*
     	//lấy ra danh sách các id và thông tin của các loại dịch vụ lớn
     	ArrayList<String> varGet = new ArrayList<>();
     	varGet.add("id");
@@ -98,7 +99,7 @@ public class HomeHandler extends BaseHandler{
     	Main.system.addService(healthServiceList);
 		Main.system.addService(salonServiceList);
 		Main.system.addService(hotelServiceList);
-    	
+    	*/
     	//Event khi click vào "Dịch vụ" Button trên menu bar
     	setMouseEvent(btnDV);
     	btnDV.setOnMouseClicked(e -> {

@@ -32,28 +32,33 @@ public class PetInfoListHandler extends BaseHandler{
     @FXML
     private void initialize() {
     	
+    	((Owner)Main.user).freePet();
+    	
+    	//tải data lên
+    	ArrayList<String> var = new ArrayList<>();
+		var.add("id");
+		var.add("name");
+		var.add("dob");
+		var.add("gender");
+		var.add("type");
+		var.add("hobby"); 		   				
+
+		ArrayList<String> petInfoList = api.getData(var, "http://localhost:8080/pets/"+Main.user.getID());
+		int size = Integer.parseInt(petInfoList.get(0));
+		int varListSize = var.size();
+
+		for(int i=0; i < size; i++) {
+			Pet pet = new Pet(petInfoList.get(1+varListSize*i), petInfoList.get(2+varListSize*i), petInfoList.get(3+varListSize*i), petInfoList.get(4+varListSize*i), petInfoList.get(5+varListSize*i), petInfoList.get(6+varListSize*i), ""+Main.user.getID());
+			((Owner)Main.user).addPet(pet);
+			pet.printInfo();
+		}
+		
+		//
+		
     	petlist = ((Owner)Main.user).getPetlist();
     	for(Pet pet : petlist) {
     		addPet(pet);
     	}
-
-    	((Owner)Main.user).getPetlist().addListener((ListChangeListener.Change<? extends Pet> change)->{
-    		while(change.next()){
-    	        if(change.wasUpdated()){
-    	            System.out.println("Update detected");
-    	        } else if(change.wasPermutated()){
-    	            // Xử lý trường hợp hoán đổi vị trí
-    	        } else {
-    	            for (Pet rempet : change.getRemoved()) { 	            	
-    	            	removePet(rempet);
-    	            }
-    	            for (Pet addpet : change.getAddedSubList()) {
-    	            	System.out.println("add detected");
-    	            	addPet(addpet);
-    	            }
-    	        }
-    	    }
-    	});
     	
     	setMouseEvent(btnAdd, LIGHT_GRAYISH_BLUE, 3);
 		
