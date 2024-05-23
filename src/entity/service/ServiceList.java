@@ -1,20 +1,24 @@
 package entity.service;
 
-import java.util.Objects;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+import exception.HaveNoPet;
+import utils.API;
 
 public abstract class ServiceList {
-	private int id;
-	private String introduction; 
-
-	public ServiceList(int id, String introduction) {
+	protected int id;
+	protected String name;
+	protected String introduction; 
+	protected API api = new API();
+	
+	public ServiceList(int id, String name, String introduction) {
 		super();	
 		this.id = id;	
+		this.name = name;
 		this.introduction = introduction;
 	}
-	
-	public abstract void addService(Service service);
-	
-	public abstract void remService(Service service);
 
 	@Override
 	public boolean equals(Object obj) {
@@ -38,5 +42,14 @@ public abstract class ServiceList {
 
 	public void setIntroduction(String introduction) {
 		this.introduction = introduction;
+	}
+	
+	public abstract void getlistAPI() throws Exception;
+	
+	public abstract void addService(ArrayList<String> value) throws Exception;
+	
+	public void remService(Service service) throws Exception {
+		service.delInfo();
+		getlistAPI();
 	}
 }

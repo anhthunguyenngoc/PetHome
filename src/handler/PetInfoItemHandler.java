@@ -8,7 +8,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import main.Main;
-import screen.InfoPetScreen;
+import screen.PetInfoScreen;
 import screen.PetInfoListScreen;
 import utils.API;
 
@@ -50,19 +50,25 @@ public class PetInfoItemHandler extends BaseHandler{
 		setMouseEvent(btnPetDetail, LIGHT_GRAYISH_BLUE, 3);
 		setMouseEvent(btnDel, LIGHT_GRAYISH_BLUE, 3);
 		
+		//Xem chi tiết thông tin của pet
 		btnPetDetail.setOnMouseClicked(e -> {
-			InfoPetHandler controller = new InfoPetHandler(borPane, pet);
-			InfoPetScreen screen = new InfoPetScreen(controller);
+			PetInfoHandler controller = new PetInfoHandler(borPane, pet);
+			PetInfoScreen screen = new PetInfoScreen(controller);
 			borPane.setCenter(screen.getContent());
 		});
 		
 		btnDel.setOnMouseClicked(e -> {
-			api.delData("http://localhost:8080/pets/"+pet.getPet_ID());
-			
-			//tải lại trang
-			PetInfoListHandler controller = new PetInfoListHandler(borPane);
-			PetInfoListScreen screen = new PetInfoListScreen(controller);
-			borPane.setCenter(screen.getContent());
+			try {
+				((Owner) Main.user).getPetlist().freePet(pet);
+				//tải lại trang
+				PetInfoListHandler controller = new PetInfoListHandler(borPane);
+				PetInfoListScreen screen = new PetInfoListScreen(controller);
+				borPane.setCenter(screen.getContent());
+				
+			} catch (Exception e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}		
 		});
 		
 	}

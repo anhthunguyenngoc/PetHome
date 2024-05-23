@@ -2,9 +2,8 @@ package entity.user;
 
 public class Staff extends User{
 
-	public Staff(int i) {
-		super(i);
-		// TODO Auto-generated constructor stub
+	public Staff(String email, String pass, String url) throws Exception {
+		super(email, pass, url);		
 	}
 	
 }

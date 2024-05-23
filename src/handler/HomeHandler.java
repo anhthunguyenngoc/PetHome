@@ -59,47 +59,6 @@ public class HomeHandler extends BaseHandler{
     
     @FXML
     private void initialize() {
-    	
-    	/*
-    	//lấy ra danh sách các id và thông tin của các loại dịch vụ lớn
-    	ArrayList<String> varGet = new ArrayList<>();
-    	varGet.add("id");
-		varGet.add("introduction");
-    	ArrayList<String> id = api.getData(varGet, "");
-		HealthServiceList healthServiceList = new HealthServiceList(Integer.parseInt(id.get(1)), id.get(2));
-		SalonServiceList salonServiceList = new SalonServiceList(Integer.parseInt(id.get(3)), id.get(4));
-    	HotelServiceList hotelServiceList = new HotelServiceList(Integer.parseInt(id.get(5)), id.get(6));
-
-
-    	//Lấy ra thông tin danh sách các dv con - HealthServiceList   	
-    	varGet = HealthService.varGet;
-    	ArrayList<String> healthResult = api.getData(varGet, "");
-    	for(int i=0; i < Integer.parseInt(healthResult.get(0)); i++) {
-    		HealthService healthS = new HealthService(Integer.parseInt(healthResult.get(1+varGet.size()*i)), healthResult.get(2+varGet.size()*i), healthResult.get(3+varGet.size()*i), healthResult.get(4+varGet.size()*i), healthResult.get(5+varGet.size()*i), healthResult.get(6+varGet.size()*i));
-    		healthServiceList.addService(healthS);
-    	}
-
-		
-    	varGet = SalonService.varGet;
-    	ArrayList<String> salonResult = api.getData(varGet, "");
-    	for(int i=0; i < Integer.parseInt(salonResult.get(0)); i++) {
-    		SalonService salonS = new SalonService(Integer.parseInt(salonResult.get(1+varGet.size()*i)), salonResult.get(2+varGet.size()*i), salonResult.get(3+varGet.size()*i), salonResult.get(4+varGet.size()*i), 
-    				salonResult.get(5+varGet.size()*i), Boolean.parseBoolean(salonResult.get(6+varGet.size()*i)), Boolean.parseBoolean(salonResult.get(7+varGet.size()*i)), salonResult.get(8+varGet.size()*i), salonResult.get(9+varGet.size()*i));
-    		salonServiceList.addService(salonS);
-    	}
-
-		
-    	varGet = HotelService.varGet;
-    	ArrayList<String> hotelResult = api.getData(varGet, "");
-    	for(int i=0; i < Integer.parseInt(hotelResult.get(0)); i++) {
-    		HotelService hotelS = new HotelService(Integer.parseInt(hotelResult.get(1+varGet.size()*i)), hotelResult.get(2+varGet.size()*i), hotelResult.get(3+varGet.size()*i), hotelResult.get(4+varGet.size()*i), hotelResult.get(5+varGet.size()*i), hotelResult.get(6+varGet.size()*i));
-    		hotelServiceList.addService(hotelS);
-    	}
-    	
-    	Main.system.addService(healthServiceList);
-		Main.system.addService(salonServiceList);
-		Main.system.addService(hotelServiceList);
-    	*/
     	//Event khi click vào "Dịch vụ" Button trên menu bar
     	setMouseEvent(btnDV);
     	btnDV.setOnMouseClicked(e -> {
@@ -123,10 +82,7 @@ public class HomeHandler extends BaseHandler{
     	
     	//Event khi click vào menuItem "Khách sạn thú cưng" trên menu bar
     	setMouseEvent(mItemHotel, "white", 3);
-    	
-    	//Event khi click vào menuItem "Đăng ký" trên menu bar
-    	setMouseEvent(btnRegister, "white", 3);
-    	
+
     	//Event khi click vào menuItem "Đăng nhập" trên menu bar
     	setMouseEvent(btnLogIn, "white", 3);
     	
@@ -135,6 +91,9 @@ public class HomeHandler extends BaseHandler{
     		LoginScreen screen = new LoginScreen(controller);
     		borPaneCenter.setCenter(screen.getContent());
     	});
+    	
+    	//Event khi click vào menuItem "Đăng ký" trên menu bar
+    	setMouseEvent(btnRegister, "white", 3);
     	
     	btnRegister.setOnMouseClicked(e -> {
     		RegisterHandler controller = new RegisterHandler(borPaneCenter, scrollPane);

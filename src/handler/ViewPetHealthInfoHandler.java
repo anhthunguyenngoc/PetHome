@@ -3,7 +3,7 @@ package handler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
-import screen.InfoPetScreen;
+import screen.PetInfoScreen;
 import screen.UpdateHealthResultScreen;
 import screen.UpdateMedicineScreen;
 
@@ -29,8 +29,8 @@ public class ViewPetHealthInfoHandler extends BaseHandler {
   
     	setMouseEvent(btnViewPetInfo, LIGHT_GRAYISH_BLUE, 3);
     	btnViewPetInfo.setOnMouseClicked(e -> {
-    		InfoPetHandler controller = new InfoPetHandler();
-        	InfoPetScreen screen = new InfoPetScreen(controller);
+    		PetInfoHandler controller = new PetInfoHandler();
+        	PetInfoScreen screen = new PetInfoScreen(controller);
         	borPane.setCenter(screen.getContent());
     	});
     	

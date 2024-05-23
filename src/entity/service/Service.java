@@ -1,53 +1,53 @@
 package entity.service;
 
-public class Service {
+import java.util.ArrayList;
+import utils.API;
+
+public abstract class Service {
 	
-	private int id; 
-    private String name; 
-    private String introduction; 
-    private String price;
+	protected int id; 
+	protected int listId; 
+    protected String name; 
+    protected String introduction; 
+    protected String price;
+    protected API api = new API();
     
     public Service() {
     	super();
     }
 	
-	public Service(int id, String name, String introduction, String price) {
+    public Service(String name, String introduction, String price) {
+	    this.name = name;
+	    this.introduction = introduction;
+	}
+    
+	public Service(int id, int listId, String name, String introduction, String price) {
 	    this.id = id;
+	    this.listId = listId;
 	    this.name = name;
 	    this.introduction = introduction;
 	}
-	
-	// Getters and Setters
-	public int getID() {
-	    return id;
+
+	public int getId() {
+		return id;
 	}
-	
-	public void setID(int ID) {
-	    this.id = ID;
-	}
-	
+
 	public String getName() {
-	    return name;
+		return name;
 	}
-	
-	public void setName(String name) {
-	    this.name = name;
-	}
-	
+
 	public String getIntroduction() {
-	    return introduction;
-	}
-	
-	public void setIntroduction(String introduction) {
-	    this.introduction = introduction;
+		return introduction;
 	}
 
 	public String getPrice() {
 		return price;
 	}
-
-	public void setPrice(String price) {
-		this.price = price;
-	}
+	
+	public abstract void getInfo() throws Exception;
+    
+    public abstract void setInfo(ArrayList<String> varPut) throws Exception;
+			
+	public abstract void delInfo() throws Exception;
 
 }
