@@ -1,38 +1,17 @@
 package entity.user;
 
-import entity.pet.Pet;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+import entity.pet.PetList;
 
 public class Owner extends User {
 	private String membership;
-	private ObservableList<Pet> petlist = FXCollections.<Pet>observableArrayList();
-	
-	public Owner(int i) {
-		super(i);		
-	}
-	
-	public void addPet(Pet pet) {
-		this.petlist.add(pet);
-	}
+	private PetList petlist = new PetList();
 
-	public ObservableList<Pet> getPetlist() {
+	public Owner(String email, String pass, String url) throws Exception {
+		super(email, pass, url);		
+		petlist.getPetlistAPI(this.ID);
+	}
+	
+	public PetList getPetlist() throws Exception {
 		return petlist;
-	}
-	
-	public void printPetInfo(Pet pet) {
-		if(petlist.contains(pet)) {		//Ktra media có trong giỏ hàng không?
-			pet.printInfo();										
-		}
-	}
-	
-	public void removePet(Pet pet) {
-		if(petlist.contains(pet)) {		//Ktra media có trong giỏ hàng không?
-			petlist.remove(pet);										
-		}
-	}
-	
-	public void freePet() {
-		petlist.clear();
 	}
 }

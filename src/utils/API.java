@@ -1,27 +1,80 @@
 package utils;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
 import java.net.URI;
-import java.net.URL;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.ArrayList;
-
+import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 public class API {
 	
-	private static final String API_URL = "http://localhost:8080/users"; 
+	private static final String API_URL = "http://localhost:8080/"; 
 	
-	public ArrayList<String> postData(ArrayList<String> varPost, ArrayList<String> varGet, ArrayList<String> arr, String url) {
-		ArrayList<String> result = new ArrayList<>();
-		
+	private int getResponse(HttpClient client, HttpRequest request, ArrayList<String> varGet, List<ArrayList<String>> res) {
+		int statusCode = -1;
+		try {
+	    	HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+	    	statusCode = response.statusCode();
+	        try {    	
+	            if(!(response.statusCode() == 200)) {
+	            	System.out.println(response.body());
+	            }else {
+	            JSONArray jsonArray = new JSONArray(response.body());
+	            for (int i = 0; i < jsonArray.length(); i++) {
+	                JSONObject jsonObject = jsonArray.getJSONObject(i);
+	                ArrayList<String> row = new ArrayList<>();
+	                for(int j=0; j< varGet.size(); j++) {
+		            	row.add(""+jsonObject.get(varGet.get(j)));
+		    		}
+	                res.add(row);
+	            }
+	            }
+	        } catch (JSONException e) {
+	            e.printStackTrace();
+	        }
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    }
+		return statusCode;
+	}
+	
+	private int getResponse(HttpClient client, HttpRequest request, ArrayList<String> varGet, ArrayList<String> res) {
+		int statusCode = -1;
+		try {
+	    	HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+	    	statusCode = response.statusCode();
+	        try {   
+	        	JSONObject jsonObject = new JSONObject(response.body());
+	        	System.out.println(response.body());
+                for(int j=0; j< varGet.size(); j++) {
+	            	res.add(""+jsonObject.get(varGet.get(j)));
+	    		}
+	            
+	        } catch (JSONException e) {
+	            e.printStackTrace();
+	        }
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    }
+		return statusCode;
+	}
+	
+	private int getResponse(HttpClient client, HttpRequest request) {
+		int statusCode = -1;
+	    try {
+	        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());       
+	        statusCode = response.statusCode();
+	        } catch (Exception e) {
+	            e.printStackTrace();
+	        }
+		return statusCode;
+	}
+	
+	public int postData(ArrayList<String> varPost, ArrayList<String> varGet, ArrayList<String> arr, List<ArrayList<String>> res, String url) {	
 		JSONObject data = new JSONObject();
 		
 		for(int i=0; i< varPost.size(); i++) {
@@ -30,72 +83,54 @@ public class API {
 	    
 	    HttpClient client = HttpClient.newHttpClient();
 	    HttpRequest request = HttpRequest.newBuilder()
-	          .uri(URI.create(url))
+	          .uri(URI.create(API_URL+url))
 	          .header("Content-Type", "application/json")
 	          .POST(HttpRequest.BodyPublishers.ofString(data.toString()))
 	          .build();
-	    try {
-	    	HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
-	        try {
-	        	
-	        	System.out.println(response.statusCode());        	
 
-	            if(!(response.statusCode() == 200)) {
-	            	System.out.println(response.body());
-	            }else {
-	            JSONArray jsonArray = new JSONArray(response.body());
-	            result.add(""+jsonArray.length());
-	            for (int i = 0; i < jsonArray.length(); i++) {
-	                JSONObject jsonObject = jsonArray.getJSONObject(i);
-	                for(int j=0; j< varGet.size(); j++) {
-		            	result.add(""+jsonObject.get(varGet.get(j)));
-		    		}
-	            }
-	            }
-	        } catch (JSONException e) {
-	            e.printStackTrace();
-	        }
-	        return result;
-	    } catch (Exception e) {
-	        e.printStackTrace();
-	    }
-		return null;
+	    return getResponse(client, request, varGet, res);
 	}
 	
-	public ArrayList<String> getData(ArrayList<String> var, String url) {
-		ArrayList<String> result = new ArrayList<>();
+	public int postData(ArrayList<String> varPost, ArrayList<String> varGet, ArrayList<String> arr, ArrayList<String> res, String url) {	
+		JSONObject data = new JSONObject();
+		
+		for(int i=0; i< varPost.size(); i++) {
+			data.put(varPost.get(i), arr.get(i));
+		}
+	    
+	    HttpClient client = HttpClient.newHttpClient();
+	    HttpRequest request = HttpRequest.newBuilder()
+	          .uri(URI.create(API_URL+url))
+	          .header("Content-Type", "application/json")
+	          .POST(HttpRequest.BodyPublishers.ofString(data.toString()))
+	          .build();
+
+	    return getResponse(client, request, varGet, res);
+	}
+	
+	public int getData(ArrayList<String> var, ArrayList<String> res, String url) {
+
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder()
-              .uri(URI.create(url))
+              .uri(URI.create(API_URL+url))
               .GET()
               .build();
 
-        try {
-	    	HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
-	        try {
-
-	            JSONArray jsonArray = new JSONArray(response.body());
-	            result.add(""+jsonArray.length());
-	            for (int i = 0; i < jsonArray.length(); i++) {
-	                JSONObject jsonObject = jsonArray.getJSONObject(i);
-	                for(int j=0; j< var.size(); j++) {
-		            	result.add(""+jsonObject.get(var.get(j)));
-		    		}
-	            }
-	            
-	        } catch (JSONException e) {
-	            e.printStackTrace();
-	        }
-	        return result;
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
+        return getResponse(client, request, var, res);
     }
 	
-	public int putData(ArrayList<String> varPost, ArrayList<String> arr, String url) {
-		int result = 500;
-		
+	public int getData(ArrayList<String> var, List<ArrayList<String>> res, String url) {
+
+        HttpClient client = HttpClient.newHttpClient();
+        HttpRequest request = HttpRequest.newBuilder()
+              .uri(URI.create(API_URL+url))
+              .GET()
+              .build();
+
+        return getResponse(client, request, var, res);
+    }
+	
+	public int putData(ArrayList<String> varPost, ArrayList<String> arr, String url) {	
 		JSONObject data = new JSONObject();
 		
 		for(int i=0; i< varPost.size(); i++) {
@@ -104,39 +139,21 @@ public class API {
 
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder()
-              .uri(URI.create(url))
+              .uri(URI.create(API_URL+url))
               .header("Content-Type", "application/json")
               .PUT(HttpRequest.BodyPublishers.ofString(data.toString()))
               .build();
         
-        try {
-        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());       
-        	try {
-        		result = response.statusCode();        	
-	        } catch (JSONException e) {
-	            e.printStackTrace();
-	        }
-        	return result;
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-		return result;
+		return getResponse(client, request);
     }
 	
 	public int delData(String url) {
-		int result = -1;
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder()
-              .uri(URI.create(url))
+              .uri(URI.create(API_URL+url))
               .DELETE()
               .build();
 
-        try {
-            HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
-            result = response.statusCode();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-		return result;
+        return getResponse(client, request);
     }
 }

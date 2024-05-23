@@ -6,7 +6,7 @@ import javafx.fxml.FXML;
 import javafx.scene.layout.BorderPane;
 import main.Main;
 import screen.HealthServiceAUScreen;
-import screen.InfoPetScreen;
+import screen.PetInfoScreen;
 import javafx.scene.control.Button;
 import javafx.scene.text.Text;
 

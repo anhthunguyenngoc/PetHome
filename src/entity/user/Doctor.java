@@ -9,8 +9,7 @@ public class Doctor extends User{
     private int experienceYear;
     private String major;
     
-    public Doctor(int i) {
-		super(i);
-		// TODO Auto-generated constructor stub
+    public Doctor(String email, String pass, String url) throws Exception {
+		super(email, pass, url);		
 	}
 }

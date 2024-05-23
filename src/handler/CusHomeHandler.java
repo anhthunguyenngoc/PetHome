@@ -6,17 +6,13 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
-import screen.DocHomeScreen;
 import screen.HealthServiceScreen;
 import screen.HomeScreen;
 import screen.PetInfoListScreen;
-import utils.API;
 
 public class CusHomeHandler extends BaseHandler{
 
-	BorderPane borPane;
 	ScrollPane scrollPane = new ScrollPane();
-	API api = new API();
 	
 	public CusHomeHandler(BorderPane borPane, ScrollPane scrollPane) {
 		this.borPane = borPane;
@@ -134,6 +130,7 @@ public class CusHomeHandler extends BaseHandler{
     		
     	});
     	
+    	//Xem thông tin thú cưng
     	btnPetInfo.setOnMouseClicked(e -> {
     		PetInfoListHandler controller = new PetInfoListHandler(borPaneCenter);
     		PetInfoListScreen screen = new PetInfoListScreen(controller);

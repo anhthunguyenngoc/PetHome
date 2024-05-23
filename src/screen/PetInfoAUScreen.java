@@ -2,9 +2,9 @@ package screen;
 
 import handler.BaseHandler;
 
-public class PetInfoUpdateScreen extends BaseScreen{
+public class PetInfoAUScreen extends BaseScreen{
 
-	public PetInfoUpdateScreen(BaseHandler controller) {
+	public PetInfoAUScreen(BaseHandler controller) {
 		super("update-pet-info", controller);
 		// TODO Auto-generated constructor stub
 	}

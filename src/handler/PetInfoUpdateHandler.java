@@ -14,14 +14,12 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.text.Text;
 import main.Main;
-import screen.InfoPetScreen;
+import screen.PetInfoScreen;
 import screen.PetInfoListScreen;
 import utils.API;
 
 public class PetInfoUpdateHandler extends BaseHandler{
-
-	BorderPane borPane;
-	private API api = new API();
+	
 	private Pet pet;
 	
 	public PetInfoUpdateHandler(BorderPane borPane, Pet pet) {
@@ -61,40 +59,30 @@ public class PetInfoUpdateHandler extends BaseHandler{
     	title.setText("Cập nhật thông tin thú cưng");
     	btnAdd.setText("Cập nhật");
     	
-    	textFName.setPromptText(pet.getName());
-    	textFType.setPromptText(pet.getType());
-    	textFDob.setPromptText(pet.getDOB());
-    	textFGender.setPromptText(pet.getGender());
-    	textFHobby.setPromptText(pet.getHobby());
+    	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        LocalDate date = LocalDate.parse(pet.getDOB(), formatter);
+    	
+    	textFName.setText(pet.getName());
+    	textFType.setText(pet.getType());
+    	textFDob.setValue(date);
+    	textFGender.setText(pet.getGender());
+    	textFHobby.setText(pet.getHobby());
 		
     	setMouseEvent(btnAdd, LIGHT_GRAYISH_BLUE, 3);
 		
-    	btnAdd.setOnMouseClicked(e -> {
+    	btnAdd.setOnMouseClicked(e -> { 		
 
-    		ArrayList<String> varPost = new ArrayList<>();
-    		varPost.add("name");
-    		varPost.add("dob");
-    		varPost.add("gender");
-    		varPost.add("type");
-    		varPost.add("hobby");    		
-    		
-    		LocalDate dateOfBirth = textFDob.getValue();
-    	   	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-    	   	String data = dateOfBirth.format(formatter);
-    		
-    		ArrayList<String> arr = new ArrayList<>();  	
-    		arr.add(textFName.getText());
-    		arr.add(data);
-    		arr.add(textFGender.getText());
-    		arr.add(textFType.getText()); 		
-    		arr.add(textFHobby.getText());
-    		
-    		ArrayList<String> varGet = new ArrayList<>();
-    		varGet.add("id");
-    		
-    		int result = api.putData(varPost, arr, "http://localhost:8080/pets/"+pet.getPet_ID());
-    					InfoPetHandler controller = new InfoPetHandler(borPane, pet);			InfoPetScreen screen = new InfoPetScreen(controller);
-			borPane.setCenter(screen.getContent());
+    		textFDob.setValue(LocalDate.of(textFDob.getValue().getYear(), textFDob.getValue().getMonth(), textFDob.getValue().getDayOfMonth()));
+            String dateString = textFDob.getValue().toString();
+
+    		try {
+	    		pet.setPetInfo(textFName.getText(), dateString, textFGender.getText(), textFHobby.getText(), textFType.getText());	
+				PetInfoHandler controller = new PetInfoHandler(borPane, pet);
+				PetInfoScreen screen = new PetInfoScreen(controller);
+				borPane.setCenter(screen.getContent());
+    		}catch (Exception e1) {
+    			e1.printStackTrace();
+    		}
 		});
     }
 }
