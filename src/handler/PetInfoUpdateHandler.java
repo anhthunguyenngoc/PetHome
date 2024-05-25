@@ -2,10 +2,7 @@ package handler;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-
 import entity.pet.Pet;
-import entity.user.Owner;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
@@ -13,10 +10,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.text.Text;
-import main.Main;
 import screen.PetInfoScreen;
-import screen.PetInfoListScreen;
-import utils.API;
 
 public class PetInfoUpdateHandler extends BaseHandler{
 	

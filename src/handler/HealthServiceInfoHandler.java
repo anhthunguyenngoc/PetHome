@@ -1,22 +1,20 @@
 package handler;
 
 import entity.service.HealthService;
-import entity.user.Owner;
+import entity.service.Service;
 import javafx.fxml.FXML;
 import javafx.scene.layout.BorderPane;
-import main.Main;
 import screen.HealthServiceAUScreen;
-import screen.PetInfoScreen;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.text.Text;
 
 public class HealthServiceInfoHandler extends BaseHandler{
 
-	private HealthService healthService = new HealthService();
-	
-	public HealthServiceInfoHandler (BorderPane borPane, HealthService healthService) {
+	private Service service;
+	public HealthServiceInfoHandler (BorderPane borPane, Service service) {
 		this.borPane = borPane;
-		this.healthService = healthService;
+		this.service = service;
 	}
 	
 	@FXML
@@ -29,13 +27,13 @@ public class HealthServiceInfoHandler extends BaseHandler{
     private Button btnBook;
 
     @FXML
-    private Text intro;
+    private Label intro;
 
     @FXML
-    private Text symtom;
+    private Label symtom;
 
     @FXML
-    private Text process;
+    private Label process;
 
     @FXML
     private Text price;
@@ -43,17 +41,19 @@ public class HealthServiceInfoHandler extends BaseHandler{
 	@FXML
 	private void initialize() {
 		
-		title.setText(healthService.getName());
-		intro.setText(healthService.getIntroduction());
-		symtom.setText(healthService.getSymptom());
-		process.setText(healthService.getTreatment());
-		price.setText(healthService.getPrice());
+		HealthService healthS = (HealthService) this.service;
+		
+		title.setText(healthS.getName());
+		intro.setText(healthS.getIntroduction());
+		symtom.setText(healthS.getSymptom());
+		process.setText(healthS.getTreatment());
+		price.setText(healthS.getPrice());
 		
 		setMouseEvent(btnUpdate, LIGHT_GRAYISH_BLUE, 3);
 		setMouseEvent(btnBook, LIGHT_GRAYISH_BLUE, 3);
 		
 		btnUpdate.setOnMouseClicked(e -> {
-			HealthServiceUpdateHandler controller = new HealthServiceUpdateHandler(borPane, healthService);
+			HealthServiceUpdateHandler controller = new HealthServiceUpdateHandler(borPane, healthS);
 			HealthServiceAUScreen screen = new HealthServiceAUScreen(controller);
 			borPane.setCenter(screen.getContent());
 		});
@@ -63,4 +63,7 @@ public class HealthServiceInfoHandler extends BaseHandler{
 		});
 		
 	}
+
+	
+	
 }

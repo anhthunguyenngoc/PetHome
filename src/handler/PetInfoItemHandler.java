@@ -9,8 +9,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import main.Main;
 import screen.PetInfoScreen;
-import screen.PetInfoListScreen;
-import utils.API;
+import screen.ListScreen;
 
 public class PetInfoItemHandler extends BaseHandler{
 
@@ -62,7 +61,7 @@ public class PetInfoItemHandler extends BaseHandler{
 				((Owner) Main.user).getPetlist().freePet(pet);
 				//tải lại trang
 				PetInfoListHandler controller = new PetInfoListHandler(borPane);
-				PetInfoListScreen screen = new PetInfoListScreen(controller);
+				ListScreen screen = new ListScreen(controller);
 				borPane.setCenter(screen.getContent());
 				
 			} catch (Exception e1) {

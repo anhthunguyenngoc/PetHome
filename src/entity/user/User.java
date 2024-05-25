@@ -3,6 +3,8 @@ package entity.user;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+
+import entity.pet.PetList;
 import exception.UserNotFound;
 import utils.API;
 
@@ -14,11 +16,11 @@ public class User {
     protected String phone;
     protected String address;
     protected API api = new API();
-    
+	
     public User() {
 		super();
 	}
-    
+
     //hàm khởi tạo khi người dùng đăng nhập và đăng ký
 	public User(String email, String pass, String url) throws Exception {
 		super();
@@ -104,5 +106,5 @@ public class User {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	
+
 }

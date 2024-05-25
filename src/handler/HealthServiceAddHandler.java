@@ -1,14 +1,14 @@
 package handler;
 
 import java.util.ArrayList;
-
-import entity.service.HealthService;
+import entity.system.PetHomeSystem;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.text.Text;
-import screen.HealthServiceScreen;
+import main.Main;
+import screen.ListScreen;
 
 public class HealthServiceAddHandler extends BaseHandler{
 
@@ -46,34 +46,26 @@ public class HealthServiceAddHandler extends BaseHandler{
 		title.setText("Thêm dịch vụ loại chăm sóc sức khỏe");
 		btnUpdate.setText("Thêm");
     	
-		
     	setMouseEvent(btnUpdate, "white", 3);
     	setMouseEvent(btnSave, "white", 3);
 		
     	btnSave.setOnMouseClicked(e -> {
-
-    		ArrayList<String> varPost = new ArrayList<>();
-    		varPost.add("name");
-    		varPost.add("introduction");
-    		varPost.add("symptom");
-    		varPost.add("treatment");
-    		varPost.add("price");
+    		ArrayList<String> value = new ArrayList<String>();
+    		value.add(textFName.getText());
+    		value.add(textFIntro.getText());
+    		value.add(textFPrice.getText());
+    		value.add(textFSymtom.getText());
+    		value.add(textFTreatment.getText());
     		
-    		ArrayList<String> varGet = new ArrayList<>();
-    		varGet.add("id");
-    		
-    		ArrayList<String> value = new ArrayList<>();
-    		varPost.add(textFName.getText());
-    		varPost.add(textFIntro.getText());
-    		varPost.add(textFSymtom.getText());
-    		varPost.add(textFTreatment.getText());
-    		varPost.add(textFPrice.getText());
-    		
-    		ArrayList<String> result = api.postData(varPost, varPost, value, "");
-    		
-			HealthServiceHandler controller = new HealthServiceHandler(borPane);
-			HealthServiceScreen screen = new HealthServiceScreen(controller);
-			borPane.setCenter(screen.getContent());
+    		try {
+				Main.system.addService(PetHomeSystem.HealthServiceId, value);
+				HealthServiceHandler controller = new HealthServiceHandler(borPane);
+				ListScreen screen = new ListScreen(controller);
+				borPane.setCenter(screen.getContent());
+			} catch (Exception e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 
     	});
 

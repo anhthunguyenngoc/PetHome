@@ -2,13 +2,11 @@ package handler;
 
 import java.util.ArrayList;
 import entity.pet.Pet;
-import entity.pet.PetList;
 import entity.user.Owner;
 import exception.HaveNoPet;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
 import main.Main;
@@ -24,14 +22,27 @@ public class PetInfoListHandler extends BaseHandler{
 	private ArrayList<Pet> petlist = new ArrayList<Pet>();
 	private ArrayList<PetInfoItemScreen> petlistScreen = new ArrayList<>();
 	
-	@FXML
+    @FXML
+    private Label title;
+
+    @FXML
     private FlowPane fPaneContent;
-	
+
+    @FXML
+    private Button btnSort;
+
+    @FXML
+    private Button btnFilter;
+
     @FXML
     private Button btnAdd;
+
+    @FXML
+    private Button btnUndo;
     
     @FXML
     private void initialize() {
+    	title.setText("Thông tin thú cưng");
 		//khởi tạo danh sách các pet
     	try {
 			petlist = ((Owner)Main.user).getPetlist().getPetlist();

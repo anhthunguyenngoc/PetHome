@@ -1,16 +1,19 @@
 package handler;
 
+import java.util.ArrayList;
+import entity.user.Owner;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
-import screen.HealthServiceScreen;
+import main.Main;
+import screen.HomePageScreen;
 import screen.HomeScreen;
-import screen.PetInfoListScreen;
+import screen.ListScreen;
 
-public class CusHomeHandler extends BaseHandler{
+public class CusHomeHandler extends HomeHandler{
 
 	ScrollPane scrollPane = new ScrollPane();
 	
@@ -81,64 +84,48 @@ public class CusHomeHandler extends BaseHandler{
     
     @FXML
     private void initialize() {
-    	//Event khi click vào "Dịch vụ" Button trên menu bar
-    	setMouseEvent(btnDV);
-    	btnDV.setOnMouseClicked(e -> {
-        	menuItemDV.setVisible(!menuItemDV.isVisible());
-        	btnDV.setStyle("-fx-background-color: "+ ENTERED_COLOR + ";");
-            if(menuItemDV.isVisible()) {
-            	sPaneDV.setPrefHeight(245.0);
-            }
-            else sPaneDV.setPrefHeight(115.0);
-    	});
-    	
-    	//Event khi click vào menuItem "Chăm sóc sức khỏe" trên menu bar
-    	setMouseEvent(mItemHth, "white", 3);
-    	mItemHth.setOnMouseClicked(e -> {
-    		HealthServiceHandler controller = new HealthServiceHandler(borPane);
-    		HealthServiceScreen screen = new HealthServiceScreen(controller);
-    	});
-    	
-    	//Event khi click vào menuItem "Thú cưng làm đẹp" trên menu bar
-    	setMouseEvent(mItemSln, "white", 3);
-    	
-    	//Event khi click vào menuItem "Khách sạn thú cưng" trên menu bar
-    	setMouseEvent(mItemHotel, "white", 3);
-    	
-    	//Event khi click vào menuItem "Chăm sóc sức khỏe" trên menu bar
-    	setMouseEvent(mItemHth, "white", 3);
-    	
-    	//Event khi click vào menuItem "Thú cưng làm đẹp" trên menu bar
-    	setMouseEvent(mItemSln, "white", 3);
-    	
-    	//Event khi click vào menuItem "Khách sạn thú cưng" trên menu bar
-    	setMouseEvent(mItemHotel, "white", 3);
-    	
-    	setMouseEvent(btnPetInfo, "white", 3);
-    	
-    	//Event khi click vào menuItem "Khách sạn thú cưng" trên menu bar
-    	setMouseEvent(btnLogOut, "white", 3);
-    	
+    	HomePageHandler homePageController = new HomePageHandler(borPaneCenter);
+		HomePageScreen homePageScreen = new HomePageScreen(homePageController);
+		borPaneCenter.setCenter(homePageScreen.getContent());
+		
+		ArrayList<Button> btn = new ArrayList<Button>();
+	    btn.add(btnDV);
+	    ArrayList<ArrayList<Button>> mItem = new ArrayList<ArrayList<Button>>();
+	    ArrayList<Button> mItem0 = new ArrayList<Button>();
+	    mItem0.add(mItemHth);
+	    mItem0.add(mItemSln);
+	    mItem0.add(mItemHotel);
+	    mItem.add(mItem0);
+	    header(btn,  mItem);
+
     	setMouseEvent(btnUserInfo, "white", 3);
     	
     	imaUserInfo.setOnMouseClicked(e -> {    		
     		menuItemUser.setVisible(!menuItemUser.isVisible());
     		if(menuItemUser.isVisible()) {  			
-    			sPaneUser.setPrefHeight(245.0);
+    			sPaneUser.setPrefHeight(256.0);
             }
             else sPaneUser.setPrefHeight(115.0);
     		
     	});
     	
     	//Xem thông tin thú cưng
+    	setMouseEvent(btnPetInfo, "white", 3);
     	btnPetInfo.setOnMouseClicked(e -> {
-    		PetInfoListHandler controller = new PetInfoListHandler(borPaneCenter);
-    		PetInfoListScreen screen = new PetInfoListScreen(controller);
-    		borPaneCenter.setCenter(screen.getContent());
-    		menuItemUser.setVisible(false);
-    		sPaneUser.setPrefHeight(115.0);   		
+    		try {
+				((Owner)Main.user).getPetlist().getPetlistAPI(Main.user.getID());
+				PetInfoListHandler controller = new PetInfoListHandler(borPaneCenter);
+	    		ListScreen screen = new ListScreen(controller);
+	    		borPaneCenter.setCenter(screen.getContent());
+	    		menuItemUser.setVisible(false);
+	    		sPaneUser.setPrefHeight(115.0);
+			} catch (Exception e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}   		
     	});
     	
+    	setMouseEvent(btnLogOut, "white", 3);    	
     	btnLogOut.setOnMouseClicked(e -> {
     		HomeScreen screen = new HomeScreen();
     		scrollPane.setContent(null);

@@ -11,7 +11,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import main.Main;
-import screen.PetInfoListScreen;
+import screen.ListScreen;
 
 public class PetInfoAddHandler extends BaseHandler{
 	
@@ -55,7 +55,7 @@ public class PetInfoAddHandler extends BaseHandler{
 			try {
 				((Owner)Main.user).getPetlist().addPet(Main.user.getID(), textFName.getText(), dateString, textFGender.getText(), textFType.getText(), textFHobby.getText());
 				PetInfoListHandler controller = new PetInfoListHandler(borPane);
-				PetInfoListScreen screen = new PetInfoListScreen(controller);
+				ListScreen screen = new ListScreen(controller);
 				borPane.setCenter(screen.getContent());		
 			} catch (InvalidInformation e1) {
 				// TODO Auto-generated catch block

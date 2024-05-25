@@ -9,6 +9,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import main.Main;
 import screen.PetInfoAUScreen;
+import screen.ScheduleAUScreen;
 import utils.API;
 
 public class PetInfoHandler extends BaseHandler{
@@ -59,6 +60,12 @@ public class PetInfoHandler extends BaseHandler{
 		btnUpdate.setOnMouseClicked(e -> {
 			PetInfoUpdateHandler controller = new PetInfoUpdateHandler(borPane, pet);
 			PetInfoAUScreen screen = new PetInfoAUScreen(controller);
+			borPane.setCenter(screen.getContent());
+		});
+		
+		btnBook.setOnMouseClicked(e -> {
+			ScheduleAddHandler controller = new ScheduleAddHandler(borPane);
+			ScheduleAUScreen screen = new ScheduleAUScreen(controller);
 			borPane.setCenter(screen.getContent());
 		});
 		

@@ -14,7 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.HomeController">
+<AnchorPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <VBox alignment="CENTER" layoutX="80.0" layoutY="21.0" spacing="30.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -52,9 +52,9 @@
                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="541.0" minWidth="10.0" prefWidth="381.0" />
                      </columnConstraints>
                      <rowConstraints>
-                        <RowConstraints maxHeight="215.0" minHeight="10.0" prefHeight="75.0" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="273.0" minHeight="10.0" prefHeight="75.0" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="273.0" minHeight="10.0" prefHeight="75.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="75.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="75.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="75.0" vgrow="SOMETIMES" />
                         <RowConstraints maxHeight="273.0" minHeight="10.0" prefHeight="75.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
@@ -90,30 +90,6 @@
                               <Insets bottom="30.0" top="30.0" />
                            </GridPane.margin>
                         </AnchorPane>
-                        <Text fx:id="intro" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" GridPane.columnIndex="2">
-                           <font>
-                              <Font size="22.0" />
-                           </font>
-                           <GridPane.margin>
-                              <Insets left="30.0" />
-                           </GridPane.margin>
-                        </Text>
-                        <Text fx:id="symtom" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" GridPane.columnIndex="2" GridPane.rowIndex="1">
-                           <font>
-                              <Font size="22.0" />
-                           </font>
-                           <GridPane.margin>
-                              <Insets left="30.0" />
-                           </GridPane.margin>
-                        </Text>
-                        <Text fx:id="process" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" GridPane.columnIndex="2" GridPane.rowIndex="2">
-                           <font>
-                              <Font size="22.0" />
-                           </font>
-                           <GridPane.margin>
-                              <Insets left="30.0" />
-                           </GridPane.margin>
-                        </Text>
                         <Label text="Giá:" textFill="#403a3a" GridPane.columnIndex="1" GridPane.rowIndex="3">
                            <font>
                               <Font size="22.0" />
@@ -130,6 +106,30 @@
                               <Insets left="30.0" />
                            </GridPane.margin>
                         </Text>
+                        <Label fx:id="process" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                           <GridPane.margin>
+                              <Insets left="30.0" />
+                           </GridPane.margin>
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="symtom" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                           <GridPane.margin>
+                              <Insets left="30.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <Label fx:id="intro" text="Label" GridPane.columnIndex="2">
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                           <GridPane.margin>
+                              <Insets left="30.0" />
+                           </GridPane.margin>
+                        </Label>
                      </children>
                   </GridPane>
                </children>
