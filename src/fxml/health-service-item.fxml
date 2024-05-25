@@ -51,7 +51,7 @@
             <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
          </padding>
       </VBox>
-      <ImageView fx:id="btnDel" fitHeight="35.0" fitWidth="45.0" layoutX="294.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="btnDel" fitHeight="35.0" fitWidth="45.0" layoutX="290.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/SVGRepo_iconCarrier.jpg" />
          </image>

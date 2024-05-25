@@ -1,61 +1,65 @@
 package handler;
 
-import java.util.ArrayList;
-
-import entity.service.HealthService;
-import entity.service.HealthServiceList;
+import entity.service.Service;
+import entity.system.PetHomeSystem;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
 import main.Main;
 import screen.HealthServiceAUScreen;
 import screen.HealthServiceItemScreen;
 
-public class HealthServiceHandler extends BaseHandler{
+public class HealthServiceHandler extends ListHandler{
 	
 	public HealthServiceHandler(BorderPane borPane) {
-		this.borPane = borPane;
+		super(borPane);
 	}
-	    
-	private ArrayList<HealthService> healthServiceList = new ArrayList<>();
-	private ArrayList<HealthServiceItemScreen> healthServiceItemScreen = new ArrayList<>();
 	
     @FXML
+    private Label title;
+
+    @FXML
     private FlowPane fPaneContent;
-    
+
+    @FXML
+    private Button btnSort;
+
+    @FXML
+    private Button btnFilter;
+
     @FXML
     private Button btnAdd;
+
+    @FXML
+    private Button btnUndo;
     
     @FXML
     private void initialize() {
-    	healthServiceList = ((HealthServiceList)Main.system.getServiceList(0)).getServicelist();
-    	for(HealthService healthS : healthServiceList) {
-    		addSeviceScreen(healthS);
-    	}
+    	
+    	title.setText("Thông tin dịch vụ chăm sóc sức khỏe");
+
+    	try {
+			this.serviceList = Main.system.getServiceListChild(PetHomeSystem.HealthServiceId);
+			addScreen(fPaneContent);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		};
     	
     	btnAdd.setOnMouseClicked( e-> {
-    		HealthServiceAddHandler controller = new HealthServiceAddHandler(borPane);
-    		HealthServiceAUScreen screen = new HealthServiceAUScreen(controller);
-    		borPane.setCenter(screen.getContent());
+    		HealthServiceAddHandler controller = new HealthServiceAddHandler(this.borPane);
+    		btnAddClick(this.borPane, new HealthServiceAUScreen(controller));
     	});
     }
     
-    public void addSeviceScreen(HealthService healthS) {
-    	HealthServiceItemHandler controller = new HealthServiceItemHandler(borPane, healthS);
-    	HealthServiceItemScreen screen = new HealthServiceItemScreen(controller, healthS);
-    	healthServiceItemScreen.add(screen);
+    @Override
+    public void addSeviceScreen(Service service, FlowPane fPaneContent) {
+    	HealthServiceItemHandler controller = new HealthServiceItemHandler(this.borPane, service);
+    	HealthServiceItemScreen screen = new HealthServiceItemScreen(controller, service);
+    	itemScreen.add(screen);
     	fPaneContent.getChildren().add(screen.getContent());
-	}
-	
-	public void removeSeviceScreen (HealthService healthS) {
-		for (int i=0; i<healthServiceItemScreen.size(); i++) {	
-			if(healthServiceItemScreen.get(i).getHealthS().equals(healthS)) {
-				fPaneContent.getChildren().remove(healthServiceItemScreen.get(i).getContent());
-				healthServiceItemScreen.remove(healthServiceItemScreen.get(i));
-				return;
-			}			
-		}
 	}
 	
 }

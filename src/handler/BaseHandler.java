@@ -1,8 +1,13 @@
 package handler;
 
+import java.util.ArrayList;
+
 import javafx.scene.Cursor;
 import javafx.scene.Node;
+import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
+import screen.BaseScreen;
+import screen.HealthServiceAUScreen;
 import utils.API;
 
 public abstract class BaseHandler {
@@ -13,6 +18,9 @@ public abstract class BaseHandler {
 	String LIGHT_GRAYISH_BLUE = "D7E4F2";
 	protected BorderPane borPane;
 	protected API api = new API();
+	protected boolean isOwner = false;
+	protected boolean isStaff = false;
+	protected boolean isDoctor = false;
 	
     //đổi màu button khi thực hiện các thao tác = chuột
     protected void setMouseEvent (Node node, String enterColor, String pressColor, String clickColor) {
@@ -54,7 +62,7 @@ public abstract class BaseHandler {
     		setMouseEvent(node, ENTERED_COLOR, PRESSED_COLOR, color);
     	}
     }
-
+	
     //	mouseRelease (MouseEvent e) {
     	// Được gọi khi một nút chuột được thả ra trên một thành phần
     

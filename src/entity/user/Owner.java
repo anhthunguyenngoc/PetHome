@@ -8,7 +8,6 @@ public class Owner extends User {
 
 	public Owner(String email, String pass, String url) throws Exception {
 		super(email, pass, url);		
-		petlist.getPetlistAPI(this.ID);
 	}
 	
 	public PetList getPetlist() throws Exception {
