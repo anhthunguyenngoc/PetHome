@@ -1,8 +1,6 @@
 package handler;
-
-import screen.PetInfoListScreen;
-import screen.UpdatePetHealthScreen;
-import utils.API;
+import utils.Configs;
+import java.util.ArrayList;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
@@ -11,35 +9,23 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 
-public class DocHomeHandler extends BaseHandler{
-	
-	BorderPane borPane;
-	ScrollPane scrollPane = new ScrollPane();
-	API api = new API();
-	
-	public DocHomeHandler(BorderPane borPane, ScrollPane scrollPane) {
-		this.borPane = borPane;
-		this.scrollPane = scrollPane;
+public class DocHomeHandler extends UserHomeHandler{
+
+	public DocHomeHandler(ScrollPane scrollPane) {
+		super(Configs.DOC_HOME_PATH, scrollPane);
 	}
-	
-	@FXML
+    @FXML
     private BorderPane borPaneCenter;
-    
+
     @FXML
     private Button btnTB;
-    
+
     @FXML
     private ScrollPane sPaneDV;
-    
+
     @FXML
     private Button btnDV;
 
-    @FXML
-    private ScrollPane sPaneKB;
-
-    @FXML
-    private Button btnKB;
-    
     @FXML
     private VBox menuItemDV;
 
@@ -53,32 +39,32 @@ public class DocHomeHandler extends BaseHandler{
     private Button mItemHotel;
 
     @FXML
-    private Button btnKK;
-    
-    @FXML
-    private Button btnRegister;
+    private ScrollPane sPaneKB;
 
     @FXML
-    private Button btnLogIn;
-    
-    @FXML
-    private ImageView imaUserInfo;
-    
-    @FXML
-    private Button mItemUpHealth;
-    
-    @FXML
-    private Button mItemHthSche;
-    
+    private Button btnKB;
+
     @FXML
     private VBox menuItemKB;
+
+    @FXML
+    private Button mItemHthSche;
+
+    @FXML
+    private Button mItemUpHealth;
+
+    @FXML
+    private Button btnKK;
 
     @FXML
     private ScrollPane sPaneUser;
 
     @FXML
+    private ImageView imaUserInfo;
+
+    @FXML
     private VBox menuItemUser;
-    
+
     @FXML
     private Button mItemUserInfo;
 
@@ -90,17 +76,20 @@ public class DocHomeHandler extends BaseHandler{
     
     @FXML
     private void initialize() {
+    	this.borPane = borPaneCenter;
     	
-    	//Event khi click vào "Dịch vụ" Button trên menu bar
-    	setMouseEvent(btnDV);
-    	btnDV.setOnMouseClicked(e -> {
-        	menuItemDV.setVisible(!menuItemDV.isVisible());
-        	btnDV.setStyle("-fx-background-color: "+ ENTERED_COLOR + ";");
-            if(menuItemDV.isVisible()) {
-            	sPaneDV.setPrefHeight(245.0);
-            }
-            else sPaneDV.setPrefHeight(115.0);
-    	});
+    	HomePageHandler homePage = new HomePageHandler(borPaneCenter);
+		borPaneCenter.setCenter(homePage.getContent());
+		
+		ArrayList<Button> btn = new ArrayList<Button>();
+	    btn.add(btnDV);
+
+	    ArrayList<Button> mItem0 = new ArrayList<Button>();
+	    mItem0.add(mItemHth);
+	    mItem0.add(mItemSln);
+	    mItem0.add(mItemHotel);
+
+	    header(btn,  mItem0, menuItemDV, sPaneDV);
     	
     	//Event khi click vào "Khám bệnh" Button trên menu bar
     	setMouseEvent(btnKB);
@@ -119,8 +108,7 @@ public class DocHomeHandler extends BaseHandler{
     	//Event khi click vào menuItem "Cập nhật sức khỏe" trên menu bar
     	setMouseEvent(mItemUpHealth, "white", 3);
     	mItemUpHealth.setOnMouseClicked(e -> {
-    		UpdatePetHealthHandler controller = new UpdatePetHealthHandler(borPaneCenter);
-    		UpdatePetHealthScreen screen = new UpdatePetHealthScreen(controller);
+    		UpdatePetHealthHandler screen = new UpdatePetHealthHandler(borPaneCenter);
     		Node ancPane = screen.getContent();           		
     		borPaneCenter.setCenter(ancPane);
             menuItemKB.setVisible(false);
@@ -135,26 +123,7 @@ public class DocHomeHandler extends BaseHandler{
             }
             else sPaneUser.setPrefHeight(115.0);
     	});
-    	
-    	setMouseEvent(mItemPetInfo, "white", 3);
-    	
-    	mItemPetInfo.setOnMouseClicked(e -> {
-    		PetInfoListHandler controller = new PetInfoListHandler(borPaneCenter);
-    		PetInfoListScreen screen = new PetInfoListScreen(controller);
-    		borPaneCenter.setCenter(screen.getContent());
-    		menuItemUser.setVisible(false);
-    		sPaneUser.setPrefHeight(115.0);
-    	});
-    	
-    	//Event khi click vào menuItem "Chăm sóc sức khỏe" trên menu bar
-    	setMouseEvent(mItemHth, "white", 3);
-    	
-    	//Event khi click vào menuItem "Thú cưng làm đẹp" trên menu bar
-    	setMouseEvent(mItemSln, "white", 3);
-    	
-    	//Event khi click vào menuItem "Khách sạn thú cưng" trên menu bar
-    	setMouseEvent(mItemHotel, "white", 3);
-    	
+    	    	
     	//Event khi click vào menuItem "Lịch khám" trên menu bar
     	setMouseEvent(mItemHthSche, "white", 3);
 

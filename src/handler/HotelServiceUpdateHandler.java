@@ -6,10 +6,8 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import main.Main;
-import screen.ListScreen;
-
+import utils.Configs;
 import java.util.ArrayList;
-
 import entity.service.HotelService;
 import entity.system.PetHomeSystem;
 import javafx.scene.layout.BorderPane;
@@ -19,8 +17,9 @@ public class HotelServiceUpdateHandler extends BaseHandler{
 	private HotelService healthS = new HotelService();
 	
 	public HotelServiceUpdateHandler (BorderPane borPane, HotelService healthService) {
-		this.borPane = borPane;
+		super(borPane);
 		this.healthS = healthService;
+		this.loadFXML(Configs.HOL_SER_AU_PATH);
 	}
 	
     @FXML
@@ -66,15 +65,15 @@ public class HotelServiceUpdateHandler extends BaseHandler{
 		btnUpdate.setText("Chỉnh sửa ảnh");
 		btnSave.setText("Lưu cập nhật");
     	
-		name.setPromptText(healthS.getName());
-		intro.setPromptText(healthS.getIntroduction());
-		diet.setPromptText(healthS.getDiet());
-		excercise.setPromptText(healthS.gettakeexercise());
-		clean.setPromptText(healthS.getClean());
-		price.setPromptText(healthS.getPrice());
+		name.setText(healthS.getName());
+		intro.setText(healthS.getIntroduction());
+		diet.setText(healthS.getDiet());
+		excercise.setText(healthS.gettakeexercise());
+		clean.setText(healthS.getClean());
+		price.setText(healthS.getPrice());
 		air.setSelected(healthS.isAirconditioning());
 		heat.setSelected(healthS.isHeating());
-		camera.setPromptText(healthS.getCamera());
+		camera.setText(healthS.getCamera());
 		
     	setMouseEvent(btnUpdate, "white", 3);
     	setMouseEvent(btnSave, "white", 3);
@@ -82,20 +81,19 @@ public class HotelServiceUpdateHandler extends BaseHandler{
     	btnSave.setOnMouseClicked(e -> {
     		
     		ArrayList<String> value = new ArrayList<String>();
-    		value.add(name.getText());
-    		value.add(intro.getText());
-    		value.add(price.getText());
     		value.add(diet.getText());
     		value.add(excercise.getText());
     		value.add(String.valueOf(air.isSelected()));
     		value.add(String.valueOf(heat.isSelected()));
     		value.add(clean.getText());
     		value.add(camera.getText());
+    		value.add(name.getText());
+    		value.add(intro.getText());
+    		value.add(price.getText());
     		
     		try {
 				Main.system.upOneService(PetHomeSystem.HotelServiceId, healthS, value);
-				HotelServiceHandler controller = new HotelServiceHandler(borPane);
-				ListScreen screen = new ListScreen(controller);
+				HotelServiceInfoHandler screen = new HotelServiceInfoHandler(borPane, this.healthS);
 				borPane.setCenter(screen.getContent());
 			} catch (Exception e1) {
 				// TODO Auto-generated catch block

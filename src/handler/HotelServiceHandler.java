@@ -8,8 +8,6 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
 import main.Main;
-import screen.HotelServiceAUScreen;
-import screen.HotelServiceItemScreen;
 
 public class HotelServiceHandler extends ListHandler{
 	
@@ -49,15 +47,14 @@ public class HotelServiceHandler extends ListHandler{
 		};
     	
     	btnAdd.setOnMouseClicked( e-> {
-    		HotelServiceAddHandler controller = new HotelServiceAddHandler(this.borPane);
-    		btnAddClick(this.borPane, new HotelServiceAUScreen(controller));
+    		HotelServiceAddHandler screen = new HotelServiceAddHandler(this.borPane);
+    		btnAddClick(this.borPane, screen);
     	});
     }
     
     @Override
     public void addSeviceScreen(Service service, FlowPane fPaneContent) {
-    	HotelServiceItemHandler controller = new HotelServiceItemHandler(this.borPane, service);
-    	HotelServiceItemScreen screen = new HotelServiceItemScreen(controller, service);
+    	HotelServiceItemHandler screen = new HotelServiceItemHandler(this.borPane, service);
     	itemScreen.add(screen);
     	fPaneContent.getChildren().add(screen.getContent());
 	}

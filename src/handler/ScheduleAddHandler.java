@@ -1,10 +1,13 @@
 package handler;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 import entity.pet.Pet;
 import entity.user.Owner;
 import entity.service.Service;
 import entity.service.ServiceList;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
@@ -13,28 +16,54 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
 import main.Main;
+import utils.Configs;
 
 public class ScheduleAddHandler extends BaseHandler{
 	
-	public ScheduleAddHandler(BorderPane borPane) {
-		this.borPane = borPane;
-	}
+	private Service service;
 	
+	public ScheduleAddHandler(BorderPane borPane, Service service) {
+		super(borPane);
+		this.service = service;
+		this.loadFXML(Configs.SCHEDULE_AU_PATH);
+	}
+    @FXML
+    private ComboBox<Service> serviceType;
+
+    @FXML
+    private ComboBox<ServiceList> serviceListType;
+
+    @FXML
+    private ComboBox<Pet> pet;
+
     @FXML
     private Label title;
 
     @FXML
-    private DatePicker timeStart;
+    private HBox hBoxStartTime;
 
     @FXML
-    private ComboBox<String> serviceType;
+    private TextField startHour;
 
     @FXML
-    private ComboBox<String> serviceListType;
+    private TextField startMin;
 
     @FXML
-    private ComboBox<String> pet;
+    private DatePicker startDay;
+
+    @FXML
+    private HBox hBoxEndTime;
+
+    @FXML
+    private TextField endHour;
+
+    @FXML
+    private TextField endMin;
+
+    @FXML
+    private DatePicker endDay;
 
     @FXML
     private TextField note;
@@ -50,46 +79,76 @@ public class ScheduleAddHandler extends BaseHandler{
     	//tai danh sach cac dv, loai dv con, pet vao combobox
     	title.setText("Đặt lịch mới");
 
+    	//Lấy danh sách tất cả các dv lớn và load vào comboBox
     	ArrayList<ServiceList> list = Main.system.getAllServicelist();
-    	ArrayList<String> serviceListTypeData = new ArrayList<String>();
-    	for(int i=0; i<list.size(); i++) {
-    		serviceListTypeData.add(list.get(i).getName());
-    	}
-
-    	ArrayList<String> serviceTypeData = new ArrayList<String>();
-    	if(serviceListType.getValue() != null) {
-    		serviceType.setDisable(true);
+    	serviceListType.getItems().addAll(list); 
     	
-    		try {
-				ArrayList<Service> childlist = Main.system.getServiceListChild(serviceListType.getValue());				
-	        	for(int i=0; i<childlist.size(); i++) {
-	        		serviceTypeData.add(childlist.get(i).getName());
-	        	}
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-        	
-    	}else {
-    		serviceType.setDisable(false);
-    	}
-    	
-    	ArrayList<String> petData = new ArrayList<String>();
-		try {
-			ArrayList<Pet> petlist = ((Owner)Main.user).getPetlist().getPetlist();			
-	    	for(int i=0; i<petlist.size(); i++) {
-	    		petData.add(petlist.get(i).getName());
+    	//Thiết lập sẵn giá trị nếu ng dùng đặt lịch từ 1 dv cụ thể
+    	try {
+    		//thiết lập sẵn cho combobox của dv lớn
+	    	serviceListType.setValue(Main.system.getServiceList(service.getListId()));
+	    	
+	    	//thiết lập sãn cho combobox của dv nhỏ
+	    	if(serviceListType.getValue() != null) {
+	    		serviceType.setDisable(false);
 	    	}
+	    	serviceType.setValue(service);
+    	}
+    	catch(Exception e) {
+    		
+    	}
+    	
+    	//Thiết lập comboBox của dv con tương ứng với dv lớn đc chọn
+    	serviceListType.valueProperty().addListener(new ChangeListener<ServiceList>() {
+            @Override
+            public void changed(ObservableValue<? extends ServiceList> observable, ServiceList oldValue, ServiceList newValue) {
+            	if(serviceListType.getValue() != null) {
+            		serviceType.setDisable(false);
+            			try {
+            				ArrayList<Service> serviceTypeData = Main.system.getServiceListChild(newValue);
+							serviceType.getItems().addAll(serviceTypeData);
+						} catch (Exception e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}	
+                	
+            	}else {
+            		serviceType.setDisable(true);
+            	}
+            }
+        });
+    	
+    	//Lấy ra ds thú cưng
+		try {
+			ArrayList<Pet> petData = ((Owner)Main.user).getPetlist().getPetlistArr();
+			pet.getItems().addAll(petData);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-    	
-
-    	// Thêm các object từ ArrayList vào combobox
-    	serviceListType.getItems().addAll(serviceListTypeData);
-    	serviceType.getItems().addAll(serviceTypeData);
-    	pet.getItems().addAll(petData);
+   	
+    	btnAdd.setOnMouseClicked(e-> {
+    		try {
+				
+				Service service = serviceType.getValue();
+	    		
+	    		Pet sPet = pet.getValue();
+	    		
+	    		
+	    		startDay.setValue(LocalDate.of(startDay.getValue().getYear(), startDay.getValue().getMonth(), startDay.getValue().getDayOfMonth()));
+	            String startTime = startDay.getValue().toString()+" "+startHour.getText()+":"+startMin.getText();
+	            System.out.println(startTime);
+	    		Main.user.getSchedulelist().addNewSchedule(sPet, service, startTime);
+	    		
+	    		ScheduleCusListHandler screen = new ScheduleCusListHandler(borPane);
+				borPane.setCenter(screen.getContent());
+				
+			} catch (Exception e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+    	});
     }
+
     
 }

@@ -19,16 +19,13 @@
          <bottom>
             <AnchorPane prefHeight="59.0" prefWidth="301.0" BorderPane.alignment="CENTER">
                <children>
-                  <Button fx:id="btnPetDetail" layoutX="74.0" layoutY="17.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="148.0" style="-fx-background-color: D7E4F2;" styleClass="rs-30-corner" stylesheets="@../css/style.css" text="Xem chi tiết" textFill="NAVY" AnchorPane.bottomAnchor="17.0" AnchorPane.leftAnchor="74.0" AnchorPane.rightAnchor="74.0" AnchorPane.topAnchor="7.0">
+                  <Button fx:id="btnPetDetail" layoutX="107.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="158.0" style="-fx-background-color: white;" styleClass="rs-30-corner" stylesheets="@../css/style.css" text="Xem chi tiết" textFill="NAVY" AnchorPane.bottomAnchor="24.0" AnchorPane.leftAnchor="107.0" AnchorPane.rightAnchor="107.0" AnchorPane.topAnchor="0.0">
                      <font>
                         <Font name="Segoe UI Bold" size="18.0" />
                      </font>
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
-                     <effect>
-                        <DropShadow />
-                     </effect>
                   </Button>
                </children>
             </AnchorPane>

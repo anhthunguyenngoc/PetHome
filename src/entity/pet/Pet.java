@@ -2,9 +2,6 @@ package entity.pet;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Objects;
@@ -13,18 +10,19 @@ import exception.NotExistPet;
 import utils.API;
 
 public class Pet {
-	private String Pet_ID; // varchar(5)
+	private int Pet_ID; // varchar(5)
     private String Name; // varchar(100)
     private String DOB; // Date
     private String Gender; // varchar(10)
     private String Type; // varchar(100)
     private String Hobby; // varchar(100)
+    private String weight;
     private int Owner; // varchar(5)
     private API api = new API();
     
     public Pet() {}
     
-    public Pet(String pet_ID, String name, String dOB, String gender, String type, String hobby, int owner) {
+    public Pet(int pet_ID, String name, String dOB, String gender, String type, String hobby, String weight, int owner) {
 		super();
 		Pet_ID = pet_ID;
 		Name = name;
@@ -32,12 +30,13 @@ public class Pet {
 		Gender = gender;
 		Type = type;
 		Hobby = hobby;
+		this.weight = weight;
 		Owner = owner;
 	}
 
 	//khi thêm pet mới thì sẽ gọi API và nếu thành công thì sẽ set giá trị
     //sau khi tạo hoặc update thì sẽ gọi API để lấy data mới
-	public Pet(String name, String dOB, String gender, String type, String hobby, int owner) throws Exception {
+	public Pet(String name, String dOB, String gender, String type, String hobby, String weight, int owner) throws Exception {
 		super();
 		
 		ArrayList<String> varPost = new ArrayList<>();   		
@@ -46,6 +45,7 @@ public class Pet {
 		varPost.add("gender");
 		varPost.add("type");
 		varPost.add("hobby");    		
+		varPost.add("weight");
 		varPost.add("owner_id");
 	   	
 		ArrayList<String> arr = new ArrayList<>();  	  		
@@ -54,6 +54,7 @@ public class Pet {
 		arr.add(gender);
 		arr.add(type); 		
 		arr.add(hobby);
+		arr.add(weight);
 		arr.add(Integer.toString(owner));
 		
 		ArrayList<String> varGet = new ArrayList<>();
@@ -63,8 +64,8 @@ public class Pet {
 		int stateCode = api.postData(varPost, varGet, arr, res, "pets");
 		
 		if(stateCode == 200) {	   	
-			this.Pet_ID = res.get(0);
-			getPetInfo();
+			this.Pet_ID = Integer.parseInt(res.get(0));
+			getInfo(arr);
 			this.Owner = owner;
 		}else {
 			throw new InvalidInformation();
@@ -73,6 +74,10 @@ public class Pet {
 	
 	public void printInfo() {
 		System.out.println(Pet_ID + " " + Name + " " + DOB + " " + Gender + " " + Type + " " + Hobby + " " + Owner);
+	}
+	
+	public String getWeight() {
+		return weight;
 	}
 
 	@Override
@@ -89,13 +94,12 @@ public class Pet {
 	
 	public static String formatDate (String inputDate) {
 		String outputDate = null;
-		SimpleDateFormat inputFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
+		SimpleDateFormat inputFormat = new SimpleDateFormat("yyyy-MM-dd");
         SimpleDateFormat outputFormat = new SimpleDateFormat("dd/MM/yyyy");
 
         try {
             Date date = inputFormat.parse(inputDate);
             outputDate = outputFormat.format(date);
-            System.out.println(outputDate);
         } catch (ParseException e) {
             e.printStackTrace();
         }
@@ -103,7 +107,7 @@ public class Pet {
 		return outputDate;
     }
 
-	public String getPet_ID() {
+	public int getPet_ID() {
 		return Pet_ID;
 	}
 
@@ -131,7 +135,7 @@ public class Pet {
 		return Owner;
 	}
 
-	public void setPetInfo(String name, String dOB, String gender, String type, String hobby) throws Exception {
+	public void setPetInfo(String name, String dOB, String gender, String type, String hobby, String weight) throws Exception {
 		
 		ArrayList<String> varPost = new ArrayList<>();
 		varPost.add("name");
@@ -139,45 +143,32 @@ public class Pet {
 		varPost.add("gender");
 		varPost.add("type");
 		varPost.add("hobby");    		
-	   	
-		ArrayList<String> arr = new ArrayList<>();  	
+		varPost.add("weight");
+
+		ArrayList<String> arr = new ArrayList<>();  	  		
 		arr.add(name);
 		arr.add(dOB);
 		arr.add(gender);
 		arr.add(type); 		
-		arr.add(hobby); 		
+		arr.add(hobby);
+		arr.add(weight);		
 		
 		int stateCode = api.putData(varPost, arr, "pets/"+this.Pet_ID);
 		
 		if(stateCode == 200) {
-			getPetInfo();
+			getInfo(arr);
 		}else {
 			throw new InvalidInformation();
 		}
 	}
 	
-	private void getPetInfo() throws Exception {
-			
-		ArrayList<String> varGet = new ArrayList<>();
-		varGet.add("name");
-		varGet.add("dob");
-		varGet.add("gender");
-		varGet.add("type");
-		varGet.add("hobby");    		
-		
-		ArrayList<String> petInfo = new ArrayList<String>();
-		
-		int stateCode = api.getData(varGet, petInfo, "pets/detail/"+this.Pet_ID);
-		
-		if(stateCode == 200) {
-			Name = petInfo.get(0);
-			DOB = formatDate(petInfo.get(1));
-			Gender = petInfo.get(2);
-			Type = petInfo.get(3);
-			Hobby = petInfo.get(4);
-		}else {
-			throw new NotExistPet();
-		}
+	private void getInfo(ArrayList<String> petInfo) throws Exception {
+		Name = petInfo.get(0);
+		DOB = formatDate(petInfo.get(1));
+		Gender = petInfo.get(2);
+		Type = petInfo.get(3);
+		Hobby = petInfo.get(4);
+		weight = petInfo.get(5);
 	}
 			
 	public void freePet() throws Exception {
@@ -188,4 +179,9 @@ public class Pet {
 			throw new NotExistPet();
 		}
 	}
+	
+	 @Override
+	    public String toString() {
+	        return Name;
+	    }
 }

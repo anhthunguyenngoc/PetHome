@@ -9,12 +9,13 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.text.Text;
 import main.Main;
-import screen.ListScreen;
+import utils.Configs;
 
 public class HotelServiceAddHandler extends BaseHandler{
 
 	public HotelServiceAddHandler (BorderPane borPane) {
-		this.borPane = borPane;
+		super(borPane);
+		this.loadFXML(Configs.HOL_SER_AU_PATH);
 	}
 	
     @FXML
@@ -64,20 +65,19 @@ public class HotelServiceAddHandler extends BaseHandler{
 		
     	btnSave.setOnMouseClicked(e -> {
     		ArrayList<String> value = new ArrayList<String>();
-    		value.add(name.getText());
-    		value.add(intro.getText());
-    		value.add(price.getText());
     		value.add(diet.getText());
     		value.add(excercise.getText());
     		value.add(String.valueOf(air.isSelected()));
     		value.add(String.valueOf(heat.isSelected()));
     		value.add(clean.getText());
     		value.add(camera.getText());
+    		value.add(name.getText());
+    		value.add(intro.getText());
+    		value.add(price.getText());   		
     		
     		try {
 				Main.system.addService(PetHomeSystem.HotelServiceId, value);
-				HotelServiceHandler controller = new HotelServiceHandler(borPane);
-				ListScreen screen = new ListScreen(controller);
+				HotelServiceHandler screen = new HotelServiceHandler(borPane);
 				borPane.setCenter(screen.getContent());
 			} catch (Exception e1) {
 				// TODO Auto-generated catch block

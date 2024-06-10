@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+
+<BorderPane fx:id="borP" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+      <HBox prefHeight="17.0" prefWidth="600.0">
+         <children>
+            <HBox alignment="CENTER">
+               <children>
+                  <ImageView fx:id="back" fitHeight="20.0" fitWidth="20.0" onMouseClicked="#backClicked" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/tab-parent/res.png" />
+                     </image>
+                  </ImageView>
+               </children>
+               <padding>
+                  <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+               </padding>
+            </HBox>
+            <HBox fx:id="reload" alignment="CENTER" onMouseClicked="#reloadClicked">
+               <children>
+                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/tab-parent/mini.png" />
+                     </image>
+                  </ImageView>
+               </children>
+               <padding>
+                  <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+               </padding>
+            </HBox>
+            <HBox fx:id="forward" alignment="CENTER">
+               <children>
+                  <ImageView fitHeight="20.0" fitWidth="20.0" onMouseClicked="#forwardClicked" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/tab-parent/res.png" />
+                     </image>
+                  </ImageView>
+               </children>
+               <padding>
+                  <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+               </padding>
+            </HBox>
+            <TextField prefHeight="31.0" prefWidth="1415.0" style="-fx-border-radius: 30; -fx-background-radius: 30;" />
+         </children>
+      </HBox>
+   </top>
+</BorderPane>

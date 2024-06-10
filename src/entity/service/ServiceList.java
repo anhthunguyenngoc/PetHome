@@ -98,4 +98,27 @@ public abstract class ServiceList {
 	public ArrayList<Service> getServicelist() {
 		return servicelist;
 	}
+	
+	public ArrayList<String> getAllServiceName() {
+		ArrayList<String> nameL = new ArrayList<String>();
+		for (Service service : servicelist) {
+			nameL.add(service.getName());
+		}
+		return nameL;
+		
+	}
+	
+	public Service getService (String name) throws Exception {
+		for(Service s : servicelist) {		
+			if(s.getName().equals(name)) {
+				return s;
+			}
+		}
+		throw new NotExistPet();
+	}
+	
+	 @Override
+	    public String toString() {
+	        return name;
+	    }
 }

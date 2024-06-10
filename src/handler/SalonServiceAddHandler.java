@@ -8,12 +8,13 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.text.Text;
 import main.Main;
-import screen.ListScreen;
+import utils.Configs;
 
 public class SalonServiceAddHandler extends BaseHandler{
 
 	public SalonServiceAddHandler (BorderPane borPane) {
-		this.borPane = borPane;
+		super(borPane);
+		this.loadFXML(Configs.SAL_SER_AU_PATH);
 	}
 	
     @FXML
@@ -51,16 +52,15 @@ public class SalonServiceAddHandler extends BaseHandler{
 		
     	btnSave.setOnMouseClicked(e -> {
     		ArrayList<String> value = new ArrayList<String>();
+    		value.add(textFProcess.getText());
+    		value.add(textFQuantity.getText());
     		value.add(textFName.getText());
     		value.add(textFIntro.getText());
     		value.add(textFPrice.getText());
-    		value.add(textFProcess.getText());
-    		value.add(textFQuantity.getText());
     		
     		try {
 				Main.system.addService(PetHomeSystem.SalonServiceId, value);
-				SalonServiceHandler controller = new SalonServiceHandler(borPane);
-				ListScreen screen = new ListScreen(controller);
+				SalonServiceHandler screen = new SalonServiceHandler(borPane);
 				borPane.setCenter(screen.getContent());
 			} catch (Exception e1) {
 				// TODO Auto-generated catch block

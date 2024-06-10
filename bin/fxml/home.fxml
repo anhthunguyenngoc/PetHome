@@ -10,6 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
@@ -17,52 +18,45 @@
    <content>
       <AnchorPane>
          <children>
-            <BorderPane fx:id="borPaneCenter" prefHeight="800.0" prefWidth="1548.0" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="115.0">
+            <BorderPane fx:id="borPaneCenter" prefHeight="800.0" prefWidth="1548.0" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="80.0">
                <bottom>
                   <AnchorPane prefHeight="60.0" prefWidth="1550.0" style="-fx-background-color: #c6def1;" BorderPane.alignment="CENTER" />
                </bottom>
             </BorderPane>
-            <AnchorPane prefHeight="115.0" style="-fx-background-color: B0c4de;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <AnchorPane prefHeight="80.0" prefWidth="1548.0">
                <children>
-                  <AnchorPane prefHeight="115.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <Pane prefHeight="80.0" prefWidth="200.0" style="-fx-background-color: B0c4de;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                  <HBox prefHeight="80.0" prefWidth="982.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <Label layoutX="158.0" layoutY="34.0" text="PET HOME" textFill="NAVY">
-                           <font>
-                              <Font name="Segoe UI Bold Italic" size="39.0" />
-                           </font>
-                        </Label>
-                        <ImageView fitHeight="115.0" fitWidth="115.0" layoutX="32.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../images/SmallLogo.png" />
-                           </image>
-                        </ImageView>
-                     </children>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                     <padding>
-                        <Insets right="30.0" />
-                     </padding>
-                  </AnchorPane>
-                  <AnchorPane layoutX="395.0" maxHeight="116.0" minHeight="115.0" prefHeight="116.0" prefWidth="871.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="380.0" AnchorPane.rightAnchor="297.0" AnchorPane.topAnchor="0.0">
-                     <children>
-                        <HBox prefHeight="115.0" prefWidth="794.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                        <AnchorPane prefHeight="80.0">
                            <children>
-                              <Button fx:id="btnDV" contentDisplay="RIGHT" mnemonicParsing="false" prefHeight="115.0" prefWidth="215.0" style="-fx-background-color: B0c4de;" text="Thông báo" textFill="NAVY">
+                              <Label layoutX="132.0" layoutY="23.0" text="PET HOME" textFill="NAVY">
                                  <font>
-                                    <Font name="System Bold" size="28.0" />
+                                    <Font name="Segoe UI Bold Italic" size="28.0" />
                                  </font>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </Button>
-                              <ScrollPane fx:id="sPaneDV" hbarPolicy="NEVER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="115.0" prefWidth="217.0" vbarPolicy="NEVER">
+                              </Label>
+                              <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="23.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <image>
+                                    <Image url="@../images/SmallLogo.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <padding>
+                              <Insets left="40.0" />
+                           </padding>
+                        </AnchorPane>
+                        <HBox prefHeight="80.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <ScrollPane fx:id="sPaneDV" hbarPolicy="NEVER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="80.0" prefWidth="202.0" vbarPolicy="NEVER">
                                  <content>
                                     <VBox>
                                        <children>
-                                          <Button fx:id="btnDV" contentDisplay="RIGHT" mnemonicParsing="false" prefHeight="115.0" prefWidth="215.0" style="-fx-background-color: B0c4de;" text="Dịch vụ" textFill="NAVY">
+                                          <Button fx:id="btnDV" contentDisplay="RIGHT" mnemonicParsing="false" prefHeight="80.0" prefWidth="200.0" style="-fx-background-color: B0c4de;" text="Dịch vụ" textFill="NAVY">
                                              <font>
-                                                <Font name="System Bold" size="28.0" />
+                                                <Font name="System Bold" size="24.0" />
                                              </font>
                                              <cursor>
                                                 <Cursor fx:constant="HAND" />
@@ -77,26 +71,17 @@
                                           </Button>
                                           <VBox fx:id="menuItemDV" visible="false">
                                              <children>
-                                                <Button fx:id="mItemHth" alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="43.0" prefWidth="215.0" style="-fx-background-color: white;" text="Chăm sóc sức khỏe" textFill="NAVY">
-                                                   <graphic>
-                                                      <ImageView fitHeight="31.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" />
-                                                   </graphic>
+                                                <Button fx:id="mItemHth" alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="43.0" prefWidth="200.0" style="-fx-background-color: white;" text="Chăm sóc sức khỏe" textFill="NAVY">
                                                    <font>
                                                       <Font name="Segoe UI" size="18.0" />
                                                    </font>
                                                 </Button>
-                                                <Button fx:id="mItemSln" alignment="TOP_LEFT" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="215.0" style="-fx-background-color: white;" text="Thú cưng làm đẹp" textFill="NAVY">
-                                                   <graphic>
-                                                      <ImageView fitHeight="31.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" />
-                                                   </graphic>
+                                                <Button fx:id="mItemSln" alignment="TOP_LEFT" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="200.0" style="-fx-background-color: white;" text="Thú cưng làm đẹp" textFill="NAVY">
                                                    <font>
                                                       <Font name="Segoe UI" size="18.0" />
                                                    </font>
                                                 </Button>
-                                                <Button fx:id="mItemHotel" alignment="TOP_LEFT" layoutX="10.0" layoutY="53.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="215.0" style="-fx-background-color: white;" text="Khách sạn thú cưng" textFill="NAVY">
-                                                   <graphic>
-                                                      <ImageView fitHeight="31.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" />
-                                                   </graphic>
+                                                <Button fx:id="mItemHotel" alignment="TOP_LEFT" layoutX="10.0" layoutY="53.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="200.0" style="-fx-background-color: white;" text="Khách sạn thú cưng" textFill="NAVY">
                                                    <font>
                                                       <Font name="Segoe UI" size="18.0" />
                                                    </font>
@@ -107,9 +92,9 @@
                                     </VBox>
                                  </content>
                               </ScrollPane>
-                              <Button fx:id="btnKK" contentDisplay="RIGHT" layoutX="440.0" layoutY="10.0" mnemonicParsing="false" prefHeight="115.0" prefWidth="215.0" style="-fx-background-color: B0c4de;" text="Khoảnh khắc" textFill="NAVY">
+                              <Button fx:id="btnKK" contentDisplay="RIGHT" layoutX="440.0" layoutY="10.0" mnemonicParsing="false" prefHeight="79.0" prefWidth="200.0" style="-fx-background-color: B0c4de;" text="Khoảnh khắc" textFill="NAVY" wrapText="true">
                                  <font>
-                                    <Font name="System Bold" size="28.0" />
+                                    <Font name="System Bold" size="24.0" />
                                  </font>
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
@@ -117,30 +102,30 @@
                               </Button>
                            </children>
                         </HBox>
+                        <HBox alignment="CENTER" fillHeight="false" maxHeight="80.0" prefHeight="80.0" spacing="20.0">
+                           <children>
+                              <Button fx:id="btnRegister" mnemonicParsing="false" prefHeight="50.0" prefWidth="131.0" style="-fx-background-color: white;" styleClass="rs-30-corner" stylesheets="@../css/style.css" text="Đăng ký" textFill="NAVY">
+                                 <font>
+                                    <Font name="Segoe UI Bold" size="20.0" />
+                                 </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                              <Button fx:id="btnLogIn" mnemonicParsing="false" prefHeight="50.0" style="-fx-background-color: white;" styleClass="rs-30-corner" stylesheets="@../css/style.css" text="Đăng nhập" textFill="NAVY">
+                                 <font>
+                                    <Font name="Segoe UI Bold" size="20.0" />
+                                 </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                           </children>
+                           <padding>
+                              <Insets right="40.0" />
+                           </padding>
+                        </HBox>
                      </children>
-                  </AnchorPane>
-                  <HBox alignment="CENTER" layoutX="1246.0" layoutY="19.0" spacing="30.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                     <children>
-                        <Button fx:id="btnRegister" mnemonicParsing="false" prefHeight="60.0" prefWidth="131.0" style="-fx-background-color: white;" styleClass="rs-30-corner" stylesheets="@../css/style.css" text="Đăng ký" textFill="NAVY">
-                           <font>
-                              <Font name="Segoe UI Bold" size="20.0" />
-                           </font>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </Button>
-                        <Button fx:id="btnLogIn" mnemonicParsing="false" prefHeight="60.0" style="-fx-background-color: white;" styleClass="rs-30-corner" stylesheets="@../css/style.css" text="Đăng nhập" textFill="NAVY">
-                           <font>
-                              <Font name="Segoe UI Bold" size="20.0" />
-                           </font>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </Button>
-                     </children>
-                     <padding>
-                        <Insets right="30.0" />
-                     </padding>
                   </HBox>
                </children>
             </AnchorPane>

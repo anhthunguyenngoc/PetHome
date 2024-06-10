@@ -14,22 +14,19 @@ import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.text.Text;
 import main.Main;
-import screen.CusHomeScreen;
-import screen.DocHomeScreen;
-import screen.RegisterScreen;
-import utils.API;
+import utils.Configs;
 
 public class LoginHandler extends BaseHandler{
-	
-	BorderPane borPane = new BorderPane();
+
 	ScrollPane scrollPane = new ScrollPane();
-	API api = new API();
 	
 	public LoginHandler(BorderPane borPane, ScrollPane scrollPane) {
-		this.borPane = borPane;
+		super(borPane);
 		this.scrollPane = scrollPane;
+		this.loadFXML(Configs.LOGIN_PATH);
 	}
 	
+
     @FXML
     private TextField textFEmail;
 
@@ -60,8 +57,7 @@ public class LoginHandler extends BaseHandler{
     	//chuyển sang màn đăng ký
     	setMouseEvent(btnLogIn, "white", 3);
     	linkRegister.setOnMouseClicked(e -> {
-    		RegisterHandler controller = new RegisterHandler(borPane, scrollPane);
-    		RegisterScreen screen = new RegisterScreen(controller);
+    		RegisterHandler screen = new RegisterHandler(borPane, scrollPane);
     		borPane.setCenter(screen.getContent());
     	});
     	
@@ -85,14 +81,20 @@ public class LoginHandler extends BaseHandler{
     private void login(String email, String pass) throws Exception {
     	if(rBtnOwner.isSelected()) {
 			Main.user = new Owner(email, pass, "login");
-			CusHomeHandler controller = new CusHomeHandler(borPane, scrollPane);
-			CusHomeScreen screen = new CusHomeScreen(controller);	 
+			((Owner)Main.user).getPetlist().getPetlistAPI(Main.user.getID());
+			CusHomeHandler screen = new CusHomeHandler(scrollPane);
 			scrollPane.setContent(null);
 			scrollPane.setContent(screen.getContent()); 
 		}else if(rBtnStaff.isSelected()) {
-			Main.user = new Staff(email, pass, "login");
+			Main.user = new Staff(email, pass, "login/staff");
+			StaffHomeHandler screen = new StaffHomeHandler(scrollPane);
+			scrollPane.setContent(null);
+			scrollPane.setContent(screen.getContent()); 
 		}else if(rBtnDoctor.isSelected()) {
-			Main.user = new Doctor(email, pass, "login");
+			Main.user = new Doctor(email, pass, "login/doctor");
+			DocHomeHandler screen = new DocHomeHandler(scrollPane); 
+			scrollPane.setContent(null);
+			scrollPane.setContent(screen.getContent()); 
 		}else {
 			throw new NotSelectUserType();
 		}

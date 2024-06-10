@@ -10,17 +10,17 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
 import main.Main;
-import screen.PetInfoItemScreen;
-import screen.PetInfoAUScreen;
+import utils.Configs;
 
 public class PetInfoListHandler extends BaseHandler{
 	
 	public PetInfoListHandler(BorderPane borPane) {
-		this.borPane = borPane;
+		super(borPane);
+		this.loadFXML(Configs.LIST_PATH);
 	}
 	
 	private ArrayList<Pet> petlist = new ArrayList<Pet>();
-	private ArrayList<PetInfoItemScreen> petlistScreen = new ArrayList<>();
+	private ArrayList<PetInfoItemHandler> petlistScreen = new ArrayList<>();
 	
     @FXML
     private Label title;
@@ -45,7 +45,7 @@ public class PetInfoListHandler extends BaseHandler{
     	title.setText("Thông tin thú cưng");
 		//khởi tạo danh sách các pet
     	try {
-			petlist = ((Owner)Main.user).getPetlist().getPetlist();
+			petlist = ((Owner)Main.user).getPetlist().getPetlistArr();
 			//thêm các phần tử giao diện
 	    	for(Pet pet : petlist) {
 	    		addPet(pet);
@@ -62,15 +62,13 @@ public class PetInfoListHandler extends BaseHandler{
     	setMouseEvent(btnAdd, LIGHT_GRAYISH_BLUE, 3);
 		
     	btnAdd.setOnMouseClicked(e -> {
-    		PetInfoAddHandler controller = new PetInfoAddHandler(borPane);
-			PetInfoAUScreen screen = new PetInfoAUScreen(controller);
+    		PetInfoAddHandler screen = new PetInfoAddHandler(borPane);
 			borPane.setCenter(screen.getContent());
 		});
     }
     
     public void addPet(Pet pet) {
-    	PetInfoItemHandler controller = new PetInfoItemHandler(borPane, pet);
-    	PetInfoItemScreen screen = new PetInfoItemScreen(controller);
+    	PetInfoItemHandler screen = new PetInfoItemHandler(borPane, pet);
     	petlistScreen.add(screen);
     	fPaneContent.getChildren().add(screen.getContent());
 	}

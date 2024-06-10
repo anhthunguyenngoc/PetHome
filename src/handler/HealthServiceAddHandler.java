@@ -8,12 +8,13 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.text.Text;
 import main.Main;
-import screen.ListScreen;
+import utils.Configs;
 
 public class HealthServiceAddHandler extends BaseHandler{
 
 	public HealthServiceAddHandler (BorderPane borPane) {
-		this.borPane = borPane;
+		super(borPane);
+		this.loadFXML(Configs.HEA_SER_AU_PATH);
 	}
 	
     @FXML
@@ -51,16 +52,15 @@ public class HealthServiceAddHandler extends BaseHandler{
 		
     	btnSave.setOnMouseClicked(e -> {
     		ArrayList<String> value = new ArrayList<String>();
+    		value.add(textFSymtom.getText());
+    		value.add(textFTreatment.getText());
     		value.add(textFName.getText());
     		value.add(textFIntro.getText());
     		value.add(textFPrice.getText());
-    		value.add(textFSymtom.getText());
-    		value.add(textFTreatment.getText());
     		
     		try {
 				Main.system.addService(PetHomeSystem.HealthServiceId, value);
-				HealthServiceHandler controller = new HealthServiceHandler(borPane);
-				ListScreen screen = new ListScreen(controller);
+				HealthServiceHandler screen = new HealthServiceHandler(borPane);
 				borPane.setCenter(screen.getContent());
 			} catch (Exception e1) {
 				// TODO Auto-generated catch block

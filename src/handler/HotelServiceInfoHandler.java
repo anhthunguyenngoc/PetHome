@@ -4,18 +4,19 @@ import entity.service.HotelService;
 import entity.service.Service;
 import javafx.fxml.FXML;
 import javafx.scene.layout.BorderPane;
-import screen.HotelServiceAUScreen;
+import utils.Configs;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.text.Text;
 
-public class HotelServiceInfoHandler extends BaseHandler{
+public class HotelServiceInfoHandler extends InfoHandler{
 
 	private Service service;
 	public HotelServiceInfoHandler (BorderPane borPane, Service service) {
-		this.borPane = borPane;
+		super(borPane);
 		this.service = service;
+		this.loadFXML(Configs.HOL_SER_INFO_PATH);
 	}
 	
     @FXML
@@ -70,13 +71,13 @@ public class HotelServiceInfoHandler extends BaseHandler{
 		setMouseEvent(btnBook, LIGHT_GRAYISH_BLUE, 3);
 		
 		btnUpdate.setOnMouseClicked(e -> {
-			HotelServiceUpdateHandler controller = new HotelServiceUpdateHandler(borPane, healthS);
-			HotelServiceAUScreen screen = new HotelServiceAUScreen(controller);
+			HotelServiceUpdateHandler screen = new HotelServiceUpdateHandler(borPane, healthS);
 			borPane.setCenter(screen.getContent());
 		});
 		
 		btnBook.setOnMouseClicked(e -> {
-
+			ScheduleAddHandler screen = new ScheduleAddHandler(borPane, this.service);
+			borPane.setCenter(screen.getContent());
 		});
 		
 	}

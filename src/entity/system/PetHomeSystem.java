@@ -2,16 +2,24 @@ package entity.system;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
+import entity.cage.Cage;
+import entity.cage.CageList;
 import entity.service.HealthServiceList;
 import entity.service.HotelServiceList;
 import entity.service.SalonServiceList;
 import entity.service.Service;
 import entity.service.ServiceList;
+import entity.user.Owner;
 import exception.HaveNoPet;
+import exception.InvalidInformation;
+import exception.NotExistPet;
 import utils.API;
 
 public class PetHomeSystem {
 	private ArrayList<ServiceList> allServicelist = new ArrayList<>();
+	private CageList freeCageList = new CageList();
+	
 	private API api = new API();
 	public static int HealthServiceId = 1;
 	public static int SalonServiceId = 2;
@@ -54,9 +62,18 @@ public class PetHomeSystem {
 		return sList.getServicelist();
 	}
 	
-	public ArrayList<Service> getServiceListChild (String name) throws Exception {
-		for(ServiceList sList : allServicelist) {
+	public ServiceList getServiceListChildByName (String name) throws Exception {
+		for(ServiceList sList : allServicelist) {		
 			if(sList.getName().equals(name)) {
+				return sList;
+			}
+		}
+		throw new NotExistPet();
+	}
+	
+	public ArrayList<Service> getServiceListChild (ServiceList name) throws Exception {
+		for(ServiceList sList : allServicelist) {		
+			if(sList.equals(name)) {
 				return sList.getServicelist();
 			}
 		}
@@ -101,4 +118,32 @@ public class PetHomeSystem {
 	public ArrayList<ServiceList> getAllServicelist() {
 		return allServicelist;
 	}
+	
+	public Cage getFreeCage() throws Exception {
+		return this.freeCageList.getFreeCageFromList();
+	}
+
+	public CageList getFreeCageList() {
+		return freeCageList;
+	}
+
+	public ArrayList<Owner> getUserList() throws Exception {
+		ArrayList<Owner> userList = new ArrayList<>();
+		ArrayList<String> varGet = new ArrayList<String>(Arrays.asList("id", "name", "phone"));	   
+		ArrayList<ArrayList<String>> data = new ArrayList<ArrayList<String>>();
+		
+		int stateCode = api.getData(varGet, data, "bookDate");
+
+		if (stateCode == 200) {
+			for(int i=0; i< data.size(); i++) {
+				Owner owner = new Owner(Integer.parseInt(data.get(i).get(0)), data.get(i).get(1), data.get(i).get(2));
+				userList.add(owner);
+			}
+		} else {
+			throw new InvalidInformation();
+		}
+		return userList;
+	}
+	
+	
 }

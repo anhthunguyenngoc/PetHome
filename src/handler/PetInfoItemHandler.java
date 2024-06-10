@@ -8,16 +8,16 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import main.Main;
-import screen.PetInfoScreen;
-import screen.ListScreen;
+import utils.Configs;
 
 public class PetInfoItemHandler extends BaseHandler{
 
 	Pet pet = new Pet();
 
 	public PetInfoItemHandler(BorderPane borPane, Pet pet) {
-		this.borPane = borPane;
+		super(borPane);
 		this.pet = pet;
+		this.loadFXML(Configs.PET_ITEM_PATH);
 	}
 	
 	@FXML
@@ -51,8 +51,7 @@ public class PetInfoItemHandler extends BaseHandler{
 		
 		//Xem chi tiết thông tin của pet
 		btnPetDetail.setOnMouseClicked(e -> {
-			PetInfoHandler controller = new PetInfoHandler(borPane, pet);
-			PetInfoScreen screen = new PetInfoScreen(controller);
+			PetInfoHandler screen = new PetInfoHandler(borPane, pet);
 			borPane.setCenter(screen.getContent());
 		});
 		
@@ -60,8 +59,7 @@ public class PetInfoItemHandler extends BaseHandler{
 			try {
 				((Owner) Main.user).getPetlist().freePet(pet);
 				//tải lại trang
-				PetInfoListHandler controller = new PetInfoListHandler(borPane);
-				ListScreen screen = new ListScreen(controller);
+				PetInfoListHandler screen = new PetInfoListHandler(borPane);
 				borPane.setCenter(screen.getContent());
 				
 			} catch (Exception e1) {

@@ -1,7 +1,6 @@
 package screen;
 
 import handler.BaseHandler;
-import handler.UpdatePetHealthHandler;
 
 public class UpdatePetHealthScreen extends BaseScreen{
 

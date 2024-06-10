@@ -1,3 +1,11 @@
 .rs-30-corner{
     -fx-background-radius: 30;
 }
+
+.rs-30-left-corner{
+    -fx-background-radius: 30 0 0 30;
+}
+
+.rs-30-right-corner{
+    -fx-background-radius: 0 30 30 0;
+}

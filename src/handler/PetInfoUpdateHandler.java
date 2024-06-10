@@ -10,15 +10,16 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.text.Text;
-import screen.PetInfoScreen;
+import utils.Configs;
 
 public class PetInfoUpdateHandler extends BaseHandler{
 	
 	private Pet pet;
 	
 	public PetInfoUpdateHandler(BorderPane borPane, Pet pet) {
-		this.borPane = borPane;
+		super(borPane);
 		this.pet = pet;
+		this.loadFXML(Configs.PET_AU_PATH);
 	}
 	
     @FXML
@@ -46,6 +47,9 @@ public class PetInfoUpdateHandler extends BaseHandler{
     private ImageView btnBack;
     
     @FXML
+    private TextField weight;
+    
+    @FXML
     private Text title;
     
     @FXML
@@ -61,7 +65,7 @@ public class PetInfoUpdateHandler extends BaseHandler{
     	textFDob.setValue(date);
     	textFGender.setText(pet.getGender());
     	textFHobby.setText(pet.getHobby());
-		
+		weight.setText(pet.getWeight());
     	setMouseEvent(btnAdd, LIGHT_GRAYISH_BLUE, 3);
 		
     	btnAdd.setOnMouseClicked(e -> { 		
@@ -70,9 +74,8 @@ public class PetInfoUpdateHandler extends BaseHandler{
             String dateString = textFDob.getValue().toString();
 
     		try {
-	    		pet.setPetInfo(textFName.getText(), dateString, textFGender.getText(), textFHobby.getText(), textFType.getText());	
-				PetInfoHandler controller = new PetInfoHandler(borPane, pet);
-				PetInfoScreen screen = new PetInfoScreen(controller);
+	    		pet.setPetInfo(textFName.getText(), dateString, textFGender.getText(), textFType.getText(), textFHobby.getText(), weight.getText());	
+	    		PetInfoHandler screen = new PetInfoHandler(borPane, pet);
 				borPane.setCenter(screen.getContent());
     		}catch (Exception e1) {
     			e1.printStackTrace();

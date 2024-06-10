@@ -27,7 +27,7 @@
                         <Font name="System Bold" size="33.0" />
                      </font>
                   </Text>
-                  <GridPane prefHeight="268.0" prefWidth="865.0">
+                  <GridPane prefWidth="865.0">
                      <columnConstraints>
                         <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="297.0" minWidth="10.0" prefWidth="271.0" />
                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="297.0" minWidth="10.0" prefWidth="212.0" />
@@ -36,6 +36,7 @@
                      <rowConstraints>
                         <RowConstraints maxHeight="107.0" minHeight="10.0" prefHeight="75.0" vgrow="SOMETIMES" />
                         <RowConstraints maxHeight="215.0" minHeight="10.0" prefHeight="75.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="273.0" minHeight="10.0" prefHeight="75.0" vgrow="SOMETIMES" />
                         <RowConstraints maxHeight="273.0" minHeight="10.0" prefHeight="75.0" vgrow="SOMETIMES" />
                         <RowConstraints maxHeight="273.0" minHeight="10.0" prefHeight="75.0" vgrow="SOMETIMES" />
                         <RowConstraints maxHeight="273.0" minHeight="10.0" prefHeight="75.0" vgrow="SOMETIMES" />
@@ -56,7 +57,7 @@
                               <Font size="22.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="textFName" text="texe" GridPane.columnIndex="2" />
+                        <TextField fx:id="textFName" GridPane.columnIndex="2" />
                         <TextField fx:id="textFType" GridPane.columnIndex="2" GridPane.rowIndex="2" />
                         <Label text="Giới tính: " textFill="#403a3a" GridPane.columnIndex="1" GridPane.rowIndex="3">
                            <font>
@@ -70,11 +71,11 @@
                         </Label>
                         <TextField fx:id="textFGender" GridPane.columnIndex="2" GridPane.rowIndex="3" />
                         <TextField fx:id="textFHobby" GridPane.columnIndex="2" GridPane.rowIndex="4" />
-                        <AnchorPane GridPane.rowSpan="4">
+                        <AnchorPane prefHeight="212.0" prefWidth="272.0" GridPane.rowSpan="3">
                            <children>
                               <VBox layoutX="46.0" layoutY="14.0">
                                  <children>
-                                    <AnchorPane style="-fx-background-color: B0c4de;">
+                                    <AnchorPane prefHeight="82.0" prefWidth="181.0" style="-fx-background-color: B0c4de;">
                                        <children>
                                           <ImageView fitHeight="157.0" fitWidth="181.0" pickOnBounds="true" preserveRatio="true" />
                                        </children>
@@ -83,7 +84,7 @@
                               </VBox>
                            </children>
                         </AnchorPane>
-                        <Button fx:id="btnUpload" mnemonicParsing="false" prefHeight="51.0" prefWidth="131.0" style="-fx-background-color: white;" styleClass="rs-30-corner" stylesheets="@../css/style.css" text="Tải ảnh" textFill="NAVY" GridPane.rowIndex="4">
+                        <Button fx:id="btnUpload" mnemonicParsing="false" prefHeight="51.0" prefWidth="131.0" style="-fx-background-color: white;" styleClass="rs-30-corner" stylesheets="@../css/style.css" text="Tải ảnh" textFill="NAVY" GridPane.rowIndex="3">
                            <font>
                               <Font name="Segoe UI Bold" size="20.0" />
                            </font>
@@ -91,7 +92,13 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <DatePicker fx:id="textFDob" prefHeight="31.0" prefWidth="395.0" promptText="26/01" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                        <DatePicker fx:id="textFDob" prefHeight="31.0" prefWidth="395.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                        <Label text="Cân nặng: " textFill="#403a3a" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="weight" GridPane.columnIndex="2" GridPane.rowIndex="5" />
                      </children>
                   </GridPane>
                   <Button fx:id="btnAdd" mnemonicParsing="false" prefHeight="51.0" prefWidth="131.0" style="-fx-background-color: white;" styleClass="rs-30-corner" stylesheets="@../css/style.css" text="Thêm mới" textFill="NAVY">

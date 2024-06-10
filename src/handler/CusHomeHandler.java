@@ -9,24 +9,17 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import main.Main;
-import screen.HomePageScreen;
-import screen.HomeScreen;
-import screen.ListScreen;
+import utils.Configs;
 
-public class CusHomeHandler extends HomeHandler{
-
-	ScrollPane scrollPane = new ScrollPane();
+public class CusHomeHandler extends UserHomeHandler{
 	
-	public CusHomeHandler(BorderPane borPane, ScrollPane scrollPane) {
-		this.borPane = borPane;
-		this.scrollPane = scrollPane;
+	
+	public CusHomeHandler(ScrollPane scrollPane) {
+		super(Configs.CUS_HOME_PATH, scrollPane);
 	}
 	
     @FXML
     private BorderPane borPaneCenter;
-
-    @FXML
-    private Button btnTB;
 
     @FXML
     private ScrollPane sPaneDV;
@@ -47,19 +40,7 @@ public class CusHomeHandler extends HomeHandler{
     private Button mItemHotel;
 
     @FXML
-    private ScrollPane sPaneKB;
-
-    @FXML
-    private Button btnKB;
-
-    @FXML
-    private VBox menuItemKB;
-
-    @FXML
-    private Button mItemHthSche;
-
-    @FXML
-    private Button mItemUpHealth;
+    private Button btnLich;
 
     @FXML
     private Button btnKK;
@@ -74,62 +55,61 @@ public class CusHomeHandler extends HomeHandler{
     private VBox menuItemUser;
 
     @FXML
-    private Button btnPetInfo;
-    
-    @FXML
     private Button btnUserInfo;
-    
+
+    @FXML
+    private Button btnPetInfo;
+
+    @FXML
+    private Button btnSetting;
+
     @FXML
     private Button btnLogOut;
     
     @FXML
     private void initialize() {
-    	HomePageHandler homePageController = new HomePageHandler(borPaneCenter);
-		HomePageScreen homePageScreen = new HomePageScreen(homePageController);
-		borPaneCenter.setCenter(homePageScreen.getContent());
+    	this.borPane = borPaneCenter;
+    	
+    	HomePageHandler homePage = new HomePageHandler(borPaneCenter);
+    	borPaneCenter.setCenter(homePage.getContent());
 		
 		ArrayList<Button> btn = new ArrayList<Button>();
 	    btn.add(btnDV);
-	    ArrayList<ArrayList<Button>> mItem = new ArrayList<ArrayList<Button>>();
 	    ArrayList<Button> mItem0 = new ArrayList<Button>();
 	    mItem0.add(mItemHth);
 	    mItem0.add(mItemSln);
 	    mItem0.add(mItemHotel);
-	    mItem.add(mItem0);
-	    header(btn,  mItem);
-
-    	setMouseEvent(btnUserInfo, "white", 3);
-    	
-    	imaUserInfo.setOnMouseClicked(e -> {    		
-    		menuItemUser.setVisible(!menuItemUser.isVisible());
-    		if(menuItemUser.isVisible()) {  			
-    			sPaneUser.setPrefHeight(256.0);
-            }
-            else sPaneUser.setPrefHeight(115.0);
-    		
-    	});
-    	
+	    
+	    header(btn,  mItem0, menuItemDV, sPaneDV);
+	    
+	    ArrayList<Button> mItem1 = new ArrayList<Button>();
+	    mItem1.add(btnUserInfo);
+	    mItem1.add(btnSetting);
+	    mItem1.add(btnLogOut);
+	    userClick(imaUserInfo, menuItemUser, sPaneUser, mItem1);
+   	
+    	    	
     	//Xem thông tin thú cưng
     	setMouseEvent(btnPetInfo, "white", 3);
     	btnPetInfo.setOnMouseClicked(e -> {
     		try {
 				((Owner)Main.user).getPetlist().getPetlistAPI(Main.user.getID());
-				PetInfoListHandler controller = new PetInfoListHandler(borPaneCenter);
-	    		ListScreen screen = new ListScreen(controller);
+				PetInfoListHandler screen = new PetInfoListHandler(borPaneCenter);
+
 	    		borPaneCenter.setCenter(screen.getContent());
 	    		menuItemUser.setVisible(false);
-	    		sPaneUser.setPrefHeight(115.0);
+	    		sPaneUser.setPrefHeight(80.0);
 			} catch (Exception e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}   		
     	});
     	
-    	setMouseEvent(btnLogOut, "white", 3);    	
-    	btnLogOut.setOnMouseClicked(e -> {
-    		HomeScreen screen = new HomeScreen();
-    		scrollPane.setContent(null);
-    		scrollPane.setContent(screen.getContent());
+    	    	
+    	//Xem "Lịch đặt"
+    	btnLich.setOnMouseClicked(e -> {
+    		ScheduleCusListHandler screen = new ScheduleCusListHandler(borPaneCenter);
+    		borPaneCenter.setCenter(screen.getContent());
     	});
 
     }

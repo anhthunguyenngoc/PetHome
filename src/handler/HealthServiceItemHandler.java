@@ -8,16 +8,12 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.text.Text;
-import main.Main;
-import screen.HealthServiceAUScreen;
-import screen.HealthServiceInfoScreen;
-import screen.ListScreen;
+import utils.Configs;
 
-public class HealthServiceItemHandler extends BaseHandler{
-	private Service service;
-	public HealthServiceItemHandler(BorderPane borPane, Service service) {
-		this.borPane = borPane;
-		this.service = service;
+public class HealthServiceItemHandler extends ItemHandler{
+
+	public HealthServiceItemHandler(BorderPane borPane, Service service) {		
+		super(Configs.HEA_SER_ITEM_PATH, borPane, service);
 	}
 
     @FXML
@@ -41,24 +37,17 @@ public class HealthServiceItemHandler extends BaseHandler{
     	intro.setText(this.service.getIntroduction());
     	
     	btnDetail.setOnMouseClicked(e -> {
-    		HealthServiceInfoHandler controller = new HealthServiceInfoHandler(borPane, this.service);
-			HealthServiceInfoScreen screen = new HealthServiceInfoScreen(controller);
-			borPane.setCenter(screen.getContent());
+    		HealthServiceInfoHandler screen = new HealthServiceInfoHandler(borPane, this.service);
+			btnDetailClick(screen);
     	});
     	
     	btnDel.setOnMouseClicked(e -> {
-    		try {
-    			Main.system.remOneService(PetHomeSystem.HealthServiceId, service);
-
-    			HealthServiceHandler controller = new HealthServiceHandler(borPane);
-        		ListScreen screen = new ListScreen(controller);
-    			borPane.setCenter(screen.getContent());
-    			
-    		} catch (Exception e1) {
-    			// TODO Auto-generated catch block
-    			e1.printStackTrace();
-    		}			
+    		HealthServiceHandler controller = new HealthServiceHandler(borPane);
+    		btnDelClick(PetHomeSystem.HealthServiceId, service, controller);		
     	});
     	
+    	btnBook.setOnMouseClicked( e-> {
+    		btnBookClick(this.service);
+    	});
     }    
 }

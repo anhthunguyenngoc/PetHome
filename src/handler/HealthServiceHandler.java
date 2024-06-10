@@ -1,5 +1,7 @@
 package handler;
 
+import java.util.ArrayList;
+
 import entity.service.Service;
 import entity.system.PetHomeSystem;
 import javafx.fxml.FXML;
@@ -8,16 +10,14 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
 import main.Main;
-import screen.HealthServiceAUScreen;
-import screen.HealthServiceItemScreen;
 
 public class HealthServiceHandler extends ListHandler{
-	
-	public HealthServiceHandler(BorderPane borPane) {
+
+    public HealthServiceHandler (BorderPane borPane) {
 		super(borPane);
 	}
-	
-    @FXML
+
+	@FXML
     private Label title;
 
     @FXML
@@ -42,23 +42,27 @@ public class HealthServiceHandler extends ListHandler{
 
     	try {
 			this.serviceList = Main.system.getServiceListChild(PetHomeSystem.HealthServiceId);
-			addScreen(fPaneContent);
+			for(Service service : serviceList) {
+				System.out.println( service);
+				HealthServiceItemHandler screen = new HealthServiceItemHandler(this.borPane, service);
+		    	//this.itemScreen.add(screen);
+		    	fPaneContent.getChildren().add(screen.getContent());
+			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		};
     	
     	btnAdd.setOnMouseClicked( e-> {
-    		HealthServiceAddHandler controller = new HealthServiceAddHandler(this.borPane);
-    		btnAddClick(this.borPane, new HealthServiceAUScreen(controller));
+    		HealthServiceAddHandler screen = new HealthServiceAddHandler(this.borPane);
+    		btnAddClick(this.borPane, screen);
     	});
     }
     
     @Override
     public void addSeviceScreen(Service service, FlowPane fPaneContent) {
-    	HealthServiceItemHandler controller = new HealthServiceItemHandler(this.borPane, service);
-    	HealthServiceItemScreen screen = new HealthServiceItemScreen(controller, service);
-    	itemScreen.add(screen);
+    	HealthServiceItemHandler screen = new HealthServiceItemHandler(this.borPane, service);
+    	this.itemScreen.add(screen);
     	fPaneContent.getChildren().add(screen.getContent());
 	}
 	

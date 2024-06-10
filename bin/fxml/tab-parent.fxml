@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+
+<BorderPane fx:id="parent" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+      <HBox prefHeight="13.0" prefWidth="600.0">
+         <children>
+            <HBox fx:id="tabList" prefHeight="19.0" prefWidth="480.0" HBox.hgrow="ALWAYS" />
+            <HBox>
+               <children>
+                  <HBox alignment="CENTER">
+                     <children>
+                        <ImageView fx:id="hide" fitHeight="20.0" fitWidth="20.0" onMouseClicked="#hideClicked" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/tab-parent/res.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                     <padding>
+                        <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+                     </padding>
+                  </HBox>
+                  <HBox alignment="CENTER" onMouseClicked="#miniClicked">
+                     <children>
+                        <ImageView fx:id="minimize" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/tab-parent/mini.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                     <padding>
+                        <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+                     </padding>
+                  </HBox>
+                  <HBox fx:id="exit" alignment="CENTER">
+                     <children>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" onMouseClicked="#exitClicked" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/tab-parent/exit.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                     <padding>
+                        <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+                     </padding>
+                  </HBox>
+               </children>
+            </HBox>
+         </children>
+      </HBox>
+   </top>
+</BorderPane>

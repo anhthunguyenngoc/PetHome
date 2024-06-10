@@ -1,11 +1,13 @@
 package entity.user;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-
-import entity.pet.PetList;
+import java.util.Date;
+import exception.InvalidInformation;
+import exception.NotExistPet;
 import exception.UserNotFound;
+import schedule.ScheduleList;
 import utils.API;
 
 public class User {
@@ -15,13 +17,24 @@ public class User {
     protected String gender;
     protected String phone;
     protected String address;
+    protected ScheduleList schedulelist = new ScheduleList();
+    
     protected API api = new API();
 	
     public User() {
 		super();
 	}
+    
+    public User(int iD, String name, String phone) {
+		super();
+		ID = iD;
+		this.name = name;
+		this.phone = phone;
+	}
 
-    //hàm khởi tạo khi người dùng đăng nhập và đăng ký
+
+
+	//hàm khởi tạo khi người dùng đăng nhập và đăng ký
 	public User(String email, String pass, String url) throws Exception {
 		super();
 		//thông tin
@@ -41,9 +54,26 @@ public class User {
 		int statusCode = api.postData(varPost, varGet, arr, obj, url);   		
 		if(statusCode == 200) {
 			ID = Integer.parseInt(obj.get(0));
-			System.out.println(ID);
+			schedulelist.setUserId(ID);
 		}else if(statusCode != 200) {
 			throw new UserNotFound();
+		}
+		
+		ArrayList<String> varGetInfo = new ArrayList<>();
+		varGetInfo.add("name");
+		varGetInfo.add("dob");
+		varGetInfo.add("gender");
+		varGetInfo.add("phone");
+		varGetInfo.add("address");  		
+		
+		ArrayList<String> info = new ArrayList<String>();
+		
+		int stateCode = api.getData(varGetInfo, info, "profile/"+this.ID);
+		
+		if(stateCode == 200) {
+			getInfo(info);
+		}else {
+			throw new NotExistPet();
 		}
 		
 	}
@@ -53,18 +83,59 @@ public class User {
 		return ID;
 	}
 	
-	public static String formatDate (String dateString) {
-		String formattedDate = null;
-		if(!dateString.equals("null")) {	
-	    	LocalDateTime dateTime = LocalDateTime.parse(dateString, DateTimeFormatter.ISO_DATE_TIME);
-	        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-	        formattedDate = dateTime.format(formatter);
-		}
-        return formattedDate;
+	public static String formatDate (String inputDate) throws Exception {
+		String outputDate = null;
+		SimpleDateFormat inputFormat = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat outputFormat = new SimpleDateFormat("dd/MM/yyyy");
+
+        try {
+            Date date = inputFormat.parse(inputDate);
+            outputDate = outputFormat.format(date);
+            System.out.println(outputDate);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        
+		return outputDate;
     }
 	
-	public void get() {
+	public void setInfo(String name, String dOB, String gender, String phone, String address) throws Exception {
 		
+		ArrayList<String> varPost = new ArrayList<>();
+		varPost.add("name");
+		varPost.add("dob");
+		varPost.add("gender");
+		varPost.add("phone");
+		varPost.add("address");    		
+	   	
+		ArrayList<String> arr = new ArrayList<>();  	
+		arr.add(name);
+		arr.add(dOB);
+		arr.add(gender);
+		arr.add(phone); 		
+		arr.add(address); 		
+		
+		int stateCode = api.putData(varPost, arr, "profile/"+this.ID);
+		
+		if(stateCode == 200) {
+			getInfo(arr);
+		}else {
+			throw new InvalidInformation();
+		}
+	}
+	
+	public void getInfo(ArrayList<String> info) throws Exception {
+		this.name = info.get(0);
+		try {
+			DOB = formatDate(info.get(1));
+		}catch(Exception e) {
+			DOB = "null";
+		}
+		
+		this.gender = info.get(2);
+		
+		this.phone = info.get(3);
+		this.address = info.get(4);
 	}
 
 	public String getName() {
@@ -80,31 +151,30 @@ public class User {
 	}
 
 	public String getPhone() {
-		return phone;
+		return this.phone;
 	}
 
 	public String getAddress() {
 		return address;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public ScheduleList getSchedulelist() {
+		return schedulelist;
 	}
+	
+	public void setPass(String pass) throws InvalidInformation {
+		ArrayList<String> varPost = new ArrayList<>();
+		varPost.add("password");
 
-	public void setDOB(String dOB) {
-		DOB = dOB;
+		ArrayList<String> arr = new ArrayList<>();  	
+		arr.add(pass);		
+		
+		int stateCode = api.putData(varPost, arr, "change-password/"+this.ID);
+		
+		if(stateCode == 200) {
+
+		}else {
+			throw new InvalidInformation();
+		}
 	}
-
-	public void setGender(String gender) {
-		this.gender = gender;
-	}
-
-	public void setPhone(String phone) {
-		this.phone = phone;
-	}
-
-	public void setAddress(String address) {
-		this.address = address;
-	}
-
 }

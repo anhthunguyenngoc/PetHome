@@ -23,6 +23,7 @@ public abstract class Service {
     public Service(String name, String introduction, String price) {
 	    this.name = name;
 	    this.introduction = introduction;
+	    this.price = price;
 	}
     
 	public Service(String id, int listId, String name, String introduction, String price) {
@@ -30,6 +31,7 @@ public abstract class Service {
 	    this.listId = listId;
 	    this.name = name;
 	    this.introduction = introduction;
+	    this.price = price;
 	}
 
 	public String getId() {
@@ -79,6 +81,10 @@ public abstract class Service {
 		
 	}
 
+	public int getListId() {
+		return listId;
+	}
+
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
@@ -95,5 +101,9 @@ public abstract class Service {
 		Service other = (Service) obj;
 		return Objects.equals(id, other.id);
 	}
-
+	
+	 @Override
+	    public String toString() {
+	        return name;
+	    }
 }

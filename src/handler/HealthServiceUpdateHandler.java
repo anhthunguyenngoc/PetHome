@@ -5,10 +5,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import main.Main;
-import screen.ListScreen;
-
+import utils.Configs;
 import java.util.ArrayList;
-
 import entity.service.HealthService;
 import entity.system.PetHomeSystem;
 import javafx.scene.layout.BorderPane;
@@ -18,8 +16,9 @@ public class HealthServiceUpdateHandler extends BaseHandler{
 	private HealthService healthS = new HealthService();
 	
 	public HealthServiceUpdateHandler (BorderPane borPane, HealthService healthService) {
-		this.borPane = borPane;
+		super(borPane);
 		this.healthS = healthService;
+		this.loadFXML(Configs.HEA_SER_AU_PATH);
 	}
 	
     @FXML
@@ -53,11 +52,11 @@ public class HealthServiceUpdateHandler extends BaseHandler{
 		btnUpdate.setText("Chỉnh sửa ảnh");
 		btnSave.setText("Lưu cập nhật");
     	
-		textFName.setPromptText(healthS.getName());
-		textFIntro.setPromptText(healthS.getIntroduction());
-		textFSymtom.setPromptText(healthS.getSymptom());
-		textFTreatment.setPromptText(healthS.getTreatment());		
-		textFPrice.setPromptText(healthS.getPrice());
+		textFName.setText(healthS.getName());
+		textFIntro.setText(healthS.getIntroduction());
+		textFSymtom.setText(healthS.getSymptom());
+		textFTreatment.setText(healthS.getTreatment());		
+		textFPrice.setText(healthS.getPrice());
 		
     	setMouseEvent(btnUpdate, "white", 3);
     	setMouseEvent(btnSave, "white", 3);
@@ -65,16 +64,15 @@ public class HealthServiceUpdateHandler extends BaseHandler{
     	btnSave.setOnMouseClicked(e -> {
     		
     		ArrayList<String> value = new ArrayList<String>();
+    		value.add(textFSymtom.getText());
+    		value.add(textFTreatment.getText());
     		value.add(textFName.getText());
     		value.add(textFIntro.getText());
     		value.add(textFPrice.getText());
-    		value.add(textFSymtom.getText());
-    		value.add(textFTreatment.getText());
     		
     		try {
 				Main.system.upOneService(PetHomeSystem.HealthServiceId, healthS, value);
-				HealthServiceHandler controller = new HealthServiceHandler(borPane);
-				ListScreen screen = new ListScreen(controller);
+				HealthServiceInfoHandler screen = new HealthServiceInfoHandler(borPane, this.healthS);
 				borPane.setCenter(screen.getContent());
 			} catch (Exception e1) {
 				// TODO Auto-generated catch block

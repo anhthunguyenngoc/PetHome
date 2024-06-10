@@ -8,16 +8,12 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.text.Text;
-import main.Main;
-import screen.HotelServiceAUScreen;
-import screen.HotelServiceInfoScreen;
-import screen.ListScreen;
+import utils.Configs;
 
-public class HotelServiceItemHandler extends BaseHandler{
-	private Service service;
+public class HotelServiceItemHandler extends ItemHandler{
+
 	public HotelServiceItemHandler(BorderPane borPane, Service service) {
-		this.borPane = borPane;
-		this.service = service;
+		super(Configs.HOL_SER_ITEM_PATH, borPane, service);
 	}
 
     @FXML
@@ -36,28 +32,22 @@ public class HotelServiceItemHandler extends BaseHandler{
     private Text intro;
     
     @FXML
-    private void initialize() {
+    private void initialize() {    	
     	title.setText(this.service.getName());
     	intro.setText(this.service.getIntroduction());
     	
     	btnDetail.setOnMouseClicked(e -> {
-    		HotelServiceInfoHandler controller = new HotelServiceInfoHandler(borPane, this.service);
-			HotelServiceInfoScreen screen = new HotelServiceInfoScreen(controller);
-			borPane.setCenter(screen.getContent());
+    		HotelServiceInfoHandler screen = new HotelServiceInfoHandler(borPane, this.service);
+			btnDetailClick(screen);
     	});
     	
     	btnDel.setOnMouseClicked(e -> {
-    		try {
-    			Main.system.remOneService(PetHomeSystem.HotelServiceId, service);
-
-    			HotelServiceHandler controller = new HotelServiceHandler(borPane);
-        		ListScreen screen = new ListScreen(controller);
-    			borPane.setCenter(screen.getContent());
-    			
-    		} catch (Exception e1) {
-    			// TODO Auto-generated catch block
-    			e1.printStackTrace();
-    		}			
+    		HotelServiceHandler controller = new HotelServiceHandler(borPane);
+    		btnDelClick(PetHomeSystem.HotelServiceId, service, controller);		
+    	});
+    	
+    	btnBook.setOnMouseClicked( e-> {
+    		btnBookClick(service);
     	});
     	
     }    

@@ -12,15 +12,16 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<VBox alignment="CENTER" prefWidth="1196.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <AnchorPane maxHeight="635.0" maxWidth="900.0" style="-fx-background-color: D7E4F2; -fx-background-radius: 30;">
+      <AnchorPane maxWidth="900.0" style="-fx-background-color: D7E4F2; -fx-background-radius: 30;">
          <children>
-            <VBox alignment="CENTER" layoutX="90.0" layoutY="90.0" maxHeight="575.0" maxWidth="840.0" spacing="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <VBox alignment="CENTER" layoutX="90.0" layoutY="90.0" maxWidth="840.0" spacing="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
                   <Label fx:id="title" alignment="CENTER" maxWidth="840.0" text="Tiêu đề" textAlignment="CENTER" textFill="NAVY">
                      <font>
@@ -33,11 +34,11 @@
                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="650.0" minWidth="200.0" prefWidth="300.0" />
                      </columnConstraints>
                      <rowConstraints>
-                        <RowConstraints maxHeight="107.0" minHeight="10.0" prefHeight="75.0" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="215.0" minHeight="10.0" prefHeight="75.0" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="273.0" minHeight="10.0" prefHeight="75.0" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="273.0" minHeight="10.0" prefHeight="75.0" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="273.0" minHeight="10.0" prefHeight="75.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="107.0" minHeight="10.0" prefHeight="90.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="215.0" minHeight="10.0" prefHeight="90.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="273.0" minHeight="10.0" prefHeight="90.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="273.0" minHeight="10.0" prefHeight="90.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="273.0" minHeight="10.0" prefHeight="90.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
                         <Label text="Chọn dịch vụ:" textFill="#403a3a">
@@ -65,7 +66,52 @@
                               <Font size="22.0" />
                            </font>
                         </Label>
-                        <DatePicker fx:id="timeStart" prefHeight="31.0" prefWidth="300.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <VBox alignment="CENTER_LEFT" spacing="20.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                           <children>
+                              <HBox fx:id="hBoxStartTime" spacing="20.0">
+                                 <children>
+                                    <Label text="Bắt đầu:  " textFill="#403a3a">
+                                       <font>
+                                          <Font size="22.0" />
+                                       </font>
+                                    </Label>
+                                    <HBox spacing="5.0">
+                                       <children>
+                                          <TextField fx:id="startHour" prefWidth="100.0" />
+                                          <Label text=":" textFill="#403a3a">
+                                             <font>
+                                                <Font size="22.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField fx:id="startMin" prefWidth="100.0" />
+                                       </children>
+                                    </HBox>
+                                    <DatePicker fx:id="startDay" prefHeight="31.0" prefWidth="210.0" />
+                                 </children>
+                              </HBox>
+                              <HBox fx:id="hBoxEndTime" spacing="20.0">
+                                 <children>
+                                    <Label text="Kết thúc: " textFill="#403a3a">
+                                       <font>
+                                          <Font size="22.0" />
+                                       </font>
+                                    </Label>
+                                    <HBox spacing="5.0">
+                                       <children>
+                                          <TextField fx:id="endHour" prefWidth="100.0" />
+                                          <Label text=":" textFill="#403a3a">
+                                             <font>
+                                                <Font size="22.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField fx:id="endMin" prefWidth="100.0" />
+                                       </children>
+                                    </HBox>
+                                    <DatePicker fx:id="endDay" prefHeight="31.0" prefWidth="210.0" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
                         <ComboBox fx:id="serviceType" disable="true" prefHeight="31.0" prefWidth="300.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                         <ComboBox fx:id="serviceListType" prefHeight="31.0" prefWidth="300.0" GridPane.columnIndex="1" />
                         <ComboBox fx:id="pet" prefHeight="31.0" prefWidth="300.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />

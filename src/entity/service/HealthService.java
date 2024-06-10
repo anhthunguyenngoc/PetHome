@@ -8,17 +8,18 @@ public class HealthService extends Service{
 	
     private String symptom; 
     private String treatment; 
-    
+    private ArrayList<String> var = new ArrayList<String>(Arrays.asList("symptom", "treatment", "name", "introduction", "price", "service_id"));
     public HealthService() {
     	super();
+    	this.varPost = var;
     }
     
     //tạo dvsk mới sd api
 	public HealthService(int listId, String name, String introduction, String price, String symptom, String treatment) throws Exception {
-		this.varPost = new ArrayList<String>(Arrays.asList("name", "introduction", "price", "symptom", "treatment", "service_id"));
+		this.varPost = var;
 		ArrayList<String> varGet = new ArrayList<String>(Arrays.asList("id"));
 		ArrayList<String> id = new ArrayList<String>();
-		ArrayList<String> data = new ArrayList<String>(Arrays.asList(name, introduction, price, symptom, treatment, Integer.toString(listId)));
+		ArrayList<String> data = new ArrayList<String>(Arrays.asList(symptom, treatment, name, introduction, price, Integer.toString(listId)));
 		
     	int stateCode = api.postData(varPost, varGet, data, id, "services/health");
     	
@@ -34,6 +35,7 @@ public class HealthService extends Service{
 	//down dvsk từ csdl về
 	public HealthService(String id, int listId, String name, String introduction, String price, String symptom, String treatment) {
 		super(id, listId, name, introduction, price);
+		this.varPost = var;
         this.symptom = symptom;
         this.treatment = treatment;
 	}
@@ -56,10 +58,11 @@ public class HealthService extends Service{
     
     @Override
     public void getInfo(ArrayList<String> info) throws Exception {
-		this.name = info.get(0);
-		this.introduction = info.get(1);
-		this.price = info.get(2);
-		this.symptom = info.get(3);
-		this.treatment= info.get(4);
+
+		this.symptom = info.get(0);
+		this.treatment= info.get(1); 
+		this.name = info.get(2);
+		this.introduction = info.get(3);
+		this.price = info.get(4);
 	}
 }

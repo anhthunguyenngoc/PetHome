@@ -4,17 +4,18 @@ import entity.service.HealthService;
 import entity.service.Service;
 import javafx.fxml.FXML;
 import javafx.scene.layout.BorderPane;
-import screen.HealthServiceAUScreen;
+import utils.Configs;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.text.Text;
 
-public class HealthServiceInfoHandler extends BaseHandler{
+public class HealthServiceInfoHandler extends InfoHandler{
 
 	private Service service;
 	public HealthServiceInfoHandler (BorderPane borPane, Service service) {
-		this.borPane = borPane;
+		super(borPane);
 		this.service = service;
+		this.loadFXML(Configs.HEA_SER_INFO_PATH);
 	}
 	
 	@FXML
@@ -53,13 +54,13 @@ public class HealthServiceInfoHandler extends BaseHandler{
 		setMouseEvent(btnBook, LIGHT_GRAYISH_BLUE, 3);
 		
 		btnUpdate.setOnMouseClicked(e -> {
-			HealthServiceUpdateHandler controller = new HealthServiceUpdateHandler(borPane, healthS);
-			HealthServiceAUScreen screen = new HealthServiceAUScreen(controller);
+			HealthServiceUpdateHandler screen = new HealthServiceUpdateHandler(borPane, healthS);
 			borPane.setCenter(screen.getContent());
 		});
 		
 		btnBook.setOnMouseClicked(e -> {
-
+			ScheduleAddHandler screen = new ScheduleAddHandler(borPane, this.service);
+			borPane.setCenter(screen.getContent());
 		});
 		
 	}
