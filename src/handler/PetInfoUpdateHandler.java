@@ -8,15 +8,15 @@ import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
-import utils.Configs;
+import util.Configs;
 
 public class PetInfoUpdateHandler extends BaseHandler{
 	
 	private Pet pet;
 	
-	public PetInfoUpdateHandler(BorderPane borPane, Pet pet) {
+	public PetInfoUpdateHandler(AnchorPane borPane, Pet pet) {
 		super(borPane);
 		this.pet = pet;
 		this.loadFXML(Configs.PET_AU_PATH);
@@ -76,7 +76,7 @@ public class PetInfoUpdateHandler extends BaseHandler{
     		try {
 	    		pet.setPetInfo(textFName.getText(), dateString, textFGender.getText(), textFType.getText(), textFHobby.getText(), weight.getText());	
 	    		PetInfoHandler screen = new PetInfoHandler(borPane, pet);
-				borPane.setCenter(screen.getContent());
+				this.addCenterContent(screen.getContent());
     		}catch (Exception e1) {
     			e1.printStackTrace();
     		}

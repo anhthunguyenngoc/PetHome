@@ -5,17 +5,18 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import main.Main;
-import utils.Configs;
+import util.Configs;
+
 import java.util.ArrayList;
 import entity.service.SalonService;
 import entity.system.PetHomeSystem;
-import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.AnchorPane;
 
 public class SalonServiceUpdateHandler extends BaseHandler{
 
 	private SalonService healthS = new SalonService();
 	
-	public SalonServiceUpdateHandler (BorderPane borPane, SalonService healthService) {
+	public SalonServiceUpdateHandler (AnchorPane borPane, SalonService healthService) {
 		super(borPane);
 		this.healthS = healthService;
 		this.loadFXML(Configs.SAL_SER_AU_PATH);
@@ -73,7 +74,7 @@ public class SalonServiceUpdateHandler extends BaseHandler{
     		try {
 				Main.system.upOneService(PetHomeSystem.SalonServiceId, healthS, value);
 				SalonServiceInfoHandler screen = new SalonServiceInfoHandler(borPane, this.healthS);
-				borPane.setCenter(screen.getContent());
+				this.addCenterContent(screen.getContent());
 			} catch (Exception e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();

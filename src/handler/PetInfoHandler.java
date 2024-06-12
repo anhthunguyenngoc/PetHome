@@ -4,13 +4,13 @@ import entity.pet.Pet;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.BorderPane;
-import utils.Configs;
+import javafx.scene.layout.AnchorPane;
+import util.Configs;
 
 public class PetInfoHandler extends BaseHandler{
 	Pet pet = new Pet();
 	
-	public PetInfoHandler(BorderPane borPane, Pet pet) {
+	public PetInfoHandler(AnchorPane borPane, Pet pet) {
 		super(borPane);
 		this.pet = pet;
 		this.loadFXML(Configs.PET_INFO_PATH);
@@ -59,12 +59,12 @@ public class PetInfoHandler extends BaseHandler{
 		
 		btnUpdate.setOnMouseClicked(e -> {
 			PetInfoUpdateHandler screen = new PetInfoUpdateHandler(borPane, pet);
-			borPane.setCenter(screen.getContent());
+			this.addCenterContent(screen.getContent());
 		});
 		
 		btnBook.setOnMouseClicked(e -> {
 			ScheduleAddHandler screen = new ScheduleAddHandler(borPane, null);
-			borPane.setCenter(screen.getContent());
+			this.addCenterContent(screen.getContent());
 		});
 		
 	}

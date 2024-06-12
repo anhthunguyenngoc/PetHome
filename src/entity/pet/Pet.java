@@ -4,10 +4,11 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Objects;
 import exception.InvalidInformation;
 import exception.NotExistPet;
-import utils.API;
+import util.API;
 
 public class Pet {
 	private int Pet_ID; // varchar(5)
@@ -162,6 +163,42 @@ public class Pet {
 		}
 	}
 	
+	public Pet(int id) throws Exception {
+		super();
+		ArrayList<String> varGet = new ArrayList<>();
+		varGet.add("name");
+		varGet.add("dob");
+		varGet.add("gender");
+		varGet.add("type");
+		varGet.add("hobby");    		
+		varGet.add("weight");
+		varGet.add("owner_id");
+		varGet.add("id");
+		
+		List<ArrayList<String>> arr = new ArrayList<ArrayList<String>>();  	  		
+		
+		int stateCode = api.getData(varGet, arr, "pets/detail/"+id);
+		
+		if(stateCode == 200) {
+			for(int i=0; i< arr.size(); i++) {
+				setInfo(arr.get(i));
+			}
+		}else {
+			throw new InvalidInformation();
+		}
+	}
+	
+	private void setInfo(ArrayList<String> petInfo) throws Exception {
+		Name = petInfo.get(0);
+		DOB = formatDate(petInfo.get(1));
+		Gender = petInfo.get(2);
+		Type = petInfo.get(3);
+		Hobby = petInfo.get(4);
+		weight = petInfo.get(5);
+		Owner = Integer.parseInt(petInfo.get(6));
+		Pet_ID = Integer.parseInt(petInfo.get(7));
+	}
+	
 	private void getInfo(ArrayList<String> petInfo) throws Exception {
 		Name = petInfo.get(0);
 		DOB = formatDate(petInfo.get(1));
@@ -172,7 +209,7 @@ public class Pet {
 	}
 			
 	public void freePet() throws Exception {
-		int stateCode = api.delData("pets/"+this.Pet_ID);
+		int stateCode = api.delData("pets/detail/"+this.Pet_ID);
 		if(stateCode == 200) {
 			
 		}else {

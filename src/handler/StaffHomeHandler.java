@@ -1,15 +1,14 @@
 package handler;
 
 import java.util.ArrayList;
-import entity.user.Owner;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import main.Main;
-import utils.Configs;
+import util.Configs;
 
 public class StaffHomeHandler extends UserHomeHandler{
 	
@@ -17,11 +16,8 @@ public class StaffHomeHandler extends UserHomeHandler{
 		super(Configs.STAFF_HOME_PATH, scrollPane);
 	}
     @FXML
-    private BorderPane borPaneCenter;
-
-    @FXML
-    private Button btnTB;
-
+    private AnchorPane ancPaneCenter;
+    
     @FXML
     private ScrollPane sPaneDV;
 
@@ -44,7 +40,7 @@ public class StaffHomeHandler extends UserHomeHandler{
     private ScrollPane sPaneKB;
 
     @FXML
-    private Button btnKB;
+    private Button btnLich;
 
     @FXML
     private VBox menuItemKB;
@@ -71,19 +67,22 @@ public class StaffHomeHandler extends UserHomeHandler{
     private VBox menuItemUser;
 
     @FXML
-    private Button mItemUserInfo;
+    private Button btnUserInfo;
 
     @FXML
-    private Button mItemPetInfo;
+    private Button btnPetInfo;
 
     @FXML
-    private Button mItemLogOut;
+    private Button btnSetting;
+
+    @FXML
+    private Button btnLogOut;
     
     @FXML
     private void initialize() {
-    	this.borPane = borPaneCenter;
-    	HomePageHandler homePage = new HomePageHandler(borPaneCenter);
-		borPaneCenter.setCenter(homePage.getContent());
+    	this.borPane = ancPaneCenter;
+    	HomePageHandler homePage = new HomePageHandler(ancPaneCenter);
+		this.addCenterContent(homePage.getContent());
 		
 		ArrayList<Button> btn = new ArrayList<Button>();
 	    btn.add(btnDV);
@@ -94,39 +93,18 @@ public class StaffHomeHandler extends UserHomeHandler{
 
 	    header(btn,  mItem0, menuItemDV, sPaneDV);
 
-    	setMouseEvent(mItemUserInfo, "white", 3);
-    	
-    	imaUserInfo.setOnMouseClicked(e -> {    		
-    		menuItemUser.setVisible(!menuItemUser.isVisible());
-    		if(menuItemUser.isVisible()) {  			
-    			sPaneUser.setPrefHeight(256.0);
-            }
-            else sPaneUser.setPrefHeight(115.0);
-    		
-    	});
-    	
-    	//Xem thông tin thú cưng
-    	setMouseEvent(mItemPetInfo, "white", 3);
-    	mItemPetInfo.setOnMouseClicked(e -> {
-    		try {
-				((Owner)Main.user).getPetlist().getPetlistAPI(Main.user.getID());
-				PetInfoListHandler screen = new PetInfoListHandler(borPaneCenter);
-	    		borPaneCenter.setCenter(screen.getContent());
-	    		menuItemUser.setVisible(false);
-	    		sPaneUser.setPrefHeight(115.0);
-			} catch (Exception e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}   		
-    	});
-    	
-    	setMouseEvent(mItemLogOut, "white", 3);    	
-    	mItemLogOut.setOnMouseClicked(e -> {
-    		HomeHandler screen = new HomeHandler();
-    		scrollPane.setContent(null);
-    		scrollPane.setContent(screen.getContent());
-    	});
+	    ArrayList<Button> mItem1 = new ArrayList<Button>();
+	    mItem1.add(btnUserInfo);
+	    mItem1.add(btnSetting);
+	    mItem1.add(btnLogOut);
 
+	    StaffInfoHandler info = new StaffInfoHandler(borPane, Main.user);
+	    userClick(imaUserInfo, menuItemUser, sPaneUser, mItem1, 210.0, info);
+	    
+	    btnLich.setOnMouseClicked( e-> {
+	    	ScheduleListStaffHandler screen = new ScheduleListStaffHandler(this.borPane);
+	    	this.addCenterContent(screen.getContent());
+	    });
     }
 
 }

@@ -1,12 +1,13 @@
 package entity.service;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 import exception.InvalidInformation;
 import exception.NotExistPet;
-import utils.API;
+import util.API;
 
-public abstract class Service {
+public  class Service {
 	
 	protected String id; 
 	protected int listId; 
@@ -34,6 +35,23 @@ public abstract class Service {
 	    this.price = price;
 	}
 
+	public Service(String id, ArrayList<String> var, String url) throws Exception {
+		super();
+		
+		this.varPost = var;
+		List<ArrayList<String>> arr = new ArrayList<ArrayList<String>>();  	  		
+		
+		int stateCode = api.getData(var, arr, url+id);
+		
+		if(stateCode == 200) {
+			for(int i=0; i< arr.size(); i++) {
+				getInfo(arr.get(i));
+				this.listId = Integer.parseInt(arr.get(i).get(5));
+			}
+		}else {
+			throw new InvalidInformation();
+		}
+	}
 	public String getId() {
 		return id;
 	}
@@ -50,7 +68,7 @@ public abstract class Service {
 		return price;
 	}
 	
-	public abstract void getInfo(ArrayList<String> value) throws Exception;
+	public void getInfo(ArrayList<String> value) throws Exception {};
     
 	public void setInfo(ArrayList<String> varPut) throws Exception {
 		ArrayList<String> varPostSet = this.varPost;
@@ -80,7 +98,7 @@ public abstract class Service {
 		}
 		
 	}
-
+	
 	public int getListId() {
 		return listId;
 	}

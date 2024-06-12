@@ -1,4 +1,4 @@
-package utils;
+package util;
 
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -19,6 +19,7 @@ public class API {
 		try {
 	    	HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
 	    	statusCode = response.statusCode();
+	    	System.out.println(response.body());
 	        try {    	
 	            if(!(response.statusCode() == 200)) {
 	            	System.out.println(response.body());
@@ -47,6 +48,7 @@ public class API {
 		try {
 	    	HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
 	    	statusCode = response.statusCode();
+	    	System.out.println(response.body());
 	        try {   
 	        	JSONObject jsonObject = new JSONObject(response.body());
 	        	System.out.println(response.body());

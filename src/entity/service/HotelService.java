@@ -45,6 +45,11 @@ public class HotelService extends Service{
     	this.varPost = var;
 		// TODO Auto-generated constructor stub
 	}
+    
+    public HotelService(String id) throws Exception {
+    	super(id, 
+    		new ArrayList<String>(Arrays.asList("diet", "takeexercise", "airconditioning", "heating", "clean", "camera", "name", "introduction", "price", "service_id")), "services/hotel/");	
+	}
 
 	// Getters and Setters
     public String getDiet() {

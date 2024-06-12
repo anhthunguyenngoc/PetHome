@@ -8,22 +8,18 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <BorderPane fx:id="borPaneCenter" layoutY="116.0" prefHeight="684.0" prefWidth="1548.0" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="80.0">
-         <bottom>
-            <AnchorPane prefHeight="60.0" prefWidth="1550.0" style="-fx-background-color: #c6def1;" BorderPane.alignment="CENTER" />
-         </bottom>
-         <center>
-            <AnchorPane maxHeight="115.0" minHeight="115.0" prefHeight="80.0" prefWidth="714.0" BorderPane.alignment="CENTER" />
-         </center>
-      </BorderPane>
+      <VBox AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="80.0">
+         <children>
+            <AnchorPane fx:id="ancPaneCenter" prefWidth="200.0" VBox.vgrow="ALWAYS" />
+         </children>
+      </VBox>
       <AnchorPane prefHeight="80.0" prefWidth="1548.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Pane prefHeight="80.0" prefWidth="200.0" style="-fx-background-color: B0c4de;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />

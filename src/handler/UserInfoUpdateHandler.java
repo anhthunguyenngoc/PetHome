@@ -2,6 +2,8 @@ package handler;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+
+import entity.user.Owner;
 import entity.user.User;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -10,16 +12,16 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.BorderPane;
-import utils.Configs;
+import javafx.scene.layout.AnchorPane;
+import util.Configs;
 
 public class UserInfoUpdateHandler extends BaseHandler{
 	
-	private User user;
+	private Owner user;
 	
-	public UserInfoUpdateHandler(BorderPane borPane, User user) {
+	public UserInfoUpdateHandler(AnchorPane borPane, User user) {
 		super(borPane);
-		this.user = user;
+		this.user = (Owner) user;
 		this.loadFXML(Configs.USER_AU_PATH);
 	}
 	
@@ -95,7 +97,7 @@ public class UserInfoUpdateHandler extends BaseHandler{
 	    		user.setInfo(name.getText(), dateString, genderS, phone.getText(), address.getText());	
 
 	    		UserInfoHandler screen = new UserInfoHandler(borPane, user);
-				borPane.setCenter(screen.getContent());
+				this.addCenterContent(screen.getContent());
 	    		
     		}catch (Exception e1) {
     			e1.printStackTrace();

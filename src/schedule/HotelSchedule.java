@@ -5,62 +5,43 @@ import java.util.Arrays;
 
 import entity.pet.Pet;
 import entity.service.Service;
-import entity.user.User;
 import exception.InvalidInformation;
 
 public class HotelSchedule extends Schedule{
 	
 	private String endTime;
-	private String cageId;
+	private int cageId;
 	
-	public HotelSchedule(Pet pet, User user, Service service, String startTime, String endTime) throws Exception {
+	public HotelSchedule(Pet pet, Service service, String bookDate, String result, String note, int cageId, String endtime) throws Exception {
 		super();
-
-		ArrayList<String> varPost = new ArrayList<String>(Arrays.asList("pet_id", "bookDate", "type", "endDate"));	   
-		ArrayList<String> data = new ArrayList<String>(Arrays.asList(""+pet.getPet_ID(), startTime, service.getId(), endTime));
+		ArrayList<String> varPost = new ArrayList<String>(Arrays.asList("pet_id", "service_id", "bookDate", "result", "note", "cage_id", "endtime"));	   
+		ArrayList<String> data = new ArrayList<String>(Arrays.asList(""+pet.getPet_ID(), service.getId(), bookDate, result, note,""+cageId, endtime));
 		
-		ArrayList<String> varGet = new ArrayList<String>(Arrays.asList("id", "cage_id"));
+		ArrayList<String> varGet = new ArrayList<String>(Arrays.asList("id"));
 		ArrayList<String> id = new ArrayList<String>();
 		
 
-		int stateCode = api.postData(varPost, varGet, data, id, "bookDate");
+		int stateCode = api.postData(varPost, varGet, data, id, "bookDate/hotel");
 
 		if (stateCode == 200) {
-			this.id = id.get(0);
-			this.pet = pet;
-			this.user = user;
-			this.service = service;
-			this.startTime = startTime;
-			this.endTime = endTime;
-			this.cageId = id.get(1);
+			this.setInfo(Integer.parseInt(id.get(0)), pet, service, bookDate, result, note);
+			this.cageId = cageId;
+			this.endTime = endtime;
+			
 		} else {
 			throw new InvalidInformation();
-		}
-	}
-
-	public HotelSchedule() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-	public HotelSchedule(String id, Service service, Pet pet, User user, String status, String startTime) {
-		super(id, service, pet, user, status, startTime);
-		// TODO Auto-generated constructor stub
+		}	
 	}
 	
-	public void updateSchedule(Pet pet, Service service, ArrayList<String> dataString) throws Exception {
-		ArrayList<String> varPost = new ArrayList<String>(Arrays.asList("pet_id", "bookDate", "type"));	   
-		ArrayList<String> data = new ArrayList<String>(Arrays.asList(""+pet.getPet_ID(), dataString.get(0), service.getId(), dataString.get(1)));
-		
-		int stateCode = api.putData(varPost, data, "bookDate");
-
-		if (stateCode == 200) {
-			this.pet = pet;
-			this.service = service;
-			this.startTime = dataString.get(0);
-			this.endTime = dataString.get(1);
-		} else {
-			throw new InvalidInformation();
-		}
+	//lưu dữ liệu lên đối tượng
+	public HotelSchedule(int id, int petId, String serviceId, String bookDate, String endTime, String postTime,
+			String result, String money, String note, int cageId, String endtime) throws Exception {	
+		super(id, petId, serviceId, bookDate, endTime, postTime, result, money, note);
+		this.cageId = cageId;
+		this.endTime = endtime;
+	}
+	
+	public HotelSchedule() {
+		super();
 	}
 }

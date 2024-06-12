@@ -18,89 +18,93 @@
 
 <AnchorPane maxHeight="690.0" maxWidth="906.0" minHeight="690.0" minWidth="906.0" prefHeight="690.0" prefWidth="906.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <AnchorPane layoutX="392.0" layoutY="132.0" style="-fx-background-color: D7E4F2; -fx-background-radius: 30;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <HBox alignment="CENTER" layoutX="80.0" layoutY="80.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <VBox alignment="CENTER" spacing="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <AnchorPane maxWidth="750.0" style="-fx-background-color: D7E4F2; -fx-background-radius: 30;">
                <children>
-                  <Text fill="NAVY" strokeType="OUTSIDE" strokeWidth="0.0" text="Đăng ký tài khoản mới" textAlignment="CENTER" wrappingWidth="426.384765625">
-                     <font>
-                        <Font name="System Bold" size="33.0" />
-                     </font>
-                  </Text>
-                  <GridPane>
-                     <columnConstraints>
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="297.0" minWidth="10.0" prefWidth="198.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="541.0" minWidth="10.0" prefWidth="428.0" />
-                     </columnConstraints>
-                     <rowConstraints>
-                        <RowConstraints maxHeight="107.0" minHeight="10.0" prefHeight="75.0" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="215.0" minHeight="10.0" prefHeight="75.0" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="273.0" minHeight="10.0" prefHeight="75.0" vgrow="SOMETIMES" />
-                     </rowConstraints>
+                  <VBox alignment="CENTER" spacing="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <Label text="E-mail:" textFill="#403a3a">
+                        <Text fill="NAVY" strokeType="OUTSIDE" strokeWidth="0.0" text="Đăng ký tài khoản mới" textAlignment="CENTER" wrappingWidth="426.384765625">
                            <font>
-                              <Font size="22.0" />
-                           </font>
-                        </Label>
-                        <Label alignment="TOP_LEFT" prefHeight="30.0" prefWidth="127.0" text="Mật khẩu:" textAlignment="CENTER" textFill="#403a3a" GridPane.rowIndex="1">
-                           <font>
-                              <Font size="22.0" />
-                           </font>
-                        </Label>
-                        <Label text="Nhập lại mật khẩu:" textFill="#403a3a" GridPane.rowIndex="2">
-                           <font>
-                              <Font size="22.0" />
-                           </font>
-                        </Label>
-                        <TextField fx:id="textFEmail" GridPane.columnIndex="1" />
-                        <TextField fx:id="textFPass1" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                        <TextField fx:id="textFPass2" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                     </children>
-                  </GridPane>
-                  <Button fx:id="btnRegister" mnemonicParsing="false" prefHeight="51.0" prefWidth="131.0" style="-fx-background-color: white;" styleClass="rs-30-corner" stylesheets="@../css/style.css" text="Đăng ký" textFill="NAVY">
-                     <font>
-                        <Font name="Segoe UI Bold" size="20.0" />
-                     </font>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </Button>
-                  <HBox alignment="CENTER">
-                     <children>
-                        <Text fill="NAVY" strokeType="OUTSIDE" strokeWidth="0.0" text="Bạn chưa có tài khoản?" wrappingWidth="233.560546875">
-                           <font>
-                              <Font name="System Italic" size="22.0" />
+                              <Font name="System Bold" size="33.0" />
                            </font>
                         </Text>
-                        <Text fx:id="linkLogin" fill="NAVY" strokeType="OUTSIDE" strokeWidth="0.0" text="Đăng nhập ngay" underline="true" wrappingWidth="179.560546875">
+                        <GridPane>
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="297.0" minWidth="10.0" prefWidth="198.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="541.0" minWidth="10.0" prefWidth="428.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints maxHeight="107.0" minHeight="10.0" prefHeight="75.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="215.0" minHeight="10.0" prefHeight="75.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="273.0" minHeight="10.0" prefHeight="75.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label text="E-mail:" textFill="#403a3a">
+                                 <font>
+                                    <Font size="22.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="TOP_LEFT" prefHeight="30.0" prefWidth="127.0" text="Mật khẩu:" textAlignment="CENTER" textFill="#403a3a" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font size="22.0" />
+                                 </font>
+                              </Label>
+                              <Label text="Nhập lại mật khẩu:" textFill="#403a3a" GridPane.rowIndex="2">
+                                 <font>
+                                    <Font size="22.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="textFEmail" GridPane.columnIndex="1" />
+                              <TextField fx:id="textFPass1" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <TextField fx:id="textFPass2" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                           </children>
+                        </GridPane>
+                        <Button fx:id="btnRegister" mnemonicParsing="false" prefHeight="51.0" prefWidth="131.0" style="-fx-background-color: white;" styleClass="rs-30-corner" stylesheets="@../css/style.css" text="Đăng ký" textFill="NAVY">
                            <font>
-                              <Font name="System Bold Italic" size="22.0" />
+                              <Font name="Segoe UI Bold" size="20.0" />
                            </font>
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
-                        </Text>
+                        </Button>
+                        <HBox alignment="CENTER">
+                           <children>
+                              <Text fill="NAVY" strokeType="OUTSIDE" strokeWidth="0.0" text="Bạn chưa có tài khoản?" wrappingWidth="233.560546875">
+                                 <font>
+                                    <Font name="System Italic" size="22.0" />
+                                 </font>
+                              </Text>
+                              <Text fx:id="linkLogin" fill="NAVY" strokeType="OUTSIDE" strokeWidth="0.0" text="Đăng nhập ngay" underline="true" wrappingWidth="179.560546875">
+                                 <font>
+                                    <Font name="System Bold Italic" size="22.0" />
+                                 </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Text>
+                           </children>
+                        </HBox>
                      </children>
-                  </HBox>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <padding>
+                        <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+                     </padding>
+                  </VBox>
+                  <ImageView fx:id="btnBack" fitHeight="40.0" fitWidth="40.0" layoutX="646.0" layoutY="41.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/x.jpg" />
+                     </image>
+                  </ImageView>
                </children>
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
                <padding>
                   <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
                </padding>
-            </VBox>
-            <ImageView fx:id="btnBack" fitHeight="40.0" fitWidth="40.0" layoutX="646.0" layoutY="41.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../images/x.jpg" />
-               </image>
-            </ImageView>
+            </AnchorPane>
          </children>
-         <padding>
-            <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
-         </padding>
-      </AnchorPane>
+      </HBox>
    </children>
    <padding>
       <Insets bottom="80.0" left="80.0" right="80.0" top="80.0" />

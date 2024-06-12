@@ -1,20 +1,20 @@
 package handler;
 
 import java.util.ArrayList;
-
-import entity.service.Service;
-import entity.system.PetHomeSystem;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 import main.Main;
 import schedule.HealthSchedule;
-import utils.Configs;
+import schedule.HotelSchedule;
+import schedule.Schedule;
+import schedule.ScheduleList;
 
-public class ScheduleListHandler extends ListHandler{
-	public ScheduleListHandler (BorderPane borPane) {
+public class ScheduleListHandler extends BaseHandler{
+	private ArrayList<ScheduleCusItemHandler> itemScreen = new ArrayList<>();
+	public ScheduleListHandler (AnchorPane borPane) {
 		super(borPane);
 	}
 		
@@ -22,64 +22,45 @@ public class ScheduleListHandler extends ListHandler{
     private Label title;
 
     @FXML
-    private Button btnAdd;
-
-    @FXML
-    private Button btnUndo;
-
-    @FXML
-    private Button btnHealth;
-
-    @FXML
-    private Button btnSalon;
-
-    @FXML
-    private Button btnHotel;
-
-    @FXML
-    private Button btnFilter;
+    private FlowPane fPaneContent;
 
     @FXML
     private Button btnSort;
 
     @FXML
-    private FlowPane fPaneContent;
+    private Button btnFilter;
+
+    @FXML
+    private Button btnAdd;
+
+    @FXML
+    private Button btnUndo;
+
 	@FXML
 	private void initialize() {
 		
 		try {
-			Main.user.getSchedulelist().getlistAPI();
-			ArrayList<HealthSchedule> healthScheduleList = Main.user.getSchedulelist().getHealthSchedule();
-			for(HealthSchedule schedule : healthScheduleList) {
-	    		addScheduleScreen(schedule, fPaneContent);
+			ArrayList<ScheduleList> scheduleList = Main.user.getSchedulelist();
+			for(int i=0; i< scheduleList.size(); i++) {
+				ArrayList<Schedule> sList = scheduleList.get(i).getSchedulelist();
+				for(int j=0; j< sList.size(); j++) {
+		    		addScheduleScreen(sList.get(j), fPaneContent);
+				}
 			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		};
 		
-		btnHealth.setOnMouseClicked( e-> {
-    		
-    	});
-		
-		btnSalon.setOnMouseClicked( e-> {
-		    		
-		    	});
-		
-		btnHotel.setOnMouseClicked( e-> {
-			
-		});
 		    	
     	btnAdd.setOnMouseClicked( e-> {
     		ScheduleAddHandler screen = new ScheduleAddHandler(borPane, null);
-			borPane.setCenter(screen.getContent());
-    	});
-
-		
+			this.addCenterContent(screen.getContent());
+    	});	
 	}
 
-    public void addScheduleScreen(HealthSchedule schedule, FlowPane fPaneContent) {
-    	HotelServiceItemHandler screen = new HotelServiceItemHandler(this.borPane, service);
+    public void addScheduleScreen(Schedule schedule, FlowPane fPaneContent) {
+    	ScheduleCusItemHandler screen = new ScheduleCusItemHandler(this.borPane, schedule);
     	itemScreen.add(screen);
     	fPaneContent.getChildren().add(screen.getContent());
 	}
@@ -87,10 +68,4 @@ public class ScheduleListHandler extends ListHandler{
     public void btnHealthClick() {
     	
     }
-
-	@Override
-	public void addSeviceScreen(Service service, FlowPane fPaneContent) {
-		// TODO Auto-generated method stub
-		
-	}
 }

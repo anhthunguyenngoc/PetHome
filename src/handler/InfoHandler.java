@@ -1,10 +1,10 @@
 package handler;
 
-import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.AnchorPane;
 
 public class InfoHandler extends BaseHandler {
 
-	public InfoHandler(BorderPane borPane) {
+	public InfoHandler(AnchorPane borPane) {
 		super(borPane);
 	}
 

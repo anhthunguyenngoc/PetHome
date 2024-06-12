@@ -6,13 +6,13 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
-import utils.Configs;
+import util.Configs;
 
 public class SalonServiceItemHandler extends ItemHandler{
 
-	public SalonServiceItemHandler(BorderPane borPane, Service service) {
+	public SalonServiceItemHandler(AnchorPane borPane, Service service) {
 		super(Configs.SAL_SER_ITEM_PATH, borPane, service);
 	}
 

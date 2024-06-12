@@ -1,6 +1,5 @@
 package handler;
 import java.util.ArrayList;
-
 import exception.NotSelectUserType;
 import exception.UserNotFound;
 import javafx.fxml.FXML;
@@ -8,15 +7,15 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
-import utils.Configs;
+import util.Configs;
 
 public class RegisterHandler extends BaseHandler{
 
 	ScrollPane scrollPane = new ScrollPane();
 
-	public RegisterHandler(BorderPane borPane, ScrollPane scrollPane) {
+	public RegisterHandler(AnchorPane borPane, ScrollPane scrollPane) {
 		super(borPane);
 		this.scrollPane = scrollPane;
 		this.loadFXML(Configs.REGISTER_PATH);
@@ -46,7 +45,7 @@ public class RegisterHandler extends BaseHandler{
     	setMouseEvent(btnRegister, "white", 3);
     	linkLogin.setOnMouseClicked(e -> {
     		LoginHandler screen = new LoginHandler(borPane, scrollPane);
-    		borPane.setCenter(screen.getContent());
+    		this.addCenterContent(screen.getContent());
     	});
     	
     	btnRegister.setOnMouseClicked(e -> {
@@ -85,6 +84,6 @@ public class RegisterHandler extends BaseHandler{
 			throw new UserNotFound();
 		}
 		LoginHandler screen = new LoginHandler(borPane, scrollPane);
-		borPane.setCenter(screen.getContent());
+		this.addCenterContent(screen.getContent());
     }  
 }

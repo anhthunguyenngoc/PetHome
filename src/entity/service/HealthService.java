@@ -40,6 +40,11 @@ public class HealthService extends Service{
         this.treatment = treatment;
 	}
 	
+	public HealthService(String id) throws Exception {
+		super(id, 
+		new ArrayList<String>(Arrays.asList("symptom", "treatment", "name", "introduction", "price", "service_id")), "services/health/");	
+	}
+	
     public String getSymptom() {
         return symptom;
     }

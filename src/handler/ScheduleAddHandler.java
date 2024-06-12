@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import entity.pet.Pet;
 import entity.user.Owner;
+import entity.service.HealthService;
 import entity.service.Service;
 import entity.service.ServiceList;
 import javafx.beans.value.ChangeListener;
@@ -15,16 +16,16 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import main.Main;
-import utils.Configs;
+import util.Configs;
 
 public class ScheduleAddHandler extends BaseHandler{
 	
 	private Service service;
 	
-	public ScheduleAddHandler(BorderPane borPane, Service service) {
+	public ScheduleAddHandler(AnchorPane borPane, Service service) {
 		super(borPane);
 		this.service = service;
 		this.loadFXML(Configs.SCHEDULE_AU_PATH);
@@ -129,19 +130,22 @@ public class ScheduleAddHandler extends BaseHandler{
    	
     	btnAdd.setOnMouseClicked(e-> {
     		try {
-				
-				Service service = serviceType.getValue();
-	    		
 	    		Pet sPet = pet.getValue();
-	    		
 	    		
 	    		startDay.setValue(LocalDate.of(startDay.getValue().getYear(), startDay.getValue().getMonth(), startDay.getValue().getDayOfMonth()));
 	            String startTime = startDay.getValue().toString()+" "+startHour.getText()+":"+startMin.getText();
 	            System.out.println(startTime);
-	    		Main.user.getSchedulelist().addNewSchedule(sPet, service, startTime);
+	            
+	            ArrayList<String> data = new ArrayList<String>();
+	            
+	            data.add(startTime);
+	            data.add(note.getText());
+	            
+	            Main.user.addNewHealth(sPet, serviceType.getValue(), data, "");
 	    		
+	            //chuyển về màn chứa danh sách các lịch đặt
 	    		ScheduleCusListHandler screen = new ScheduleCusListHandler(borPane);
-				borPane.setCenter(screen.getContent());
+				this.addCenterContent(screen.getContent());
 				
 			} catch (Exception e1) {
 				// TODO Auto-generated catch block

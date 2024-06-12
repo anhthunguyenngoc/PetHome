@@ -5,14 +5,14 @@ import entity.system.PetHomeSystem;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import main.Main;
-import utils.Configs;
+import util.Configs;
 
 public class HealthServiceAddHandler extends BaseHandler{
 
-	public HealthServiceAddHandler (BorderPane borPane) {
+	public HealthServiceAddHandler (AnchorPane borPane) {
 		super(borPane);
 		this.loadFXML(Configs.HEA_SER_AU_PATH);
 	}
@@ -61,7 +61,7 @@ public class HealthServiceAddHandler extends BaseHandler{
     		try {
 				Main.system.addService(PetHomeSystem.HealthServiceId, value);
 				HealthServiceHandler screen = new HealthServiceHandler(borPane);
-				borPane.setCenter(screen.getContent());
+				borPane.getChildren().set(0, screen.getContent());
 			} catch (Exception e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();

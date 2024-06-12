@@ -1,19 +1,19 @@
 package handler;
 
-import java.util.ArrayList;
-
 import entity.service.Service;
 import entity.system.PetHomeSystem;
+import entity.user.Staff;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.HBox;
 import main.Main;
 
 public class HealthServiceHandler extends ListHandler{
 
-    public HealthServiceHandler (BorderPane borPane) {
+    public HealthServiceHandler (AnchorPane borPane) {
 		super(borPane);
 	}
 
@@ -36,7 +36,15 @@ public class HealthServiceHandler extends ListHandler{
     private Button btnUndo;
     
     @FXML
+    private HBox hboxButton;
+        
+    @FXML
     private void initialize() {
+    	if(Main.user instanceof Staff) {
+
+    	}else {
+    		hboxButton.setVisible(false);
+    	}
     	
     	title.setText("Thông tin dịch vụ chăm sóc sức khỏe");
 

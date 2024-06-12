@@ -6,10 +6,10 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import main.Main;
-import utils.Configs;
+import util.Configs;
 
 public class CusHomeHandler extends UserHomeHandler{
 	
@@ -19,8 +19,8 @@ public class CusHomeHandler extends UserHomeHandler{
 	}
 	
     @FXML
-    private BorderPane borPaneCenter;
-
+    private AnchorPane ancPaneCenter;
+    
     @FXML
     private ScrollPane sPaneDV;
 
@@ -68,10 +68,10 @@ public class CusHomeHandler extends UserHomeHandler{
     
     @FXML
     private void initialize() {
-    	this.borPane = borPaneCenter;
+    	this.borPane = ancPaneCenter;
     	
-    	HomePageHandler homePage = new HomePageHandler(borPaneCenter);
-    	borPaneCenter.setCenter(homePage.getContent());
+    	HomePageHandler homePage = new HomePageHandler(ancPaneCenter);
+    	this.addCenterContent(homePage.getContent());
 		
 		ArrayList<Button> btn = new ArrayList<Button>();
 	    btn.add(btnDV);
@@ -86,7 +86,9 @@ public class CusHomeHandler extends UserHomeHandler{
 	    mItem1.add(btnUserInfo);
 	    mItem1.add(btnSetting);
 	    mItem1.add(btnLogOut);
-	    userClick(imaUserInfo, menuItemUser, sPaneUser, mItem1);
+	    
+	    UserInfoHandler info = new UserInfoHandler(borPane, Main.user);
+	    userClick(imaUserInfo, menuItemUser, sPaneUser, mItem1, 255.0, info);
    	
     	    	
     	//Xem thông tin thú cưng
@@ -94,9 +96,9 @@ public class CusHomeHandler extends UserHomeHandler{
     	btnPetInfo.setOnMouseClicked(e -> {
     		try {
 				((Owner)Main.user).getPetlist().getPetlistAPI(Main.user.getID());
-				PetInfoListHandler screen = new PetInfoListHandler(borPaneCenter);
+				PetInfoListHandler screen = new PetInfoListHandler(ancPaneCenter);
 
-	    		borPaneCenter.setCenter(screen.getContent());
+	    		this.addCenterContent(screen.getContent());
 	    		menuItemUser.setVisible(false);
 	    		sPaneUser.setPrefHeight(80.0);
 			} catch (Exception e1) {
@@ -108,8 +110,8 @@ public class CusHomeHandler extends UserHomeHandler{
     	    	
     	//Xem "Lịch đặt"
     	btnLich.setOnMouseClicked(e -> {
-    		ScheduleCusListHandler screen = new ScheduleCusListHandler(borPaneCenter);
-    		borPaneCenter.setCenter(screen.getContent());
+    		ScheduleCusListHandler screen = new ScheduleCusListHandler(ancPaneCenter);
+    		this.addCenterContent(screen.getContent());
     	});
 
     }

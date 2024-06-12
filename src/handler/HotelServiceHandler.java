@@ -2,16 +2,18 @@ package handler;
 
 import entity.service.Service;
 import entity.system.PetHomeSystem;
+import entity.user.Staff;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.HBox;
 import main.Main;
 
 public class HotelServiceHandler extends ListHandler{
 	
-	public HotelServiceHandler(BorderPane borPane) {
+	public HotelServiceHandler(AnchorPane borPane) {
 		super(borPane);
 	}
 	
@@ -34,6 +36,9 @@ public class HotelServiceHandler extends ListHandler{
     private Button btnUndo;
     
     @FXML
+    private HBox hboxButton;
+    
+    @FXML
     private void initialize() {
     	
     	title.setText("Thông tin dịch vụ khách sạn thú cưng");
@@ -50,6 +55,12 @@ public class HotelServiceHandler extends ListHandler{
     		HotelServiceAddHandler screen = new HotelServiceAddHandler(this.borPane);
     		btnAddClick(this.borPane, screen);
     	});
+    	
+    	if(Main.user instanceof Staff) {
+    		hboxButton.getChildren().add(addCageListBtn());
+    	}else {
+    		hboxButton.setVisible(false);
+    	}
     }
     
     @Override
@@ -58,5 +69,18 @@ public class HotelServiceHandler extends ListHandler{
     	itemScreen.add(screen);
     	fPaneContent.getChildren().add(screen.getContent());
 	}
+    
+    public Button addCageListBtn() {
+    	Button btn = new Button("Xem danh sách chuồng");
+    	
+    	btn.setStyle("-fx-background-color: #fff; -fx-border-radius: 30; -fx-font-size: 18px; -fx-text-fill: #000080; -fx-font-weight: bold;");
+    	btn.setPrefHeight(44.0);
+    	btn.setOnMouseClicked( e -> {
+    		CageListHandler screen = new CageListHandler(borPane);
+    		this.addCenterContent(screen.getContent());
+    	});
+    	
+    	return btn;
+    }
 	
 }

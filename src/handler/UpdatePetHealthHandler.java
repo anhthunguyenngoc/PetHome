@@ -3,26 +3,20 @@ package handler;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
-import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
-import screen.ItemPetHealthScreen;
+import util.Configs;
 
 public class UpdatePetHealthHandler extends BaseHandler{
-
-	BorderPane borPane;
 	
-	public UpdatePetHealthHandler(BorderPane borPane) {
-		this.borPane = borPane;
+	public UpdatePetHealthHandler(AnchorPane vBoxCenter) {
+		super(vBoxCenter);
+		this.loadFXML(Configs.UP_PET_HEA_LIST_PATH);
 	}
 	
-    @FXML
-    private BorderPane borPaneMain;
-    
+
     @FXML
     private FlowPane flowPane;
-    
-    @FXML
-    private Button btnUpdate;
 
     @FXML
     private Button btnOngoing;
@@ -35,18 +29,19 @@ public class UpdatePetHealthHandler extends BaseHandler{
 
     @FXML
     private Button btnArrange;
-
-    @FXML
-    private Button btnUpHealth;
-
-    @FXML
-    private Button btnUpMediDiet;
     
     @FXML
 	private void initialize() {
-    	ItemPetHealthHandler controller = new ItemPetHealthHandler(borPane);
-    	ItemPetHealthScreen screen = new ItemPetHealthScreen(controller);
+    	ItemPetHealthHandler screen = new ItemPetHealthHandler(borPane);
     	Node ancPane = screen.getContent();
     	flowPane.getChildren().add(ancPane);
+    	
+    	btnOngoing.setOnMouseClicked( e -> {
+    		
+    	});
+    	
+    	btnCompleted.setOnMouseClicked( e -> {
+    		
+    	});
 	}
 }

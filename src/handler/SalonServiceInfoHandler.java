@@ -3,16 +3,16 @@ package handler;
 import entity.service.SalonService;
 import entity.service.Service;
 import javafx.fxml.FXML;
-import javafx.scene.layout.BorderPane;
-import utils.Configs;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.text.Text;
+import util.Configs;
 
 public class SalonServiceInfoHandler extends InfoHandler{
 
 	private Service service;
-	public SalonServiceInfoHandler (BorderPane borPane, Service service) {
+	public SalonServiceInfoHandler (AnchorPane borPane, Service service) {
 		super(borPane);
 		this.service = service;
 		this.loadFXML(Configs.SAL_SER_INFO_PATH);
@@ -55,12 +55,12 @@ public class SalonServiceInfoHandler extends InfoHandler{
 		
 		btnUpdate.setOnMouseClicked(e -> {
 			SalonServiceUpdateHandler screen = new SalonServiceUpdateHandler(borPane, healthS);
-			borPane.setCenter(screen.getContent());
+			this.addCenterContent(screen.getContent());
 		});
 		
 		btnBook.setOnMouseClicked(e -> {
 			ScheduleAddHandler screen = new ScheduleAddHandler(borPane, this.service);
-			borPane.setCenter(screen.getContent());
+			this.addCenterContent(screen.getContent());
 		});
 		
 	}

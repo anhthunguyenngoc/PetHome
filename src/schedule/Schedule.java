@@ -4,120 +4,136 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 import entity.pet.Pet;
+import entity.service.HealthService;
+import entity.service.HotelService;
+import entity.service.SalonService;
 import entity.service.Service;
 import entity.user.User;
 import exception.InvalidInformation;
 import exception.NotExistPet;
-import utils.API;
+import util.API;
 
 public class Schedule {
-	protected String id;
+	protected int id;
 	protected Service service;
-	protected Pet pet;
-	protected User user;
-	protected String status;
-	protected String startTime;
-	protected String endTime;
+	protected Pet pet = new Pet();
+	protected String bookDate;
+	protected String endTime;	
+	protected String postTime;
+	protected String result;
+	protected String money;
+	protected String note;
+
 	protected API api = new API();
 
 	public Schedule() {
 		super();
 	}
 	
-	public Schedule(Pet pet, Service service, String startTime) throws Exception {
-		super();
-		ArrayList<String> varPost = new ArrayList<String>(Arrays.asList("pet_id", "bookDate", "type"));	   
-		ArrayList<String> data = new ArrayList<String>(Arrays.asList(""+pet.getPet_ID(), startTime, service.getId()));
+	public Schedule(int id, int petId, String serviceId, String bookDate, String endTime, String postTime,
+			String result, String money, String note) throws Exception {	
 		
-		ArrayList<String> varGet = new ArrayList<String>(Arrays.asList("id"));
-		ArrayList<String> id = new ArrayList<String>();
-		
-
-		int stateCode = api.postData(varPost, varGet, data, id, "bookDate");
-
-		if (stateCode == 200) {
-			this.id = id.get(0);
-			this.pet = pet;
-			this.service = service;
-			this.startTime = startTime;
-			this.endTime = "";
-		} else {
-			throw new InvalidInformation();
-		}	
+		this.setInfo(id, petId, serviceId, bookDate, endTime, postTime, result, money, note);
 	}
 	
-	public Schedule(Pet pet, Service service, String startTime, String endTime, int hotelId) throws Exception {
-		super();
-		ArrayList<String> varPost = new ArrayList<String>(Arrays.asList("pet_id", "bookDate", "type"));	   
-		ArrayList<String> data = new ArrayList<String>(Arrays.asList(""+pet.getPet_ID(), startTime, service.getId()));
+	protected void setInfo(int id, int petId, String serviceId, String bookDate, String endTime, String postTime,
+			String result, String money, String note) throws Exception {
 		
-		ArrayList<String> varGet = new ArrayList<String>(Arrays.asList("id"));
-		ArrayList<String> id = new ArrayList<String>();
-		
-		int stateCode = api.postData(varPost, varGet, data, id, "bookDate");
-
-		if (stateCode == 200) {
-			ArrayList<String> varPost2 = new ArrayList<String>(Arrays.asList("endtime", "hotel_id"));	   
-			ArrayList<String> data2 = new ArrayList<String>(Arrays.asList(endTime, ""+hotelId));
-
-			int stateCode2 = api.putData(varPost2, data2, "in-cage/"+hotelId);
-			if (stateCode2 == 200) {
-				this.id = id.get(0);
-				this.pet = pet;
-				this.service = service;
-				this.startTime = startTime;
-				this.endTime = endTime;
-				this.status= id.get(1);
-			} else {
-				throw new InvalidInformation();
-			}	
-			
-		} else {
-			throw new InvalidInformation();
-		}	
-	}
-
-	public Schedule(String id, Service service, Pet pet, String status, String startTime) {
-		super();
 		this.id = id;
-		this.service = service;
-		this.pet = pet;
-		this.status = status;
-		this.startTime = startTime;
-		this.endTime = "";
-	}
-	
-	public Schedule(String id, Service service, Pet pet, String status, String startTime, String endTime) {
-		super();
-		this.id = id;
-		this.service = service;
-		this.pet = pet;
-		this.status = status;
-		this.startTime = startTime;
+		try{
+			this.service = new HealthService(serviceId);
+		}catch(Exception e1) {
+			try{
+				this.service = new HotelService(serviceId);
+			}catch(Exception e2) {
+				try{
+					this.service = new SalonService(serviceId);
+				}catch(Exception e3) {
+					
+				}
+			}
+		}
+
+		this.pet = new Pet(petId);
+		this.bookDate = bookDate;
 		this.endTime = endTime;
-	}
-
-	public void remSchedule() throws NotExistPet {
-		int stateCode = api.delData("bookDate/"+this.id);
-		if(stateCode == 200) {
-			
-		}else {
-			throw new NotExistPet();
-		}
+		this.postTime = postTime;
+		this.result = result;
+		this.money = money;
+		this.note = note;
 	}
 	
-	public void updateSchedule(Pet pet, Service service, ArrayList<String> dataString) throws Exception {
-		ArrayList<String> varPost = new ArrayList<String>(Arrays.asList("pet_id", "bookDate", "type"));	   
-		ArrayList<String> data = new ArrayList<String>(Arrays.asList(""+pet.getPet_ID(), dataString.get(0), service.getId()));
+	public void setInfo(int id, Pet pet, Service service, String bookDate, String result, String note) throws Exception {
+		this.id = id;
+		this.service = service;		
+		this.pet = pet;
+		this.bookDate = bookDate;
+		this.result = result;
+		this.note = note;
+	}
+
+	
+	public void cancelSchedule(String result, String note, String endtime) throws Exception {
+		ArrayList<String> varPost = new ArrayList<String>(Arrays.asList("result", "note", "endtime"));	   
+		ArrayList<String> data = new ArrayList<String>(Arrays.asList(result, note, endtime));
 		
-		int stateCode = api.putData(varPost, data, "bookDate");
+		int stateCode = api.putData(varPost, data, "bookDate/result/"+this.id);
 
 		if (stateCode == 200) {
-			this.pet = pet;
-			this.service = service;
-			this.startTime = dataString.get(0);
+			this.result = result;
+			this.note = note;
+			this.endTime = endtime;
 		} else {
 			throw new InvalidInformation();
 		}
 	}
+
+	public void updateSchedule(int petId, String bookDate, String note) throws Exception {
+		ArrayList<String> varPost = new ArrayList<String>(Arrays.asList("pet_id", "bookDate", "note"));	   
+		ArrayList<String> data = new ArrayList<String>(Arrays.asList(""+petId, bookDate, note));
+		
+		int stateCode = api.putData(varPost, data, "bookDate/"+this.id);
+
+		if (stateCode == 200) {
+			this.pet = new Pet(petId);
+			this.bookDate = bookDate;
+			this.note = note;
+		} else {
+			throw new InvalidInformation();
+		}
+	}
+
+	public Service getService() {
+		return service;
+	}
+
+	public Pet getPet() {
+		return pet;
+	}
+
+	public String getBookDate() {
+		return bookDate;
+	}
+
+	public String getEndTime() {
+		return endTime;
+	}
+
+	public String getPostTime() {
+		return postTime;
+	}
+
+	public String getResult() {
+		return result;
+	}
+
+	public String getMoney() {
+		return money;
+	}
+
+	public String getNote() {
+		return note;
+	}
+	
+	
 }

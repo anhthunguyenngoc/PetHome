@@ -4,11 +4,24 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+
+import entity.pet.Pet;
+import entity.service.HealthService;
+import entity.service.HotelService;
+import entity.service.SalonService;
+import entity.service.Service;
 import exception.InvalidInformation;
 import exception.NotExistPet;
 import exception.UserNotFound;
+import main.Main;
+import schedule.HealthSchedule;
+import schedule.HealthScheduleList;
+import schedule.HotelSchedule;
+import schedule.HotelScheduleList;
+import schedule.SalonSchedule;
+import schedule.SalonScheduleList;
 import schedule.ScheduleList;
-import utils.API;
+import util.API;
 
 public class User {
 	protected int ID;
@@ -17,25 +30,11 @@ public class User {
     protected String gender;
     protected String phone;
     protected String address;
-    protected ScheduleList schedulelist = new ScheduleList();
+    protected ArrayList<ScheduleList> schedulelist = new ArrayList<>();
     
     protected API api = new API();
 	
-    public User() {
-		super();
-	}
-    
-    public User(int iD, String name, String phone) {
-		super();
-		ID = iD;
-		this.name = name;
-		this.phone = phone;
-	}
-
-
-
-	//hàm khởi tạo khi người dùng đăng nhập và đăng ký
-	public User(String email, String pass, String url) throws Exception {
+    public User(String email, String pass, String url) throws Exception {
 		super();
 		//thông tin
 		ArrayList<String> arr = new ArrayList<>();
@@ -54,28 +53,19 @@ public class User {
 		int statusCode = api.postData(varPost, varGet, arr, obj, url);   		
 		if(statusCode == 200) {
 			ID = Integer.parseInt(obj.get(0));
-			schedulelist.setUserId(ID);
 		}else if(statusCode != 200) {
 			throw new UserNotFound();
 		}
-		
-		ArrayList<String> varGetInfo = new ArrayList<>();
-		varGetInfo.add("name");
-		varGetInfo.add("dob");
-		varGetInfo.add("gender");
-		varGetInfo.add("phone");
-		varGetInfo.add("address");  		
-		
-		ArrayList<String> info = new ArrayList<String>();
-		
-		int stateCode = api.getData(varGetInfo, info, "profile/"+this.ID);
-		
-		if(stateCode == 200) {
-			getInfo(info);
-		}else {
-			throw new NotExistPet();
-		}
-		
+	}
+     
+    public User() {
+	}
+    
+    public User(int iD, String name, String phone) {
+		super();
+		ID = iD;
+		this.name = name;
+		this.phone = phone;
 	}
 
 	//gọi API lấy id của người dùng khi đăng nhập
@@ -98,32 +88,7 @@ public class User {
         
 		return outputDate;
     }
-	
-	public void setInfo(String name, String dOB, String gender, String phone, String address) throws Exception {
 		
-		ArrayList<String> varPost = new ArrayList<>();
-		varPost.add("name");
-		varPost.add("dob");
-		varPost.add("gender");
-		varPost.add("phone");
-		varPost.add("address");    		
-	   	
-		ArrayList<String> arr = new ArrayList<>();  	
-		arr.add(name);
-		arr.add(dOB);
-		arr.add(gender);
-		arr.add(phone); 		
-		arr.add(address); 		
-		
-		int stateCode = api.putData(varPost, arr, "profile/"+this.ID);
-		
-		if(stateCode == 200) {
-			getInfo(arr);
-		}else {
-			throw new InvalidInformation();
-		}
-	}
-	
 	public void getInfo(ArrayList<String> info) throws Exception {
 		this.name = info.get(0);
 		try {
@@ -158,7 +123,7 @@ public class User {
 		return address;
 	}
 
-	public ScheduleList getSchedulelist() {
+	public ArrayList<ScheduleList> getSchedulelist() {
 		return schedulelist;
 	}
 	
@@ -169,12 +134,29 @@ public class User {
 		ArrayList<String> arr = new ArrayList<>();  	
 		arr.add(pass);		
 		
-		int stateCode = api.putData(varPost, arr, "change-password/"+this.ID);
+		int stateCode = api.putData(varPost, arr, "profile/change-password/"+this.ID);
 		
 		if(stateCode == 200) {
 
 		}else {
 			throw new InvalidInformation();
 		}
+	}
+	
+	public void addNewHealth(Pet pet, Service service, ArrayList<String> data, String result) throws Exception {
+
+		if(service instanceof HealthService) {
+			Doctor doctor = Main.system.getFreeDoctor(data.get(0));
+			new HealthSchedule(pet, service, data.get(0), result, data.get(1), doctor);
+        }else if(service instanceof HotelService) {
+        	int cageId = Main.system.getFreeCage().getId();
+			new HotelSchedule(pet, service, data.get(0), result, data.get(1), cageId, data.get(3));
+        }else if(service instanceof SalonService) {
+        	Staff staff = Main.system.getFreeStaff(data.get(0));
+			new SalonSchedule(pet, service, data.get(0), result, data.get(1), staff);
+        }
+	}
+	
+	public void iniScheduleList() throws Exception {
 	}
 }

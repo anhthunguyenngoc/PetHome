@@ -1,7 +1,7 @@
 package handler;
 
-import javafx.scene.layout.BorderPane;
-import utils.API;
+import javafx.scene.layout.AnchorPane;
+import util.API;
 
 public abstract class BaseHandler extends FXMLLoaderHandler{
 
@@ -11,9 +11,9 @@ public abstract class BaseHandler extends FXMLLoaderHandler{
 	protected boolean isDoctor = false;
 
 
-	public BaseHandler(BorderPane borPane) {		
+	public BaseHandler(AnchorPane ancPaneCenter) {		
 		super();
-		this.borPane = borPane;
+		this.borPane = ancPaneCenter;
 	}
 
 

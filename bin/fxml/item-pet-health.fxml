@@ -14,170 +14,126 @@
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.text.TextFlow?>
 
-<AnchorPane prefHeight="428.0" prefWidth="321.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-      <BorderPane layoutX="9.0" layoutY="9.0" prefHeight="428.0" prefWidth="321.0" style="-fx-background-color: D7E4F2;" styleClass="rs-30-corner" stylesheets="@../css/style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <effect>
-            <DropShadow />
-         </effect>
-         <bottom>
-            <BorderPane prefHeight="202.0" prefWidth="321.0" BorderPane.alignment="CENTER">
-               <center>
-                  <AnchorPane prefHeight="149.0" prefWidth="321.0">
-                     <children>
-                        <VBox layoutX="39.0" layoutY="27.0" prefHeight="139.0" prefWidth="321.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                           <children>
-                              <TextFlow prefHeight="28.0" prefWidth="200.0">
-                                 <children>
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Loại khám: ">
-                                       <font>
-                                          <Font name="Segoe UI" size="18.0" />
-                                       </font>
-                                    </Text>
-                                    <Text layoutX="116.0" layoutY="10.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Khác">
-                                       <font>
-                                          <Font name="Segoe UI" size="18.0" />
-                                       </font>
-                                    </Text>
-                                 </children>
-                                 <padding>
-                                    <Insets left="15.0" right="15.0" />
-                                 </padding>
-                              </TextFlow>
-                              <TextFlow layoutX="10.0" layoutY="20.0" prefHeight="28.0" prefWidth="200.0">
-                                 <children>
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Bắt đầu:   ">
-                                       <font>
-                                          <Font name="Segoe UI" size="18.0" />
-                                       </font>
-                                    </Text>
-                                    <Text layoutX="116.0" layoutY="10.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" 8:00 06/04/2024">
-                                       <font>
-                                          <Font name="Segoe UI" size="18.0" />
-                                       </font>
-                                    </Text>
-                                 </children>
-                                 <padding>
-                                    <Insets left="15.0" right="15.0" />
-                                 </padding>
-                              </TextFlow>
-                              <TextFlow layoutX="10.0" layoutY="128.0" prefHeight="28.0" prefWidth="200.0">
-                                 <children>
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Kết thúc:  ">
-                                       <font>
-                                          <Font name="Segoe UI" size="18.0" />
-                                       </font>
-                                    </Text>
-                                    <Text layoutX="116.0" layoutY="10.0" strokeType="OUTSIDE" strokeWidth="0.0" text="10:00 06/04/2024">
-                                       <font>
-                                          <Font name="Segoe UI" size="18.0" />
-                                       </font>
-                                    </Text>
-                                 </children>
-                                 <padding>
-                                    <Insets left="15.0" right="15.0" />
-                                 </padding>
-                              </TextFlow>
-                           </children>
-                           <padding>
-                              <Insets top="10.0" />
-                           </padding>
-                        </VBox>
-                     </children>
-                  </AnchorPane>
-               </center>
-               <bottom>
-                  <AnchorPane prefHeight="55.0" prefWidth="358.0" BorderPane.alignment="CENTER">
-                     <children>
-                        <Button fx:id="btnUpdate" layoutX="87.0" layoutY="5.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="148.0" style="-fx-background-color: D7E4F2;" styleClass="rs-30-corner" stylesheets="@../css/style.css" text="Cập nhật" textFill="NAVY">
-                           <font>
-                              <Font name="Segoe UI Bold" size="18.0" />
-                           </font>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                           <effect>
-                              <DropShadow />
-                           </effect>
-                        </Button>
-                     </children>
-                  </AnchorPane>
-               </bottom>
-               <top>
-                  <Label text="Thông tin khám" textFill="NAVY" BorderPane.alignment="CENTER">
-                     <font>
-                        <Font name="Segoe UI Bold" size="20.0" />
-                     </font>
-                  </Label>
-               </top>
-            </BorderPane>
-         </bottom>
-         <center>
-            <AnchorPane prefHeight="181.0" prefWidth="202.0" BorderPane.alignment="CENTER">
+
+<BorderPane prefHeight="372.0" prefWidth="321.0" style="-fx-background-color: D7E4F2;" styleClass="rs-30-corner" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <effect>
+      <DropShadow />
+   </effect>
+   <bottom>
+      <VBox alignment="CENTER" prefHeight="209.0" prefWidth="281.0" spacing="10.0">
+         <children>
+            <Label alignment="CENTER" prefHeight="24.0" text="Thông tin khám" textAlignment="CENTER" textFill="NAVY">
+               <font>
+                  <Font name="Segoe UI Bold" size="20.0" />
+               </font>
+            </Label>
+            <TextFlow prefHeight="28.0" prefWidth="200.0">
                <children>
-                  <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="21.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/PET00001.jpg" />
-                     </image>
-                  </ImageView>
-               </children>
-            </AnchorPane>
-         </center>
-         <right>
-            <VBox prefHeight="166.0" prefWidth="130.0" spacing="10.0" BorderPane.alignment="CENTER">
-               <children>
-                  <Text fill="NAVY" strokeType="OUTSIDE" strokeWidth="0.0" text="Bobby">
-                     <font>
-                        <Font name="Segoe UI Bold" size="20.0" />
-                     </font>
-                  </Text>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Chó Husky">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Loại khám: ">
                      <font>
                         <Font name="Segoe UI" size="18.0" />
                      </font>
                   </Text>
-                  <Label text="26/01/2021">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
-                  <Label text="Đực">
+                  <Text fx:id="heaType" layoutX="116.0" layoutY="10.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Khác">
                      <font>
                         <Font name="Segoe UI" size="18.0" />
                      </font>
-                  </Label>
+                  </Text>
                </children>
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
                <padding>
-                  <Insets top="15.0" />
+                  <Insets left="15.0" right="15.0" />
                </padding>
-            </VBox>
-         </right>
-         <top>
-            <AnchorPane prefHeight="41.0" prefWidth="321.0" BorderPane.alignment="CENTER">
+            </TextFlow>
+            <TextFlow layoutX="10.0" layoutY="20.0" prefHeight="28.0" prefWidth="200.0">
                <children>
-                  <TextFlow layoutX="-6.0" layoutY="-76.0" prefHeight="200.0" prefWidth="321.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                     <children>
-                        <Label text="Trạng thái: ">
-                           <font>
-                              <Font name="Segoe UI Bold Italic" size="18.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="35.0" layoutY="25.0" text="Đã hoàn thành khám" textFill="#017234">
-                           <font>
-                              <Font name="Segoe UI Bold Italic" size="18.0" />
-                           </font>
-                        </Label>
-                     </children>
-                     <padding>
-                        <Insets left="25.0" top="15.0" />
-                     </padding>
-                  </TextFlow>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Bắt đầu:   ">
+                     <font>
+                        <Font name="Segoe UI" size="18.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="startTime" layoutX="116.0" layoutY="10.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" 8:00 06/04/2024">
+                     <font>
+                        <Font name="Segoe UI" size="18.0" />
+                     </font>
+                  </Text>
                </children>
-            </AnchorPane>
-         </top>
-      </BorderPane>
-   </children>
-</AnchorPane>
+               <padding>
+                  <Insets left="15.0" right="15.0" />
+               </padding>
+            </TextFlow>
+            <TextFlow layoutX="10.0" layoutY="128.0" prefHeight="28.0" prefWidth="200.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Kết thúc:  ">
+                     <font>
+                        <Font name="Segoe UI" size="18.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="endTime" layoutX="116.0" layoutY="10.0" strokeType="OUTSIDE" strokeWidth="0.0" text="10:00 06/04/2024">
+                     <font>
+                        <Font name="Segoe UI" size="18.0" />
+                     </font>
+                  </Text>
+               </children>
+               <padding>
+                  <Insets left="15.0" right="15.0" />
+               </padding>
+            </TextFlow>
+            <Button fx:id="btnUpdate" mnemonicParsing="false" prefHeight="35.0" prefWidth="148.0" style="-fx-background-color: white;" styleClass="rs-30-corner" stylesheets="@../css/style.css" text="Cập nhật" textFill="NAVY">
+               <font>
+                  <Font name="Segoe UI Bold" size="18.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+         <padding>
+            <Insets top="10.0" />
+         </padding>
+      </VBox>
+   </bottom>
+   <center>
+      <AnchorPane prefHeight="127.0" prefWidth="185.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="18.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/PET00001.jpg" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </center>
+   <right>
+      <VBox fx:id="type" prefHeight="125.0" prefWidth="86.0" spacing="10.0" BorderPane.alignment="CENTER">
+         <children>
+            <Text fx:id="name" fill="NAVY" strokeType="OUTSIDE" strokeWidth="0.0" text="Bobby">
+               <font>
+                  <Font name="Segoe UI Bold" size="20.0" />
+               </font>
+            </Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Chó Husky">
+               <font>
+                  <Font name="Segoe UI" size="18.0" />
+               </font>
+            </Text>
+            <Label fx:id="gender" text="Đực">
+               <font>
+                  <Font name="Segoe UI" size="18.0" />
+               </font>
+            </Label>
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <padding>
+            <Insets top="15.0" />
+         </padding>
+         <BorderPane.margin>
+            <Insets left="10.0" />
+         </BorderPane.margin>
+      </VBox>
+   </right>
+   <padding>
+      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+   </padding>
+</BorderPane>

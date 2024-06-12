@@ -5,14 +5,14 @@ import entity.system.PetHomeSystem;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import main.Main;
-import utils.Configs;
+import util.Configs;
 
 public class SalonServiceAddHandler extends BaseHandler{
 
-	public SalonServiceAddHandler (BorderPane borPane) {
+	public SalonServiceAddHandler (AnchorPane borPane) {
 		super(borPane);
 		this.loadFXML(Configs.SAL_SER_AU_PATH);
 	}
@@ -61,7 +61,7 @@ public class SalonServiceAddHandler extends BaseHandler{
     		try {
 				Main.system.addService(PetHomeSystem.SalonServiceId, value);
 				SalonServiceHandler screen = new SalonServiceHandler(borPane);
-				borPane.setCenter(screen.getContent());
+				this.addCenterContent(screen.getContent());
 			} catch (Exception e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();

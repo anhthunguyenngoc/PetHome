@@ -6,13 +6,13 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
-import utils.Configs;
+import util.Configs;
 
 public class HealthServiceItemHandler extends ItemHandler{
 
-	public HealthServiceItemHandler(BorderPane borPane, Service service) {		
+	public HealthServiceItemHandler(AnchorPane borPane, Service service) {		
 		super(Configs.HEA_SER_ITEM_PATH, borPane, service);
 	}
 

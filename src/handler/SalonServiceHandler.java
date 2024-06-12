@@ -2,16 +2,18 @@ package handler;
 
 import entity.service.Service;
 import entity.system.PetHomeSystem;
+import entity.user.Staff;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.HBox;
 import main.Main;
 
 public class SalonServiceHandler extends ListHandler{
 	
-	public SalonServiceHandler(BorderPane borPane) {
+	public SalonServiceHandler(AnchorPane borPane) {
 		super(borPane);
 	}
 	
@@ -34,7 +36,15 @@ public class SalonServiceHandler extends ListHandler{
     private Button btnUndo;
     
     @FXML
+    private HBox hboxButton;
+    
+    @FXML
     private void initialize() {
+    	if(Main.user instanceof Staff) {
+
+    	}else {
+    		hboxButton.setVisible(false);
+    	}
     	
     	title.setText("Thông tin dịch vụ làm đẹp");
 

@@ -6,13 +6,13 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
-import utils.Configs;
+import util.Configs;
 
 public class HotelServiceItemHandler extends ItemHandler{
 
-	public HotelServiceItemHandler(BorderPane borPane, Service service) {
+	public HotelServiceItemHandler(AnchorPane borPane, Service service) {
 		super(Configs.HOL_SER_ITEM_PATH, borPane, service);
 	}
 

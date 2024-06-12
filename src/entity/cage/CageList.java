@@ -3,12 +3,13 @@ package entity.cage;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 
 import entity.pet.Pet;
 import exception.HaveNoPet;
 import exception.NotExistPet;
 import schedule.Schedule;
-import utils.API;
+import util.API;
 
 public class CageList {
 	private ArrayList<Cage> cageList = new ArrayList<Cage>();
@@ -77,6 +78,8 @@ public class CageList {
 	
 	public Cage getFreeCageFromList() throws Exception {
 		ArrayList<Cage> freeCageList = getAPICageList("cages/free");
-		return freeCageList.get(0);
+		Random random = new Random();
+		int randomNumber = random.nextInt(freeCageList.size() + 1);
+		return freeCageList.get(randomNumber);
 	}
 }

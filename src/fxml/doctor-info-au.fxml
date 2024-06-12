@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane maxWidth="1005.0" prefWidth="1005.0" style="-fx-background-color: D7E4F2; -fx-background-radius: 30;">
+         <children>
+            <VBox alignment="CENTER" layoutX="90.0" layoutY="90.0" maxWidth="840.0" spacing="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Label alignment="CENTER" maxWidth="840.0" text="Cập nhật thông tin cá nhân" textAlignment="CENTER" textFill="NAVY">
+                     <font>
+                        <Font name="System Bold" size="33.0" />
+                     </font>
+                  </Label>
+                  <GridPane>
+                     <columnConstraints>
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="200.0" minWidth="190.0" prefWidth="200.0" />
+                        <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="288.0" minWidth="190.0" prefWidth="251.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="650.0" minWidth="200.0" prefWidth="249.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints maxHeight="107.0" minHeight="10.0" prefHeight="75.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="273.0" minHeight="10.0" prefHeight="75.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="215.0" minHeight="10.0" prefHeight="75.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="273.0" minHeight="10.0" prefHeight="75.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="273.0" minHeight="10.0" prefHeight="75.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="273.0" minHeight="10.0" prefHeight="75.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="273.0" minHeight="10.0" prefHeight="75.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="273.0" minHeight="10.0" prefHeight="75.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="273.0" minHeight="10.0" prefHeight="75.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <Label text="Tên:" textFill="#403a3a" GridPane.columnIndex="1">
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                           <GridPane.margin>
+                              <Insets left="30.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <Label alignment="TOP_LEFT" text="Ngày sinh: " textAlignment="CENTER" textFill="#403a3a" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                           <GridPane.margin>
+                              <Insets left="30.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <Label text="Số điện thoại" textFill="#403a3a" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                           <GridPane.margin>
+                              <Insets left="30.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <Label text="Địa chỉ: " textFill="#403a3a" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                           <GridPane.margin>
+                              <Insets left="30.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <TextField fx:id="address" prefHeight="31.0" prefWidth="288.0" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                        <TextField fx:id="name" prefHeight="31.0" prefWidth="288.0" GridPane.columnIndex="2" />
+                        <AnchorPane style="-fx-background-color: B0c4de;" GridPane.rowSpan="3">
+                           <children>
+                              <ImageView fitHeight="157.0" fitWidth="181.0" layoutX="24.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true" />
+                           </children>
+                           <GridPane.margin>
+                              <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+                           </GridPane.margin>
+                        </AnchorPane>
+                        <Label text="Giới tính:" textFill="#403a3a" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                           <GridPane.margin>
+                              <Insets left="30.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <HBox alignment="CENTER_LEFT" spacing="25.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                           <children>
+                              <RadioButton fx:id="male" mnemonicParsing="false" text="Nam">
+                                 <font>
+                                    <Font size="22.0" />
+                                 </font>
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="gender" />
+                                 </toggleGroup>
+                              </RadioButton>
+                              <RadioButton fx:id="female" mnemonicParsing="false" text="Nữ" toggleGroup="$gender">
+                                 <font>
+                                    <Font size="22.0" />
+                                 </font>
+                              </RadioButton>
+                              <RadioButton fx:id="other" mnemonicParsing="false" text="Khác" toggleGroup="$gender">
+                                 <font>
+                                    <Font size="22.0" />
+                                 </font>
+                              </RadioButton>
+                           </children>
+                        </HBox>
+                        <Button fx:id="btnUpload" mnemonicParsing="false" prefHeight="51.0" prefWidth="131.0" style="-fx-background-color: white;" styleClass="rs-30-corner" stylesheets="@../css/style.css" text="Tải ảnh" textFill="NAVY" GridPane.rowIndex="3">
+                           <font>
+                              <Font name="Segoe UI Bold" size="20.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <DatePicker fx:id="dob" prefHeight="31.0" prefWidth="395.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                        <TextField fx:id="phone" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                        <Label text="Tốt nghiệp trường: " textFill="#403a3a" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                           <GridPane.margin>
+                              <Insets left="30.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <Label text="Năm tốt nghiệp: " textFill="#403a3a" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                           <GridPane.margin>
+                              <Insets left="30.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <Label text="Thành tựu: " textFill="#403a3a" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                           <GridPane.margin>
+                              <Insets left="30.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <Label text="Số năm kinh nghiệm: " textFill="#403a3a" GridPane.columnIndex="1" GridPane.rowIndex="8">
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                           <GridPane.margin>
+                              <Insets left="30.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <TextField fx:id="graduateSchool" prefHeight="31.0" prefWidth="288.0" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+                        <TextField fx:id="graduateY" prefHeight="31.0" prefWidth="288.0" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+                        <TextField fx:id="achie" prefHeight="31.0" prefWidth="288.0" GridPane.columnIndex="2" GridPane.rowIndex="7" />
+                        <TextField fx:id="expYear" prefHeight="31.0" prefWidth="288.0" GridPane.columnIndex="2" GridPane.rowIndex="8" />
+                     </children>
+                  </GridPane>
+                  <Button fx:id="btnAdd" mnemonicParsing="false" prefHeight="51.0" prefWidth="131.0" style="-fx-background-color: white;" styleClass="rs-30-corner" stylesheets="@../css/style.css" text="Cập nhật" textFill="NAVY">
+                     <font>
+                        <Font name="Segoe UI Bold" size="20.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+               </padding>
+            </VBox>
+            <ImageView fx:id="btnBack" fitHeight="40.0" fitWidth="40.0" layoutX="883.0" layoutY="41.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="35.0">
+               <image>
+                  <Image url="@../images/x.jpg" />
+               </image>
+            </ImageView>
+         </children>
+         <padding>
+            <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+         </padding>
+      </AnchorPane>
+   </children>
+   <padding>
+      <Insets bottom="80.0" left="80.0" right="80.0" top="80.0" />
+   </padding>
+</VBox>

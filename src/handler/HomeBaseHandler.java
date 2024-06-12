@@ -27,8 +27,8 @@ public class HomeBaseHandler extends FXMLLoaderHandler{
 			Main.system.getServiceListChildAPI(id);
 			//Ẩn menuitem sau khi click
 			menuBtnVisible(menuItemDV, sPaneDV, 80, 210);
-
-			this.borPane.setCenter(listScreen.getContent());
+			
+			this.addCenterContent(listScreen.getContent());
 		} catch (Exception e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();

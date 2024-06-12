@@ -11,23 +11,22 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
-import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import main.Main;
-import utils.Configs;
+import util.Configs;
 
 public class LoginHandler extends BaseHandler{
 
 	ScrollPane scrollPane = new ScrollPane();
 	
-	public LoginHandler(BorderPane borPane, ScrollPane scrollPane) {
-		super(borPane);
+	public LoginHandler(AnchorPane ancPaneCenter, ScrollPane scrollPane) {
+		super(ancPaneCenter);
 		this.scrollPane = scrollPane;
 		this.loadFXML(Configs.LOGIN_PATH);
 	}
-	
 
-    @FXML
+	@FXML
     private TextField textFEmail;
 
     @FXML
@@ -58,7 +57,7 @@ public class LoginHandler extends BaseHandler{
     	setMouseEvent(btnLogIn, "white", 3);
     	linkRegister.setOnMouseClicked(e -> {
     		RegisterHandler screen = new RegisterHandler(borPane, scrollPane);
-    		borPane.setCenter(screen.getContent());
+    		this.addCenterContent(screen.getContent());
     	});
     	
     	//xác nhận đăng nhập

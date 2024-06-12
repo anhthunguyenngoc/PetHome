@@ -25,7 +25,7 @@
          <children>
             <HBox alignment="CENTER_RIGHT" prefWidth="1428.0" spacing="30.0">
                <children>
-                  <Button fx:id="btnAdd" mnemonicParsing="false" prefHeight="55.0" prefWidth="150.0" style="-fx-background-color: D7E4F2;" styleClass="rs-30-corner" stylesheets="@../css/style.css" text="Đặt lịch" textFill="NAVY">
+                  <Button fx:id="btnAdd" mnemonicParsing="false" prefHeight="55.0" prefWidth="150.0" style="-fx-background-color: D7E4F2;" styleClass="rs-sort-button" stylesheets="@../css/style.css" text="Đặt lịch" textFill="NAVY">
                      <font>
                         <Font name="Segoe UI Bold" size="20.0" />
                      </font>
@@ -33,7 +33,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="btnUndo" mnemonicParsing="false" prefHeight="55.0" prefWidth="150.0" style="-fx-background-color: D7E4F2;" styleClass="rs-30-corner" stylesheets="@../css/style.css" text="Hoàn tác" textFill="NAVY">
+                  <Button fx:id="btnUndo" mnemonicParsing="false" prefHeight="55.0" prefWidth="150.0" style="-fx-background-color: D7E4F2;" styleClass="rs-sort-button" stylesheets="@../css/style.css" text="Hoàn tác" textFill="NAVY">
                      <font>
                         <Font name="Segoe UI Bold" size="20.0" />
                      </font>
@@ -50,39 +50,42 @@
                   </Button>
                </children>
             </HBox>
-            <HBox alignment="CENTER_LEFT" prefWidth="1428.0">
+            <VBox spacing="20.0" style="-fx-border-color: navy; -fx-border-width: 3;" styleClass="rs-30-border" stylesheets="@../css/style.css">
                <children>
-                  <Button fx:id="btnHealth" mnemonicParsing="false" prefHeight="55.0" style="-fx-background-color: D7E4F2;" styleClass="rs-30-left-corner" stylesheets="@../css/style.css" text="Chăm sóc thú cưng" textFill="NAVY">
-                     <font>
-                        <Font name="Segoe UI Bold" size="20.0" />
-                     </font>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </Button>
-                  <Button fx:id="btnSalon" mnemonicParsing="false" prefHeight="55.0" style="-fx-background-color: D7E4F2;" stylesheets="@../css/style.css" text="Thú cưng làm đẹp" textFill="NAVY">
-                     <font>
-                        <Font name="Segoe UI Bold" size="20.0" />
-                     </font>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </Button>
-                  <Button fx:id="btnHotel" mnemonicParsing="false" prefHeight="55.0" style="-fx-background-color: D7E4F2;" styleClass="rs-30-right-corner" stylesheets="@../css/style.css" text="Khách sạn thú cưng" textFill="NAVY">
-                     <font>
-                        <Font name="Segoe UI Bold" size="20.0" />
-                     </font>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </Button>
-               </children>
-            </HBox>
-            <VBox spacing="20.0" style="-fx-border-color: navy; -fx-border-radius: 30; -fx-border-width: 3;">
-               <children>
+                  <HBox alignment="CENTER_LEFT" prefWidth="1504.0" style="-fx-background-color: navy;">
+                     <children>
+                        <Button fx:id="btnOngoing" mnemonicParsing="false" prefHeight="60.0" prefWidth="245.0" style="-fx-background-color: white;" styleClass="rs-5-button" stylesheets="@../css/style.css" text="Chăm sóc thú cưng" textFill="NAVY">
+                           <font>
+                              <Font name="Segoe UI Bold" size="20.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <Button fx:id="btnCompleted" mnemonicParsing="false" prefHeight="48.0" prefWidth="245.0" style="-fx-background-color: navy;" styleClass="rs-5-button" stylesheets="@../css/style.css" text="Thú cưng làm đẹp" textFill="WHITE">
+                           <font>
+                              <Font name="Segoe UI Bold" size="20.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <Button fx:id="btnCompleted1" mnemonicParsing="false" prefHeight="48.0" prefWidth="245.0" style="-fx-background-color: navy;" styleClass="rs-5-button" stylesheets="@../css/style.css" text="Khách sạn thú cưng" textFill="WHITE">
+                           <font>
+                              <Font name="Segoe UI Bold" size="20.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                     </children>
+                     <padding>
+                        <Insets left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                  </HBox>
                   <HBox spacing="20.0">
                      <children>
-                        <Button fx:id="btnFilter" mnemonicParsing="false" prefHeight="38.0" prefWidth="106.0" style="-fx-background-color: D7E4F2;" styleClass="rs-30-corner" stylesheets="@../css/style.css" text="Lọc" textFill="NAVY">
+                        <Button fx:id="btnFiter" mnemonicParsing="false" prefHeight="38.0" prefWidth="106.0" style="-fx-background-color: D7E4F2;" styleClass="rs-sort-button" stylesheets="@../css/style.css" text="Lọc" textFill="NAVY">
                            <font>
                               <Font name="Segoe UI Bold" size="20.0" />
                            </font>
@@ -97,7 +100,7 @@
                               </ImageView>
                            </graphic>
                         </Button>
-                        <Button fx:id="btnSort" mnemonicParsing="false" prefHeight="38.0" prefWidth="135.0" style="-fx-background-color: D7E4F2;" styleClass="rs-30-corner" stylesheets="@../css/style.css" text="Sắp xếp" textFill="NAVY">
+                        <Button fx:id="btnArrange" mnemonicParsing="false" prefHeight="38.0" prefWidth="135.0" style="-fx-background-color: D7E4F2;" styleClass="rs-sort-button" stylesheets="@../css/style.css" text="Sắp xếp" textFill="NAVY">
                            <font>
                               <Font name="Segoe UI Bold" size="20.0" />
                            </font>
@@ -113,16 +116,19 @@
                            </graphic>
                         </Button>
                      </children>
+                     <padding>
+                        <Insets left="50.0" right="50.0" />
+                     </padding>
                   </HBox>
-                  <FlowPane fx:id="fPaneContent" hgap="20.0" prefWidth="1320.0" vgap="20.0">
+                  <FlowPane fx:id="flowPane" columnHalignment="CENTER" hgap="25.0" prefWidth="1400.0" prefWrapLength="0.0" vgap="25.0">
                      <padding>
                         <Insets bottom="40.0" />
                      </padding>
+                     <VBox.margin>
+                        <Insets left="50.0" right="50.0" />
+                     </VBox.margin>
                   </FlowPane>
                </children>
-               <padding>
-                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-               </padding>
             </VBox>
          </children>
          <BorderPane.margin>

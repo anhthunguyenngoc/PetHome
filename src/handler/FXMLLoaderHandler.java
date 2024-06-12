@@ -4,9 +4,9 @@ import java.io.IOException;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Cursor;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 public abstract class FXMLLoaderHandler {
@@ -17,8 +17,7 @@ public abstract class FXMLLoaderHandler {
 	String LIGHT_GRAYISH_BLUE = "D7E4F2";
 
 	protected Node fxmlLoaderContent;
-	protected Stage popUpWindow;
-    protected BorderPane borPane = new BorderPane();
+    protected AnchorPane borPane = new AnchorPane();
 	
 	public FXMLLoaderHandler() {
 	}
@@ -35,23 +34,29 @@ public abstract class FXMLLoaderHandler {
 		}
 	}
 	
+	protected void addCenterContent(Node node) {
+		this.borPane.getChildren().clear();
+		this.borPane.setBottomAnchor(node, 0.0);
+		this.borPane.setLeftAnchor(node, 0.0);
+		this.borPane.setRightAnchor(node, 0.0);
+		this.borPane.setTopAnchor(node, 0.0);
+		this.borPane.getChildren().add(node);
+	}
+	
 	public Node getContent() {
 		return this.fxmlLoaderContent;
 	}
 	
-	public BorderPane getBorPane() {
+	public AnchorPane getBorPane() {
 		return borPane;
 	}
 
-	public void openPopUpWindow(AnchorPane ancPane) {
-		Scene scene = new Scene(ancPane);
+	public void openPopUpWindow(Node ancPane) {
+		Stage popUpWindow = new Stage();
+		Scene scene = new Scene((Parent) ancPane);
 		popUpWindow.setScene(scene);
 		popUpWindow.show();
 	}
-	
-	public void closePopUpWindow() {
-		popUpWindow.close();
-	}  
 	
     //đổi màu button khi thực hiện các thao tác = chuột
     protected void setMouseEvent (Node node, String enterColor, String pressColor, String clickColor) {

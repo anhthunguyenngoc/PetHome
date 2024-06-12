@@ -4,13 +4,13 @@ import entity.user.User;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.BorderPane;
-import utils.Configs;
+import javafx.scene.layout.AnchorPane;
+import util.Configs;
 
 public class UserInfoHandler extends BaseHandler{
 	private User user;
 	
-	public UserInfoHandler(BorderPane borPane, User user) {
+	public UserInfoHandler(AnchorPane borPane, User user) {
 		super(borPane);
 		this.user = user;
 		this.loadFXML(Configs.USER_INFO_PATH);
@@ -51,7 +51,7 @@ public class UserInfoHandler extends BaseHandler{
 		
 		btnUpdate.setOnMouseClicked(e -> {
 			UserInfoUpdateHandler screen = new UserInfoUpdateHandler(borPane, this.user);
-			borPane.setCenter(screen.getContent());
+			this.addCenterContent(screen.getContent());
 		});	
 		
 	}

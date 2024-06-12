@@ -9,3 +9,18 @@
 .rs-30-right-corner{
     -fx-background-radius: 0 30 30 0;
 }
+
+.rs-30-border{
+    -fx-border-radius: 0 0 30 30;
+;
+}
+
+.rs-5-button{
+    -fx-background-radius: 5 5 0 0;
+}
+
+.rs-sort-button{
+    -fx-pref-height: 45px;
+    -fx-pref-width: 150px;
+    -fx-background-radius: 30;
+}

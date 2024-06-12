@@ -14,6 +14,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
@@ -22,136 +23,170 @@
    <children>
       <VBox layoutY="115.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <ScrollPane fitToHeight="true" fitToWidth="true" prefWidth="1200.0">
+            <ScrollPane fx:id="scrollPane" fitToHeight="true" fitToWidth="true" prefWidth="1200.0">
                <content>
-                  <HBox>
+                  <StackPane fx:id="stackPane">
                      <children>
-                        <AnchorPane style="-fx-background-color: white;">
+                        <AnchorPane>
                            <children>
-                              <VBox alignment="CENTER_LEFT" layoutX="97.0" layoutY="89.0" spacing="30.0">
+                              <HBox fx:id="hBox">
                                  <children>
-                                    <Label text="Hãy để chúng tôi&#10;chăm sóc thú cưng của bạn" textFill="NAVY" wrapText="true">
-                                       <font>
-                                          <Font name="System Bold" size="36.0" />
-                                       </font>
-                                    </Label>
-                                    <Button fx:id="btnRegister1" mnemonicParsing="false" prefHeight="60.0" style="-fx-background-color: D7E4F2;" styleClass="rs-30-corner" stylesheets="@../css/style.css" text="Đăng ký dịch vụ" textFill="NAVY">
-                                       <font>
-                                          <Font name="Segoe UI Bold" size="20.0" />
-                                       </font>
-                                       <cursor>
-                                          <Cursor fx:constant="HAND" />
-                                       </cursor>
+                                    <AnchorPane style="-fx-background-color: white;">
+                                       <children>
+                                          <VBox alignment="CENTER_LEFT" layoutX="97.0" layoutY="89.0" spacing="30.0">
+                                             <children>
+                                                <Label text="Hãy để chúng tôi&#10;chăm sóc thú cưng của bạn" textFill="NAVY" wrapText="true">
+                                                   <font>
+                                                      <Font name="System Bold" size="36.0" />
+                                                   </font>
+                                                </Label>
+                                                <Button fx:id="btnRegister1" mnemonicParsing="false" prefHeight="60.0" style="-fx-background-color: D7E4F2;" styleClass="rs-30-corner" stylesheets="@../css/style.css" text="Đăng ký dịch vụ" textFill="NAVY">
+                                                   <font>
+                                                      <Font name="Segoe UI Bold" size="20.0" />
+                                                   </font>
+                                                   <cursor>
+                                                      <Cursor fx:constant="HAND" />
+                                                   </cursor>
+                                                   <padding>
+                                                      <Insets left="20.0" right="20.0" />
+                                                   </padding>
+                                                </Button>
+                                             </children>
+                                          </VBox>
+                                          <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="844.0" layoutY="160.0" pickOnBounds="true" preserveRatio="true" rotate="90.0">
+                                             <image>
+                                                <Image url="@../images/homepage/1.png" />
+                                             </image>
+                                             <viewport>
+                                                <Rectangle2D minX="60.0" minY="60.0" />
+                                             </viewport>
+                                          </ImageView>
+                                          <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="1075.0" layoutY="47.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../images/homepage/2.png" />
+                                             </image>
+                                             <viewport>
+                                                <Rectangle2D minX="60.0" minY="60.0" />
+                                             </viewport>
+                                          </ImageView>
+                                       </children>
                                        <padding>
-                                          <Insets left="20.0" right="20.0" />
+                                          <Insets bottom="30.0" left="30.0" right="60.0" top="30.0" />
                                        </padding>
-                                    </Button>
+                                    </AnchorPane>
+                                    <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;">
+                                       <children>
+                                          <VBox alignment="CENTER_LEFT" layoutX="97.0" layoutY="89.0" spacing="30.0">
+                                             <children>
+                                                <Label text="Dễ dàng theo dõi và quản lí sức khỏe của thú cưng" textFill="NAVY" wrapText="true">
+                                                   <font>
+                                                      <Font name="System Bold" size="36.0" />
+                                                   </font>
+                                                </Label>
+                                                <Button fx:id="btnRegister12" mnemonicParsing="false" prefHeight="60.0" style="-fx-background-color: D7E4F2;" styleClass="rs-30-corner" stylesheets="@../css/style.css" text="Đăng ký dịch vụ" textFill="NAVY">
+                                                   <font>
+                                                      <Font name="Segoe UI Bold" size="20.0" />
+                                                   </font>
+                                                   <cursor>
+                                                      <Cursor fx:constant="HAND" />
+                                                   </cursor>
+                                                   <padding>
+                                                      <Insets left="20.0" right="20.0" />
+                                                   </padding>
+                                                </Button>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="30.0" left="30.0" right="60.0" top="30.0" />
+                                       </padding>
+                                    </AnchorPane>
+                                    <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;">
+                                       <children>
+                                          <VBox alignment="CENTER_LEFT" layoutX="97.0" layoutY="89.0" spacing="30.0">
+                                             <children>
+                                                <Label text="Tạo mẫu cho thú cưng với dịch vụ làm đẹp" textFill="NAVY" wrapText="true">
+                                                   <font>
+                                                      <Font name="System Bold" size="36.0" />
+                                                   </font>
+                                                </Label>
+                                                <Button fx:id="btnRegister122" mnemonicParsing="false" prefHeight="60.0" style="-fx-background-color: D7E4F2;" styleClass="rs-30-corner" stylesheets="@../css/style.css" text="Đăng ký dịch vụ" textFill="NAVY">
+                                                   <font>
+                                                      <Font name="Segoe UI Bold" size="20.0" />
+                                                   </font>
+                                                   <cursor>
+                                                      <Cursor fx:constant="HAND" />
+                                                   </cursor>
+                                                   <padding>
+                                                      <Insets left="20.0" right="20.0" />
+                                                   </padding>
+                                                </Button>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="30.0" left="30.0" right="60.0" top="30.0" />
+                                       </padding>
+                                    </AnchorPane>
+                                    <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;">
+                                       <children>
+                                          <VBox alignment="CENTER_LEFT" layoutX="97.0" layoutY="89.0" spacing="30.0">
+                                             <children>
+                                                <Label prefHeight="159.0" prefWidth="751.0" text="Thoải mái đi du lịch mà không cần lo lắng cho thú cưng với khách sạn thú cưng" textFill="NAVY" wrapText="true">
+                                                   <font>
+                                                      <Font name="System Bold" size="36.0" />
+                                                   </font>
+                                                </Label>
+                                                <Button fx:id="btnRegister121" mnemonicParsing="false" prefHeight="60.0" style="-fx-background-color: D7E4F2;" styleClass="rs-30-corner" stylesheets="@../css/style.css" text="Đăng ký dịch vụ" textFill="NAVY">
+                                                   <font>
+                                                      <Font name="Segoe UI Bold" size="20.0" />
+                                                   </font>
+                                                   <cursor>
+                                                      <Cursor fx:constant="HAND" />
+                                                   </cursor>
+                                                   <padding>
+                                                      <Insets left="20.0" right="20.0" />
+                                                   </padding>
+                                                </Button>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="30.0" left="30.0" right="60.0" top="30.0" />
+                                       </padding>
+                                    </AnchorPane>
                                  </children>
-                              </VBox>
-                              <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="844.0" layoutY="160.0" pickOnBounds="true" preserveRatio="true" rotate="90.0">
-                                 <image>
-                                    <Image url="@../images/homepage/1.png" />
-                                 </image>
-                                 <viewport>
-                                    <Rectangle2D minX="60.0" minY="60.0" />
-                                 </viewport>
-                              </ImageView>
-                              <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="1075.0" layoutY="47.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../images/homepage/2.png" />
-                                 </image>
-                                 <viewport>
-                                    <Rectangle2D minX="60.0" minY="60.0" />
-                                 </viewport>
-                              </ImageView>
+                              </HBox>
                            </children>
-                           <padding>
-                              <Insets bottom="30.0" left="30.0" right="60.0" top="30.0" />
-                           </padding>
                         </AnchorPane>
-                        <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;">
+                        <HBox prefWidth="1550.0">
                            <children>
-                              <VBox alignment="CENTER_LEFT" layoutX="97.0" layoutY="89.0" spacing="30.0">
-                                 <children>
-                                    <Label text="Dễ dàng theo dõi và quản lí sức khỏe của thú cưng" textFill="NAVY" wrapText="true">
-                                       <font>
-                                          <Font name="System Bold" size="36.0" />
-                                       </font>
-                                    </Label>
-                                    <Button fx:id="btnRegister12" mnemonicParsing="false" prefHeight="60.0" style="-fx-background-color: D7E4F2;" styleClass="rs-30-corner" stylesheets="@../css/style.css" text="Đăng ký dịch vụ" textFill="NAVY">
-                                       <font>
-                                          <Font name="Segoe UI Bold" size="20.0" />
-                                       </font>
-                                       <cursor>
-                                          <Cursor fx:constant="HAND" />
-                                       </cursor>
-                                       <padding>
-                                          <Insets left="20.0" right="20.0" />
-                                       </padding>
-                                    </Button>
-                                 </children>
-                              </VBox>
+                              <Button fx:id="leftButton" mnemonicParsing="false" prefHeight="60.0" style="-fx-background-color: D7E4F2;" styleClass="rs-30-corner" stylesheets="@../css/style.css" text="&lt;" textFill="NAVY">
+                                 <font>
+                                    <Font name="Segoe UI Bold" size="20.0" />
+                                 </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <padding>
+                                    <Insets left="20.0" right="20.0" />
+                                 </padding>
+                              </Button>
+                              <Button fx:id="rightButton" mnemonicParsing="false" prefHeight="60.0" style="-fx-background-color: D7E4F2;" styleClass="rs-30-corner" stylesheets="@../css/style.css" text="&gt;" textFill="NAVY">
+                                 <font>
+                                    <Font name="Segoe UI Bold" size="20.0" />
+                                 </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <padding>
+                                    <Insets left="20.0" right="20.0" />
+                                 </padding>
+                              </Button>
                            </children>
-                           <padding>
-                              <Insets bottom="30.0" left="30.0" right="60.0" top="30.0" />
-                           </padding>
-                        </AnchorPane>
-                        <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;">
-                           <children>
-                              <VBox alignment="CENTER_LEFT" layoutX="97.0" layoutY="89.0" spacing="30.0">
-                                 <children>
-                                    <Label text="Tạo mẫu cho thú cưng với dịch vụ làm đẹp" textFill="NAVY" wrapText="true">
-                                       <font>
-                                          <Font name="System Bold" size="36.0" />
-                                       </font>
-                                    </Label>
-                                    <Button fx:id="btnRegister122" mnemonicParsing="false" prefHeight="60.0" style="-fx-background-color: D7E4F2;" styleClass="rs-30-corner" stylesheets="@../css/style.css" text="Đăng ký dịch vụ" textFill="NAVY">
-                                       <font>
-                                          <Font name="Segoe UI Bold" size="20.0" />
-                                       </font>
-                                       <cursor>
-                                          <Cursor fx:constant="HAND" />
-                                       </cursor>
-                                       <padding>
-                                          <Insets left="20.0" right="20.0" />
-                                       </padding>
-                                    </Button>
-                                 </children>
-                              </VBox>
-                           </children>
-                           <padding>
-                              <Insets bottom="30.0" left="30.0" right="60.0" top="30.0" />
-                           </padding>
-                        </AnchorPane>
-                        <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;">
-                           <children>
-                              <VBox alignment="CENTER_LEFT" layoutX="97.0" layoutY="89.0" spacing="30.0">
-                                 <children>
-                                    <Label prefHeight="159.0" prefWidth="751.0" text="Thoải mái đi du lịch mà không cần lo lắng cho thú cưng với khách sạn thú cưng" textFill="NAVY" wrapText="true">
-                                       <font>
-                                          <Font name="System Bold" size="36.0" />
-                                       </font>
-                                    </Label>
-                                    <Button fx:id="btnRegister121" mnemonicParsing="false" prefHeight="60.0" style="-fx-background-color: D7E4F2;" styleClass="rs-30-corner" stylesheets="@../css/style.css" text="Đăng ký dịch vụ" textFill="NAVY">
-                                       <font>
-                                          <Font name="Segoe UI Bold" size="20.0" />
-                                       </font>
-                                       <cursor>
-                                          <Cursor fx:constant="HAND" />
-                                       </cursor>
-                                       <padding>
-                                          <Insets left="20.0" right="20.0" />
-                                       </padding>
-                                    </Button>
-                                 </children>
-                              </VBox>
-                           </children>
-                           <padding>
-                              <Insets bottom="30.0" left="30.0" right="60.0" top="30.0" />
-                           </padding>
-                        </AnchorPane>
+                        </HBox>
                      </children>
-                  </HBox>
+                  </StackPane>
                </content>
             </ScrollPane>
             <AnchorPane prefHeight="745.0" prefWidth="1323.0" style="-fx-background-color: #E3F2FD;">

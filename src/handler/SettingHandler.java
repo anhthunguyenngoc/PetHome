@@ -1,8 +1,8 @@
 package handler;
 
-import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.AnchorPane;
 import main.Main;
-import utils.Configs;
+import util.Configs;
 import exception.InvalidInformation;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -10,7 +10,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 public class SettingHandler extends BaseHandler{
 	
-	public SettingHandler(BorderPane borPane) {
+	public SettingHandler(AnchorPane borPane) {
 		super(borPane);
 		this.loadFXML(Configs.SETTING_PATH);
 	}
@@ -35,10 +35,12 @@ public class SettingHandler extends BaseHandler{
     	btnRegister.setOnMouseClicked(e -> {
     		try {
 				Main.user.setPass(textFPass2.getText());
+				HomePageHandler homePage = new HomePageHandler(borPane);
+		    	this.addCenterContent(homePage.getContent());
 			} catch (InvalidInformation e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
-    	});
+    	});   	
     }
 }

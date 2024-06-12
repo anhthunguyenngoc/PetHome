@@ -1,13 +1,14 @@
 package handler;
-import utils.Configs;
 import java.util.ArrayList;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import main.Main;
+import util.Configs;
 
 public class DocHomeHandler extends UserHomeHandler{
 
@@ -15,28 +16,7 @@ public class DocHomeHandler extends UserHomeHandler{
 		super(Configs.DOC_HOME_PATH, scrollPane);
 	}
     @FXML
-    private BorderPane borPaneCenter;
-
-    @FXML
-    private Button btnTB;
-
-    @FXML
-    private ScrollPane sPaneDV;
-
-    @FXML
-    private Button btnDV;
-
-    @FXML
-    private VBox menuItemDV;
-
-    @FXML
-    private Button mItemHth;
-
-    @FXML
-    private Button mItemSln;
-
-    @FXML
-    private Button mItemHotel;
+    private AnchorPane ancPaneCenter;
 
     @FXML
     private ScrollPane sPaneKB;
@@ -66,30 +46,28 @@ public class DocHomeHandler extends UserHomeHandler{
     private VBox menuItemUser;
 
     @FXML
-    private Button mItemUserInfo;
+    private Button btnUserInfo;
 
     @FXML
-    private Button mItemPetInfo;
+    private Button btnSetting;
 
     @FXML
-    private Button mItemLogOut;
+    private Button btnLogOut;
     
     @FXML
     private void initialize() {
-    	this.borPane = borPaneCenter;
+    	this.borPane = ancPaneCenter;
     	
-    	HomePageHandler homePage = new HomePageHandler(borPaneCenter);
-		borPaneCenter.setCenter(homePage.getContent());
-		
-		ArrayList<Button> btn = new ArrayList<Button>();
-	    btn.add(btnDV);
-
-	    ArrayList<Button> mItem0 = new ArrayList<Button>();
-	    mItem0.add(mItemHth);
-	    mItem0.add(mItemSln);
-	    mItem0.add(mItemHotel);
-
-	    header(btn,  mItem0, menuItemDV, sPaneDV);
+    	HomePageHandler homePage = new HomePageHandler(ancPaneCenter);
+		this.addCenterContent(homePage.getContent());
+			    
+	    ArrayList<Button> mItem1 = new ArrayList<Button>();
+ 	    mItem1.add(btnUserInfo);
+ 	    mItem1.add(btnSetting);
+ 	    mItem1.add(btnLogOut);
+ 	    
+ 	    DoctorInfoHandler info = new DoctorInfoHandler(borPane, Main.user);
+	    userClick(imaUserInfo, menuItemUser, sPaneUser, mItem1, 210.0, info);
     	
     	//Event khi click vào "Khám bệnh" Button trên menu bar
     	setMouseEvent(btnKB);
@@ -98,34 +76,31 @@ public class DocHomeHandler extends UserHomeHandler{
     		menuItemKB.setVisible(!menuItemKB.isVisible());
         	btnKB.setStyle("-fx-background-color: "+ ENTERED_COLOR + ";");
             if(menuItemKB.isVisible()) {
-            	sPaneKB.setPrefHeight(201.0);
+            	sPaneKB.setPrefHeight(166.0);
             }
-            else sPaneKB.setPrefHeight(115.0);
+            else sPaneKB.setPrefHeight(80.0);
     	});
-    	setMouseEvent(btnTB);
+
     	setMouseEvent(btnKK);
     	
     	//Event khi click vào menuItem "Cập nhật sức khỏe" trên menu bar
     	setMouseEvent(mItemUpHealth, "white", 3);
     	mItemUpHealth.setOnMouseClicked(e -> {
-    		UpdatePetHealthHandler screen = new UpdatePetHealthHandler(borPaneCenter);
+    		UpdatePetHealthHandler screen = new UpdatePetHealthHandler(ancPaneCenter);
     		Node ancPane = screen.getContent();           		
-    		borPaneCenter.setCenter(ancPane);
+    		this.addCenterContent(ancPane);
             menuItemKB.setVisible(false);
-            sPaneKB.setPrefHeight(115.0);
+            sPaneKB.setPrefHeight(80.0);
     	});
     	
-    	imaUserInfo.setOnMouseClicked(e -> {
-    		boolean isVisible = menuItemUser.isVisible();
-    		menuItemUser.setVisible(!isVisible);
-    		if(!menuItemUser.isVisible()) {
-    			sPaneUser.setPrefHeight(245.0);
-            }
-            else sPaneUser.setPrefHeight(115.0);
-    	});
-    	    	
-    	//Event khi click vào menuItem "Lịch khám" trên menu bar
     	setMouseEvent(mItemHthSche, "white", 3);
-
+    	mItemHthSche.setOnMouseClicked(e -> {
+    		ScheduleDocListHandler screen = new ScheduleDocListHandler(ancPaneCenter);
+    		Node ancPane = screen.getContent();           		
+    		this.addCenterContent(ancPane);
+            menuItemKB.setVisible(false);
+            sPaneKB.setPrefHeight(80.0);
+    	});
+    	
     }
 }

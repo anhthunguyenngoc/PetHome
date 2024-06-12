@@ -38,6 +38,11 @@ public class SalonService extends Service{
 		this.varPost = var;
 		// TODO Auto-generated constructor stub
 	}
+	
+	public SalonService(String id) throws Exception {
+		super(id, 
+			new ArrayList<String>(Arrays.asList("process", "quantitative", "name", "introduction", "price", "service_id")), "services/salon/");	
+	}
 
 	public String getprocess() {
 		return process;
@@ -63,4 +68,5 @@ public class SalonService extends Service{
 		this.process = info.get(0);
 		this.quantitative = info.get(1);
 	}
+	
 }

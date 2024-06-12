@@ -7,14 +7,14 @@ import exception.HaveNoPet;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 import main.Main;
-import utils.Configs;
+import util.Configs;
 
 public class PetInfoListHandler extends BaseHandler{
 	
-	public PetInfoListHandler(BorderPane borPane) {
+	public PetInfoListHandler(AnchorPane borPane) {
 		super(borPane);
 		this.loadFXML(Configs.LIST_PATH);
 	}
@@ -63,7 +63,7 @@ public class PetInfoListHandler extends BaseHandler{
 		
     	btnAdd.setOnMouseClicked(e -> {
     		PetInfoAddHandler screen = new PetInfoAddHandler(borPane);
-			borPane.setCenter(screen.getContent());
+			this.addCenterContent(screen.getContent());
 		});
     }
     

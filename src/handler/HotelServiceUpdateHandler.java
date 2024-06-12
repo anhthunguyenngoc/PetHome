@@ -6,17 +6,18 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import main.Main;
-import utils.Configs;
+import util.Configs;
+
 import java.util.ArrayList;
 import entity.service.HotelService;
 import entity.system.PetHomeSystem;
-import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.AnchorPane;
 
 public class HotelServiceUpdateHandler extends BaseHandler{
 
 	private HotelService healthS = new HotelService();
 	
-	public HotelServiceUpdateHandler (BorderPane borPane, HotelService healthService) {
+	public HotelServiceUpdateHandler (AnchorPane borPane, HotelService healthService) {
 		super(borPane);
 		this.healthS = healthService;
 		this.loadFXML(Configs.HOL_SER_AU_PATH);
@@ -94,7 +95,7 @@ public class HotelServiceUpdateHandler extends BaseHandler{
     		try {
 				Main.system.upOneService(PetHomeSystem.HotelServiceId, healthS, value);
 				HotelServiceInfoHandler screen = new HotelServiceInfoHandler(borPane, this.healthS);
-				borPane.setCenter(screen.getContent());
+				this.addCenterContent(screen.getContent());
 			} catch (Exception e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();

@@ -17,7 +17,7 @@
 
 <AnchorPane prefWidth="1529.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <BorderPane fx:id="borPaneMain" layoutX="10.0" layoutY="10.0" prefHeight="645.0" prefWidth="1528.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <BorderPane layoutX="10.0" layoutY="10.0" prefHeight="645.0" prefWidth="1528.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
             <Label alignment="BOTTOM_CENTER" prefHeight="90.0" prefWidth="632.0" text="Cập nhật sức khỏe thú cưng" textFill="NAVY" BorderPane.alignment="CENTER">
                <font>
@@ -105,7 +105,7 @@
                                        <bottom>
                                           <AnchorPane prefHeight="55.0" prefWidth="358.0" BorderPane.alignment="CENTER">
                                              <children>
-                                                <Button fx:id="btnUpdate" layoutX="87.0" layoutY="5.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="148.0" style="-fx-background-color: D7E4F2;" styleClass="rs-30-corner" stylesheets="@../css/style.css" text="Cập nhật" textFill="NAVY">
+                                                <Button layoutX="87.0" layoutY="5.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="148.0" style="-fx-background-color: D7E4F2;" styleClass="rs-30-corner" stylesheets="@../css/style.css" text="Cập nhật" textFill="NAVY">
                                                    <font>
                                                       <Font name="Segoe UI Bold" size="18.0" />
                                                    </font>
@@ -268,7 +268,7 @@
                                        <bottom>
                                           <AnchorPane prefHeight="55.0" prefWidth="358.0" BorderPane.alignment="CENTER">
                                              <children>
-                                                <Button fx:id="btnUpdate" disable="true" layoutX="87.0" layoutY="5.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="148.0" style="-fx-background-color: D7E4F2;" styleClass="rs-30-corner" stylesheets="@../css/style.css" text="Cập nhật" textFill="NAVY">
+                                                <Button disable="true" layoutX="87.0" layoutY="5.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="148.0" style="-fx-background-color: D7E4F2;" styleClass="rs-30-corner" stylesheets="@../css/style.css" text="Cập nhật" textFill="NAVY">
                                                    <font>
                                                       <Font name="Segoe UI Bold" size="18.0" />
                                                    </font>
@@ -493,7 +493,7 @@
                                        <bottom>
                                           <AnchorPane prefHeight="55.0" prefWidth="358.0" BorderPane.alignment="CENTER">
                                              <children>
-                                                <Button fx:id="btnUpdate" disable="true" layoutX="87.0" layoutY="5.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="148.0" style="-fx-background-color: D7E4F2;" styleClass="rs-30-corner" stylesheets="@../css/style.css" text="Cập nhật" textFill="NAVY">
+                                                <Button disable="true" layoutX="87.0" layoutY="5.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="148.0" style="-fx-background-color: D7E4F2;" styleClass="rs-30-corner" stylesheets="@../css/style.css" text="Cập nhật" textFill="NAVY">
                                                    <font>
                                                       <Font name="Segoe UI Bold" size="18.0" />
                                                    </font>
@@ -590,7 +590,7 @@
                                        <bottom>
                                           <AnchorPane prefHeight="55.0" prefWidth="358.0" BorderPane.alignment="CENTER">
                                              <children>
-                                                <Button fx:id="btnUpdate" layoutX="87.0" layoutY="5.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="148.0" style="-fx-background-color: D7E4F2;" styleClass="rs-30-corner" stylesheets="@../css/style.css" text="Cập nhật" textFill="NAVY">
+                                                <Button layoutX="87.0" layoutY="5.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="148.0" style="-fx-background-color: D7E4F2;" styleClass="rs-30-corner" stylesheets="@../css/style.css" text="Cập nhật" textFill="NAVY">
                                                    <font>
                                                       <Font name="Segoe UI Bold" size="18.0" />
                                                    </font>
@@ -753,7 +753,7 @@
                                        <bottom>
                                           <AnchorPane prefHeight="55.0" prefWidth="358.0" BorderPane.alignment="CENTER">
                                              <children>
-                                                <Button fx:id="btnUpdate" layoutX="87.0" layoutY="5.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="148.0" style="-fx-background-color: D7E4F2;" styleClass="rs-30-corner" stylesheets="@../css/style.css" text="Cập nhật" textFill="NAVY">
+                                                <Button layoutX="87.0" layoutY="5.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="148.0" style="-fx-background-color: D7E4F2;" styleClass="rs-30-corner" stylesheets="@../css/style.css" text="Cập nhật" textFill="NAVY">
                                                    <font>
                                                       <Font name="Segoe UI Bold" size="18.0" />
                                                    </font>
@@ -916,7 +916,7 @@
                                        <bottom>
                                           <AnchorPane prefHeight="55.0" prefWidth="358.0" BorderPane.alignment="CENTER">
                                              <children>
-                                                <Button fx:id="btnUpdate" layoutX="87.0" layoutY="5.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="148.0" style="-fx-background-color: D7E4F2;" styleClass="rs-30-corner" stylesheets="@../css/style.css" text="Cập nhật" textFill="NAVY">
+                                                <Button layoutX="87.0" layoutY="5.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="148.0" style="-fx-background-color: D7E4F2;" styleClass="rs-30-corner" stylesheets="@../css/style.css" text="Cập nhật" textFill="NAVY">
                                                    <font>
                                                       <Font name="Segoe UI Bold" size="18.0" />
                                                    </font>
@@ -1081,7 +1081,7 @@
                                              <bottom>
                                                 <AnchorPane prefHeight="55.0" prefWidth="358.0" BorderPane.alignment="CENTER">
                                                    <children>
-                                                      <Button fx:id="btnUpdate" disable="true" layoutX="87.0" layoutY="5.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="148.0" style="-fx-background-color: D7E4F2;" styleClass="rs-30-corner" stylesheets="@../css/style.css" text="Cập nhật" textFill="NAVY">
+                                                      <Button disable="true" layoutX="87.0" layoutY="5.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="148.0" style="-fx-background-color: D7E4F2;" styleClass="rs-30-corner" stylesheets="@../css/style.css" text="Cập nhật" textFill="NAVY">
                                                          <font>
                                                             <Font name="Segoe UI Bold" size="18.0" />
                                                          </font>
@@ -1207,9 +1207,6 @@
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
-                                 <effect>
-                                    <DropShadow />
-                                 </effect>
                                  <graphic>
                                     <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
@@ -1225,9 +1222,6 @@
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
-                                 <effect>
-                                    <DropShadow />
-                                 </effect>
                                  <graphic>
                                     <ImageView fitHeight="23.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
                                        <image>

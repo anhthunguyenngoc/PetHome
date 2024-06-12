@@ -8,13 +8,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.AnchorPane;
 import main.Main;
-import utils.Configs;
+import util.Configs;
 
 public class PetInfoAddHandler extends BaseHandler{
 	
-	public PetInfoAddHandler(BorderPane borPane) {
+	public PetInfoAddHandler(AnchorPane borPane) {
 		super(borPane);
 		this.loadFXML(Configs.PET_AU_PATH);
 	}
@@ -58,7 +58,7 @@ public class PetInfoAddHandler extends BaseHandler{
 			try {
 				((Owner)Main.user).getPetlist().addPet(Main.user.getID(), textFName.getText(), dateString, textFGender.getText(), textFType.getText(), textFHobby.getText(), weight.getText());
 				PetInfoListHandler screen = new PetInfoListHandler(borPane);
-				borPane.setCenter(screen.getContent());		
+				this.addCenterContent(screen.getContent());		
 			} catch (InvalidInformation e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();

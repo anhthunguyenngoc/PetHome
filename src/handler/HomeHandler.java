@@ -6,10 +6,10 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import main.Main;
-import utils.Configs;
+import util.Configs;
 
 public class HomeHandler extends HomeBaseHandler{
 	
@@ -26,7 +26,7 @@ public class HomeHandler extends HomeBaseHandler{
     private ScrollPane scrollPane;
     
     @FXML
-    private BorderPane borPaneCenter;
+    private AnchorPane ancPaneCenter;
     
     @FXML
     private ScrollPane sPaneDV;
@@ -57,8 +57,8 @@ public class HomeHandler extends HomeBaseHandler{
     
     @FXML
     private void initialize() {
-    	
-    	this.borPane = borPaneCenter;
+
+    	this.borPane = ancPaneCenter;
 		try {
 			Main.system.getServiceListAPI();
 		} catch (Exception e) {
@@ -66,8 +66,8 @@ public class HomeHandler extends HomeBaseHandler{
 			e.printStackTrace();
 		}
 
-    	HomePageHandler homePage = new HomePageHandler(borPaneCenter);
-    	borPaneCenter.setCenter(homePage.getContent());
+    	HomePageHandler homePage = new HomePageHandler(ancPaneCenter);
+    	this.addCenterContent(homePage.getContent());
 		    
 	    ArrayList<Button> btn = new ArrayList<Button>();
 	    btn.add(btnDV);
@@ -81,15 +81,15 @@ public class HomeHandler extends HomeBaseHandler{
     	//Event khi click vào menuItem "Đăng nhập" trên menu bar
     	setMouseEvent(btnLogIn, "white", 3);   	
     	btnLogIn.setOnMouseClicked(e -> {
-    		LoginHandler screen = new LoginHandler(borPaneCenter, scrollPane);
-    		borPaneCenter.setCenter(screen.getContent());
+    		LoginHandler screen = new LoginHandler(ancPaneCenter, scrollPane);
+    		this.addCenterContent(screen.getContent());
     	});
     	
     	//Event khi click vào menuItem "Đăng ký" trên menu bar
     	setMouseEvent(btnRegister, "white", 3);    	
     	btnRegister.setOnMouseClicked(e -> {
-    		RegisterHandler screen = new RegisterHandler(borPaneCenter, scrollPane);
-    		borPaneCenter.setCenter(screen.getContent());
+    		RegisterHandler screen = new RegisterHandler(ancPaneCenter, scrollPane);
+    		this.addCenterContent(screen.getContent());
     	});
     	
     }  

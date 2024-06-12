@@ -5,56 +5,40 @@ import java.util.Arrays;
 
 import entity.pet.Pet;
 import entity.service.Service;
-import entity.user.User;
+import entity.user.Doctor;
 import exception.InvalidInformation;
 
 public class HealthSchedule extends Schedule{
+	private Doctor doctor;
 	
-	public HealthSchedule(Pet pet, User user, Service service, String startTime) throws Exception {
+	//tạo 1 lịch mới
+	public HealthSchedule(Pet pet, Service service, String bookDate, String result, String note, Doctor doctor) throws Exception {
 		super();
-
-		ArrayList<String> varPost = new ArrayList<String>(Arrays.asList("pet_id", "bookDate", "type"));	   
-		ArrayList<String> data = new ArrayList<String>(Arrays.asList(""+pet.getPet_ID(), startTime, service.getId()));
+		ArrayList<String> varPost = new ArrayList<String>(Arrays.asList("pet_id", "service_id", "bookDate", "result", "note", "doctor_id"));	   
+		ArrayList<String> data = new ArrayList<String>(Arrays.asList(""+pet.getPet_ID(), service.getId(), bookDate, result, note,""+doctor.getID()));
 		
 		ArrayList<String> varGet = new ArrayList<String>(Arrays.asList("id"));
 		ArrayList<String> id = new ArrayList<String>();
 		
 
-		int stateCode = api.postData(varPost, varGet, data, id, "bookDate");
+		int stateCode = api.postData(varPost, varGet, data, id, "bookDate/health");
 
 		if (stateCode == 200) {
-			this.id = id.get(0);
-			this.pet = pet;
-			this.user = user;
-			this.service = service;
-			this.startTime = startTime;
+			this.setInfo(Integer.parseInt(id.get(0)), pet, service, bookDate, result, note);
+			this.doctor = doctor;
 		} else {
 			throw new InvalidInformation();
-		}
-	}
-
-	public HealthSchedule() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-	public HealthSchedule(String id, Service service, Pet pet, User user, String status, String startTime) {
-		super(id, service, pet, user, status, startTime);
-		// TODO Auto-generated constructor stub
+		}	
 	}
 	
-	public void updateSchedule(Pet pet, Service service, ArrayList<String> dataString) throws Exception {
-		ArrayList<String> varPost = new ArrayList<String>(Arrays.asList("pet_id", "bookDate", "type"));	   
-		ArrayList<String> data = new ArrayList<String>(Arrays.asList(""+pet.getPet_ID(), dataString.get(0), service.getId()));
-		
-		int stateCode = api.putData(varPost, data, "bookDate");
-
-		if (stateCode == 200) {
-			this.pet = pet;
-			this.service = service;
-			this.startTime = dataString.get(0);
-		} else {
-			throw new InvalidInformation();
-		}
+	//lưu dữ liệu lên đối tượng
+	public HealthSchedule(int id, int petId, String serviceId, String bookDate, String endTime, String postTime,
+			String result, String money, String note, Doctor doctor) throws Exception {	
+		super(id, petId, serviceId, bookDate, endTime, postTime, result, money, note);
+		this.doctor = doctor;
+	}
+	
+	public HealthSchedule() {
+		super();
 	}
 }
