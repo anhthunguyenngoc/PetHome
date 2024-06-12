@@ -7,7 +7,7 @@ import util.API;
 public class ScheduleList {
 	API api = new API();
 
-	public void getlistAPI() throws Exception {
+	public void getlistAPI(String url) throws Exception {
 	}
 	
 	public ArrayList<Schedule> getSchedulelist() {

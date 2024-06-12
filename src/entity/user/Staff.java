@@ -2,16 +2,18 @@ package entity.user;
 
 import java.util.ArrayList;
 
+import entity.cage.Cage;
+import entity.cage.CageList;
 import entity.pet.Pet;
 import entity.service.Service;
 import exception.InvalidInformation;
 import exception.NotExistPet;
-import schedule.HealthScheduleList;
 import schedule.HotelScheduleList;
 import schedule.SalonScheduleList;
 
 public class Staff extends User{
-
+	private CageList cageList = new CageList();
+	
 	public Staff(String email, String pass, String url) throws Exception {
 		super(email, pass, url);
 		
@@ -99,15 +101,40 @@ public class Staff extends User{
 		HotelScheduleList hotScheList = new HotelScheduleList(this.ID);
 		SalonScheduleList salScheList = new SalonScheduleList(this.ID);
 
+		hotScheList.getlistAPI("bookDate/hotel");
+		salScheList.getlistAPI("bookDate/salon");
+		
 		this.schedulelist.add(hotScheList);
 		this.schedulelist.add(salScheList);
-		
-		for(int i=0; i< this.schedulelist.size(); i++) {
-			this.schedulelist.get(i).getlistAPI();
-		}
 	}
 	
 	public void addNewHealth(Pet pet, Service service, ArrayList<String> data, String result) throws Exception {
 		addNewHealth(pet, service, data, "Được chấp nhận");
+	}
+	
+	public ArrayList<Cage> getEndCage() throws Exception{
+		return this.cageList.getEndCageFromList();
+	}
+	
+	public ArrayList<Cage> getFreeCage() throws Exception{
+		return this.cageList.getFreeCage();
+	}
+	
+	public void addCage(int size, Service serviceType) {
+		for(int i=0; i<size; i++) {
+			try {
+				new Cage(serviceType.getId());
+			} catch (Exception e1) {
+				e1.printStackTrace();
+			}
+		}
+	}
+	
+	public void remCage(Cage cage) throws Exception{
+		cage.delCage();
+	}
+	
+	public void putCage(Cage cage, Pet pet, String startTime, String endTime) throws Exception{
+		cage.putAPICage(ID, startTime, endTime);
 	}
 }

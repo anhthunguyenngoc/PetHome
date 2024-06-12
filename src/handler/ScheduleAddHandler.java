@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import entity.pet.Pet;
 import entity.user.Owner;
+import exception.HaveNoFreeCage;
 import entity.service.HealthService;
 import entity.service.Service;
 import entity.service.ServiceList;
@@ -92,6 +93,10 @@ public class ScheduleAddHandler extends BaseHandler{
 	    	//thiết lập sãn cho combobox của dv nhỏ
 	    	if(serviceListType.getValue() != null) {
 	    		serviceType.setDisable(false);
+	    		
+				ArrayList<Service> serviceTypeData = Main.system.getServiceListChild(Main.system.getServiceList(service.getListId()));
+				serviceType.getItems().clear();
+				serviceType.getItems().addAll(serviceTypeData);
 	    	}
 	    	serviceType.setValue(service);
     	}
@@ -107,6 +112,7 @@ public class ScheduleAddHandler extends BaseHandler{
             		serviceType.setDisable(false);
             			try {
             				ArrayList<Service> serviceTypeData = Main.system.getServiceListChild(newValue);
+            				serviceType.getItems().clear();
 							serviceType.getItems().addAll(serviceTypeData);
 						} catch (Exception e) {
 							// TODO Auto-generated catch block
@@ -136,10 +142,15 @@ public class ScheduleAddHandler extends BaseHandler{
 	            String startTime = startDay.getValue().toString()+" "+startHour.getText()+":"+startMin.getText();
 	            System.out.println(startTime);
 	            
+	            endDay.setValue(LocalDate.of(endDay.getValue().getYear(), endDay.getValue().getMonth(), endDay.getValue().getDayOfMonth()));
+	            String endTime = startDay.getValue().toString()+" "+startHour.getText()+":"+startMin.getText();
+	            System.out.println(startTime);
+	            
 	            ArrayList<String> data = new ArrayList<String>();
 	            
 	            data.add(startTime);
 	            data.add(note.getText());
+	            data.add(endTime);
 	            
 	            Main.user.addNewHealth(sPet, serviceType.getValue(), data, "");
 	    		
@@ -147,10 +158,12 @@ public class ScheduleAddHandler extends BaseHandler{
 	    		ScheduleCusListHandler screen = new ScheduleCusListHandler(borPane);
 				this.addCenterContent(screen.getContent());
 				
+			} catch (HaveNoFreeCage e2) {
+				
 			} catch (Exception e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
-			}
+			} 
     	});
     }
 

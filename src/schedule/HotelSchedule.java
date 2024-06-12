@@ -14,7 +14,7 @@ public class HotelSchedule extends Schedule{
 	
 	public HotelSchedule(Pet pet, Service service, String bookDate, String result, String note, int cageId, String endtime) throws Exception {
 		super();
-		ArrayList<String> varPost = new ArrayList<String>(Arrays.asList("pet_id", "service_id", "bookDate", "result", "note", "cage_id", "endtime"));	   
+		ArrayList<String> varPost = new ArrayList<String>(Arrays.asList("pet_id", "service_id", "bookDate", "result", "note", "cage_id", "endTime"));	   
 		ArrayList<String> data = new ArrayList<String>(Arrays.asList(""+pet.getPet_ID(), service.getId(), bookDate, result, note,""+cageId, endtime));
 		
 		ArrayList<String> varGet = new ArrayList<String>(Arrays.asList("id"));

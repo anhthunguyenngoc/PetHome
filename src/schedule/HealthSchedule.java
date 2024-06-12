@@ -9,7 +9,6 @@ import entity.user.Doctor;
 import exception.InvalidInformation;
 
 public class HealthSchedule extends Schedule{
-	private Doctor doctor;
 	
 	//tạo 1 lịch mới
 	public HealthSchedule(Pet pet, Service service, String bookDate, String result, String note, Doctor doctor) throws Exception {
@@ -25,7 +24,7 @@ public class HealthSchedule extends Schedule{
 
 		if (stateCode == 200) {
 			this.setInfo(Integer.parseInt(id.get(0)), pet, service, bookDate, result, note);
-			this.doctor = doctor;
+			this.user = doctor;
 		} else {
 			throw new InvalidInformation();
 		}	
@@ -35,7 +34,7 @@ public class HealthSchedule extends Schedule{
 	public HealthSchedule(int id, int petId, String serviceId, String bookDate, String endTime, String postTime,
 			String result, String money, String note, Doctor doctor) throws Exception {	
 		super(id, petId, serviceId, bookDate, endTime, postTime, result, money, note);
-		this.doctor = doctor;
+		this.user = doctor;
 	}
 	
 	public HealthSchedule() {

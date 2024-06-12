@@ -9,6 +9,7 @@ import entity.service.Service;
 import exception.InvalidInformation;
 import exception.NotExistPet;
 import exception.UserNotFound;
+import main.Main;
 import schedule.HealthSchedule;
 import schedule.HealthScheduleList;
 import schedule.HotelScheduleList;
@@ -83,13 +84,14 @@ public class Owner extends User {
 		HotelScheduleList hotScheList = new HotelScheduleList(this.ID);
 		SalonScheduleList salScheList = new SalonScheduleList(this.ID);
 		
+		heaScheList.getlistAPI("bookDate/health/"+Main.user.getID());
+		hotScheList.getlistAPI("bookDate/hotel/"+Main.user.getID());
+		salScheList.getlistAPI("bookDate/salon/"+Main.user.getID());
+		
 		this.schedulelist.add(heaScheList);
 		this.schedulelist.add(hotScheList);
 		this.schedulelist.add(salScheList);
-		
-		for(int i=0; i< this.schedulelist.size(); i++) {
-			this.schedulelist.get(i).getlistAPI();
-		}
+
 	}
 	
 	public void addNewHealth(Pet pet, Service service, ArrayList<String> data, String result) throws Exception {

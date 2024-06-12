@@ -9,7 +9,6 @@ import entity.user.Staff;
 import exception.InvalidInformation;
 
 public class SalonSchedule extends Schedule{
-	private Staff staff = new Staff();
 
 	public SalonSchedule(Pet pet, Service service, String bookDate, String result, String note, Staff staff) throws Exception {
 		super();
@@ -24,7 +23,7 @@ public class SalonSchedule extends Schedule{
 
 		if (stateCode == 200) {
 			this.setInfo(Integer.parseInt(id.get(0)), pet, service, bookDate, result, note);
-			this.staff = staff;		
+			this.user = staff;		
 		} else {
 			throw new InvalidInformation();
 		}	
@@ -34,7 +33,7 @@ public class SalonSchedule extends Schedule{
 	public SalonSchedule(int id, int petId, String serviceId, String bookDate, String endTime, String postTime,
 			String result, String money, String note, Staff staff) throws Exception {	
 		super(id, petId, serviceId, bookDate, endTime, postTime, result, money, note);
-		this.staff = staff;
+		this.user = staff;
 	}
 	
 	public SalonSchedule() {

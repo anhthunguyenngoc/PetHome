@@ -35,7 +35,7 @@
                                     <Font name="Segoe UI Bold Italic" size="24.0" />
                                  </font>
                               </Text>
-                              <Text fx:id="startTime1" strokeType="OUTSIDE" strokeWidth="0.0" text="Không có">
+                              <Text fx:id="healthTime" strokeType="OUTSIDE" strokeWidth="0.0" text="Không có">
                                  <font>
                                     <Font name="Segoe UI Italic" size="22.0" />
                                  </font>
@@ -59,7 +59,7 @@
             </VBox>
          </top>
          <center>
-            <VBox prefHeight="1149.0" prefWidth="1482.0" spacing="15.0" style="-fx-background-color: #e7ecf2; -fx-background-radius: 40; -fx-border-radius: 40; -fx-border-color: navy; -fx-border-width: 5;" BorderPane.alignment="CENTER">
+            <VBox prefHeight="1149.0" prefWidth="1482.0" spacing="15.0" style="-fx-background-color: #e7ecf2; -fx-background-radius: 30;" BorderPane.alignment="CENTER">
                <children>
                   <HBox spacing="50.0">
                      <VBox.margin>
@@ -305,7 +305,11 @@
                      <bottom>
                         <AnchorPane prefHeight="15.0" BorderPane.alignment="CENTER">
                            <children>
-                              <Line endX="628.928955078125" endY="-8.2843017578125" fill="NAVY" layoutX="700.5355224609375" layoutY="15.0" startX="-646.0" startY="-8.284271240234375" stroke="NAVY" strokeWidth="5.0" />
+                              <VBox layoutX="70.0" layoutY="3.180164337158203" AnchorPane.leftAnchor="70.0" AnchorPane.rightAnchor="70.0">
+                                 <children>
+                                    <Line endX="628.928955078125" endY="-8.2843017578125" fill="NAVY" startX="-646.0" startY="-8.284271240234375" stroke="NAVY" strokeWidth="5.0" />
+                                 </children>
+                              </VBox>
                            </children>
                         </AnchorPane>
                      </bottom>
@@ -620,14 +624,14 @@
                      <bottom>
                         <AnchorPane prefHeight="72.0" prefWidth="1389.0" BorderPane.alignment="CENTER">
                            <children>
-                              <TextFlow layoutX="50.0" layoutY="14.0" prefHeight="40.0" prefWidth="1288.0" style="-fx-background-color: D7E4F2;" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="51.0">
+                              <TextFlow layoutX="50.0" layoutY="14.0" prefHeight="40.0" prefWidth="1288.0" style="-fx-background-color: D7E4F2;" AnchorPane.leftAnchor="70.0" AnchorPane.rightAnchor="70.0">
                                  <children>
                                     <Text fill="NAVY" strokeType="OUTSIDE" strokeWidth="0.0" text="Chẩn đoán bệnh: ">
                                        <font>
                                           <Font name="Segoe UI Bold" size="28.0" />
                                        </font>
                                     </Text>
-                                    <Text fill="NAVY" layoutX="10.0" layoutY="10.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mồm thối">
+                                    <Text fx:id="result" fill="NAVY" layoutX="10.0" layoutY="10.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mồm thối">
                                        <font>
                                           <Font name="Segoe UI Bold" size="28.0" />
                                        </font>
@@ -637,7 +641,11 @@
                                     <Insets left="65.0" />
                                  </padding>
                               </TextFlow>
-                              <Line endX="632.0" fill="NAVY" layoutX="701.0" layoutY="68.0" startX="-646.0" stroke="NAVY" strokeWidth="5.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" />
+                              <VBox layoutX="50.0" layoutY="65.5" AnchorPane.leftAnchor="70.0" AnchorPane.rightAnchor="70.0">
+                                 <children>
+                                    <Line endX="632.0" fill="NAVY" startX="-646.0" stroke="NAVY" strokeWidth="5.0" />
+                                 </children>
+                              </VBox>
                            </children>
                         </AnchorPane>
                      </bottom>

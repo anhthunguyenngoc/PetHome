@@ -2,9 +2,12 @@ package entity.user;
 
 import java.util.ArrayList;
 
+import entity.medicalprocess.MedicalProcess;
+import entity.medicalprocess.MedicalProcessList;
 import exception.InvalidInformation;
 import exception.NotExistPet;
 import exception.UserNotFound;
+import main.Main;
 import schedule.HealthScheduleList;
 import schedule.HotelScheduleList;
 import schedule.SalonScheduleList;
@@ -14,6 +17,7 @@ public class Doctor extends User{
     private String graduationYear;
     private String achievements;
     private String experienceYear;
+    private MedicalProcessList mediProcess = new MedicalProcessList();
     
 	//hàm khởi tạo khi người dùng đăng nhập và đăng ký
 	public Doctor(String email, String pass, String url) throws Exception {
@@ -135,10 +139,13 @@ public class Doctor extends User{
 		
 		HealthScheduleList heaScheList = new HealthScheduleList(this.ID);
 		
-		this.schedulelist.add(heaScheList);
+		heaScheList.getlistAPI("bookDate/health");
 		
-		for(int i=0; i< this.schedulelist.size(); i++) {
-			this.schedulelist.get(i).getlistAPI();
-		}
+		this.schedulelist.add(heaScheList);
+
 	}
+	
+	 public ArrayList<MedicalProcess> getMediProcessList() throws Exception{
+		 return mediProcess.getMediProDoctor(this.ID);
+	 }
 }

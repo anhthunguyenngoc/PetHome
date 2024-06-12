@@ -4,6 +4,7 @@ import entity.service.Service;
 import entity.system.PetHomeSystem;
 import entity.user.Staff;
 import javafx.fxml.FXML;
+import javafx.scene.Cursor;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
@@ -73,7 +74,8 @@ public class HotelServiceHandler extends ListHandler{
     public Button addCageListBtn() {
     	Button btn = new Button("Xem danh sách chuồng");
     	
-    	btn.setStyle("-fx-background-color: #fff; -fx-border-radius: 30; -fx-font-size: 18px; -fx-text-fill: #000080; -fx-font-weight: bold;");
+    	btn.setStyle("-fx-background-color: #D7E4F2; -fx-background-radius: 30; -fx-font-size: 18px; -fx-text-fill: #000080; -fx-font-weight: bold;");
+    	btn.setCursor(Cursor.HAND);
     	btn.setPrefHeight(44.0);
     	btn.setOnMouseClicked( e -> {
     		CageListHandler screen = new CageListHandler(borPane);

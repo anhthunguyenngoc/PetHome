@@ -23,6 +23,7 @@ public class Schedule {
 	protected String result;
 	protected String money;
 	protected String note;
+	protected User user;
 
 	protected API api = new API();
 
@@ -40,18 +41,13 @@ public class Schedule {
 			String result, String money, String note) throws Exception {
 		
 		this.id = id;
-		try{
+		
+		if(serviceId.substring(0, 2).equals("SE")) {
+			this.service = new SalonService(serviceId);
+		}else if(serviceId.substring(0, 2).equals("HE")) {
 			this.service = new HealthService(serviceId);
-		}catch(Exception e1) {
-			try{
-				this.service = new HotelService(serviceId);
-			}catch(Exception e2) {
-				try{
-					this.service = new SalonService(serviceId);
-				}catch(Exception e3) {
-					
-				}
-			}
+		}else if(serviceId.substring(0, 2).equals("HO")) {
+			this.service = new SalonService(serviceId);
 		}
 
 		this.pet = new Pet(petId);
@@ -73,9 +69,9 @@ public class Schedule {
 	}
 
 	
-	public void cancelSchedule(String result, String note, String endtime) throws Exception {
+	public void cancelSchedule(String note, String endtime) throws Exception {
 		ArrayList<String> varPost = new ArrayList<String>(Arrays.asList("result", "note", "endtime"));	   
-		ArrayList<String> data = new ArrayList<String>(Arrays.asList(result, note, endtime));
+		ArrayList<String> data = new ArrayList<String>(Arrays.asList("Hủy bỏ", note, endtime));
 		
 		int stateCode = api.putData(varPost, data, "bookDate/result/"+this.id);
 
@@ -133,6 +129,10 @@ public class Schedule {
 
 	public String getNote() {
 		return note;
+	}
+
+	public User getUser() {
+		return user;
 	}
 	
 	

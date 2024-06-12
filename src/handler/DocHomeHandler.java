@@ -93,6 +93,7 @@ public class DocHomeHandler extends UserHomeHandler{
             sPaneKB.setPrefHeight(80.0);
     	});
     	
+    	//Event khi click vào menuItem "Lịch khám" trên menu bar
     	setMouseEvent(mItemHthSche, "white", 3);
     	mItemHthSche.setOnMouseClicked(e -> {
     		ScheduleDocListHandler screen = new ScheduleDocListHandler(ancPaneCenter);

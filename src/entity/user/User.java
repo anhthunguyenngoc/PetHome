@@ -10,6 +10,7 @@ import entity.service.HealthService;
 import entity.service.HotelService;
 import entity.service.SalonService;
 import entity.service.Service;
+import exception.HaveNoFreeCage;
 import exception.InvalidInformation;
 import exception.NotExistPet;
 import exception.UserNotFound;
@@ -74,6 +75,7 @@ public class User {
 	}
 	
 	public static String formatDate (String inputDate) throws Exception {
+		if(inputDate ==null) return null;
 		String outputDate = null;
 		SimpleDateFormat inputFormat = new SimpleDateFormat("yyyy-MM-dd");
         SimpleDateFormat outputFormat = new SimpleDateFormat("dd/MM/yyyy");
@@ -144,13 +146,17 @@ public class User {
 	}
 	
 	public void addNewHealth(Pet pet, Service service, ArrayList<String> data, String result) throws Exception {
-
+		System.out.println(service);
 		if(service instanceof HealthService) {
 			Doctor doctor = Main.system.getFreeDoctor(data.get(0));
 			new HealthSchedule(pet, service, data.get(0), result, data.get(1), doctor);
         }else if(service instanceof HotelService) {
-        	int cageId = Main.system.getFreeCage().getId();
-			new HotelSchedule(pet, service, data.get(0), result, data.get(1), cageId, data.get(3));
+        	try {
+        		int cageId = Main.system.getFreeCage().getId();
+        		new HotelSchedule(pet, service, data.get(0), result, data.get(1), cageId, data.get(2));
+        	}catch (HaveNoFreeCage e2) {
+        		throw e2;
+			}
         }else if(service instanceof SalonService) {
         	Staff staff = Main.system.getFreeStaff(data.get(0));
 			new SalonSchedule(pet, service, data.get(0), result, data.get(1), staff);

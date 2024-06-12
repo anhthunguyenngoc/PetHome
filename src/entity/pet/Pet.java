@@ -6,6 +6,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
+
+import entity.medicalprocess.MedicalProcess;
+import entity.medicalprocess.MedicalProcessList;
 import exception.InvalidInformation;
 import exception.NotExistPet;
 import util.API;
@@ -19,6 +22,7 @@ public class Pet {
     private String Hobby; // varchar(100)
     private String weight;
     private int Owner; // varchar(5)
+    private MedicalProcessList mediProcess = new MedicalProcessList();
     private API api = new API();
     
     public Pet() {}
@@ -221,4 +225,8 @@ public class Pet {
 	    public String toString() {
 	        return Name;
 	    }
+	 
+	 public ArrayList<MedicalProcess> getMediProcessList() throws Exception{
+		 return mediProcess.getMediProPet(this.Pet_ID);
+	 }
 }

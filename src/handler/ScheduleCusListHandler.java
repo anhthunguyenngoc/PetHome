@@ -40,7 +40,7 @@ public class ScheduleCusListHandler extends BaseHandler{
     
 	@FXML
 	private void initialize() {
-		
+		title.setText("Danh sách lịch đã đặt");
 		try {
 			Main.user.iniScheduleList();
 			ArrayList<ScheduleList> scheduleList = Main.user.getSchedulelist();

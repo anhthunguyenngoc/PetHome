@@ -17,13 +17,13 @@ public class HotelScheduleList extends ScheduleList{
 	}	
 	
 	@Override
-	public void getlistAPI() throws Exception {
+	public void getlistAPI(String url) throws Exception {
 		ArrayList<Schedule> listAPI = new ArrayList<>();
 		
 		ArrayList<String> varGet = new ArrayList<String>(Arrays.asList("id", "pet_id", "service_id", "bookDate", "endtime", "post_date", "result", "money", "note", "cage_id", "endtime"));
 		List<ArrayList<String>> res = new ArrayList<ArrayList<String>>();
 		
-		int stateCode = api.getData(varGet, res, "bookDate/hotel/"+this.userId);
+		int stateCode = api.getData(varGet, res, url);
 		
 		if(stateCode == 200) {
 			for(int j=0; j< res.size(); j++) {			

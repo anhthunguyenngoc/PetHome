@@ -1,5 +1,6 @@
 package handler;
 
+import entity.medicalprocess.MedicalProcess;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
@@ -11,9 +12,10 @@ import util.Configs;
 
 
 public class ItemPetHealthHandler extends BaseHandler{
-
-	public ItemPetHealthHandler(AnchorPane borPane) {
+	private MedicalProcess medi = new MedicalProcess();
+	public ItemPetHealthHandler(AnchorPane borPane, MedicalProcess medi) {
 		super(borPane);
+		this.medi = medi;
 		this.loadFXML(Configs.PET_HEA_ITEM_PATH);
 	}
 
@@ -42,7 +44,7 @@ public class ItemPetHealthHandler extends BaseHandler{
 
 	    this.setMouseEvent(btnUpdate, "white", 3);
 		btnUpdate.setOnMouseClicked(e -> {
-			ViewPetHealthInfoHandler screen = new ViewPetHealthInfoHandler(borPane, null, false);
+			ViewPetHealthInfoHandler screen = new ViewPetHealthInfoHandler(borPane, medi, false);
 			Node ancPane = screen.getContent();
 			this.addCenterContent(ancPane);		
 		});

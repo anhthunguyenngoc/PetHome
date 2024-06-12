@@ -43,10 +43,23 @@ public class ScheduleCusItemHandler extends BaseHandler{
     
     @FXML
     private void initialize() {
+    	btnRefuse.setText("Hủy lịch");
+    	btnAccept.setText("Xem chi tiết");
+    	
+    	title.setText(schedule.getService().getName());
     	status.setText(schedule.getResult());
     	time.setText(schedule.getBookDate());
     	petname.setText(schedule.getPet().getName());
-    	title.setText(schedule.getService().getName());
+    	staff.setText(schedule.getUser().getName());
+    	
+    	btnRefuse.setOnMouseClicked(e -> {
+    		try {
+				schedule.cancelSchedule("note", "endtime");
+			} catch (Exception e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+    	});
     }
     
 }

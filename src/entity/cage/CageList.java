@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.Random;
 
 import entity.pet.Pet;
+import entity.service.Service;
+import exception.HaveNoFreeCage;
 import exception.HaveNoPet;
 import exception.NotExistPet;
 import schedule.Schedule;
@@ -18,46 +20,8 @@ public class CageList {
 	public CageList() {
 		super();
 	}
-	
-	public ArrayList<Cage> getAPICageList(String url) throws Exception {
-		ArrayList<Cage> listAPI = new ArrayList<>();
-		
-		ArrayList<String> var = new ArrayList<String>(Arrays.asList("id", "starttime", "endtime"));	   				
 
-		List<ArrayList<String>> res = new ArrayList<ArrayList<String>>();
-		int stateCode = api.getData(var, res, url);
-		
-		if(stateCode == 200) {
-			for(int j=0; j< res.size(); j++) {				
-				Pet pet = new Pet();
-				Cage cage = new Cage(Integer.parseInt(res.get(j).get(0)), pet, res.get(j).get(2), res.get(j).get(3));
-				listAPI.add(cage);
-			}		
-			return listAPI;
-		}else {
-			throw new HaveNoPet();
-		}
-	}
-	
-	public void callFreeCageListAPI() throws Exception {
-		cageList = getAPICageList("cages/free");
-	}
-	
-	public void callEndCageListAPI() throws Exception {
-		cageList = getAPICageList("cages/end");
-	}
-	
-	public void updateCageInList(Cage findCage, Pet pet, String startTime, String endTime) throws Exception {
-		Cage uCage;
-		try {
-			uCage = getCageInList(findCage);
-			uCage.putAPICage(pet.getPet_ID(), startTime, endTime);
-		}catch (Exception e){
-			
-		}		
-	}
-	
-	public Cage getCageInList(Cage findCage) throws Exception {
+	private Cage getCageInList(Cage findCage) throws Exception {
 		for(Cage cage : this.cageList) {
 			if(findCage.equals(cage)) {
 				return findCage;
@@ -76,10 +40,42 @@ public class CageList {
 		}	
 	}	
 	
+	private ArrayList<Cage> getAPICageList(String url) throws Exception {
+		ArrayList<Cage> listAPI = new ArrayList<>();
+		
+		ArrayList<String> var = new ArrayList<String>(Arrays.asList("cage_id"));	   				
+
+		List<ArrayList<String>> res = new ArrayList<ArrayList<String>>();
+		int stateCode = api.getData(var, res, url);
+		
+		if(stateCode == 200) {
+			for(int j=0; j< res.size(); j++) {				
+				Cage cage = new Cage(Integer.parseInt(res.get(j).get(0)));
+				listAPI.add(cage);
+			}		
+			return listAPI;
+		}else {
+			throw new HaveNoPet();
+		}
+	}
+	
 	public Cage getFreeCageFromList() throws Exception {
-		ArrayList<Cage> freeCageList = getAPICageList("cages/free");
+		ArrayList<Cage> freeCageList = getFreeCage();
+		if(freeCageList.size() == 0) {
+			throw new HaveNoFreeCage();
+		}
 		Random random = new Random();
-		int randomNumber = random.nextInt(freeCageList.size() + 1);
+		int randomNumber = random.nextInt(freeCageList.size());
 		return freeCageList.get(randomNumber);
+	}
+	
+	public ArrayList<Cage> getEndCageFromList() throws Exception {
+		ArrayList<Cage> endCageList = getAPICageList("cages/stop");
+		return endCageList;
+	}
+	
+	public ArrayList<Cage> getFreeCage() throws Exception {
+		ArrayList<Cage> freeCageList = getAPICageList("cages/free");
+		return freeCageList;
 	}
 }

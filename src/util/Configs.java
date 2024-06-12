@@ -40,6 +40,9 @@ public class Configs {
 	public static final String UP_HEA_RES_PATH = getUrl("update-health-result");
 	public static final String UP_MEDI_PATH = getUrl("update-medi");
 	public static final String STAFF_SCHE_LIST_PATH = getUrl("schedule-list");
+	public static final String PET_HEALTH_HISTORY_PATH = getUrl("view-selected-pet-health-history");
+	public static final String PET_HEALTH_HISTORY_ITEM_PATH = getUrl("pet-health-history-item");
+	public static final String CAGE_ADD_PATH = getUrl("cage-add");
 	
 	private static String getUrl(String url) {
 		return "/fxml/" + url + ".fxml";

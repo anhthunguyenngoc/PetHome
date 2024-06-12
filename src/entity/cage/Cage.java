@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 import entity.pet.Pet;
+import exception.CanNotCreateCage;
+import exception.DatabaseError;
 import exception.NotExistPet;
 import util.API;
 
@@ -22,6 +24,30 @@ public class Cage {
 		this.endTime = endTime;
 	}
 	
+	public Cage(int cageId) {
+		super();
+		this.cageId = cageId;
+	}
+	
+	public Cage(String hotelId) throws Exception {
+		if(hotelId == null) {
+			throw new CanNotCreateCage();
+		}
+		ArrayList<String> varPost = new ArrayList<String>(Arrays.asList("hotel_id"));	 
+		ArrayList<String> data = new ArrayList<String>(Arrays.asList(hotelId));
+		
+		ArrayList<String> varGet = new ArrayList<String>(Arrays.asList());	 
+		ArrayList<String> cage = new ArrayList<String>(Arrays.asList());
+		
+		int stateCode = api.postData(varPost, varGet, data, cage, "cages");
+		
+		if(stateCode == 200) {
+
+		}else {
+			throw new DatabaseError();
+		}
+	}
+	
 	public void putAPICage(int petID, String startTime, String endTime) throws Exception {
 
 		ArrayList<String> varGet = new ArrayList<String>(Arrays.asList("pet_id", "starttime", "endtime"));	 
@@ -33,6 +59,16 @@ public class Cage {
 			this.pet = pet;
 			this.startTime = startTime;
 			this.endTime = endTime;
+		}else {
+			throw new NotExistPet();
+		}
+	}
+	
+	public void delCage() throws Exception {
+	
+		int stateCode = api.delData("cages/"+this.cageId);
+		if(stateCode == 200) {
+
 		}else {
 			throw new NotExistPet();
 		}

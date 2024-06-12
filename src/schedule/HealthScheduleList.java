@@ -18,13 +18,13 @@ public class HealthScheduleList extends ScheduleList{
 	}	
 	
 	@Override
-	public void getlistAPI() throws Exception {
+	public void getlistAPI(String url) throws Exception {
 		ArrayList<Schedule> listAPI = new ArrayList<>();
 		
 		ArrayList<String> varGet = new ArrayList<String>(Arrays.asList("id", "pet_id", "service_id", "bookdate", "endtime", "post_date", "result", "money", "note", "doctor_id"));
 		List<ArrayList<String>> res = new ArrayList<ArrayList<String>>();
 		
-		int stateCode = api.getData(varGet, res, "bookDate/health/"+this.userId);
+		int stateCode = api.getData(varGet, res, url);
 		
 		if(stateCode == 200) {
 			for(int j=0; j< res.size(); j++) {			

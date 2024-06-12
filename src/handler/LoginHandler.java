@@ -65,8 +65,7 @@ public class LoginHandler extends BaseHandler{
     		try {
 				login(textFEmail.getText(), textFPass.getText());
 			} catch (NotSelectUserType e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
+				e1.getMessage();
 			} catch (UserNotFound e2) {
 				// TODO Auto-generated catch block
 				e2.printStackTrace();
