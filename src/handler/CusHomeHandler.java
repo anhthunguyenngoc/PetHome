@@ -2,6 +2,7 @@ package handler;
 
 import java.util.ArrayList;
 import entity.user.Owner;
+import exception.NotExistPet;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
@@ -103,6 +104,7 @@ public class CusHomeHandler extends UserHomeHandler{
 	    		sPaneUser.setPrefHeight(80.0);
 			} catch (Exception e1) {
 				// TODO Auto-generated catch block
+				NotExistPet.showExceptionDialog(e1);
 				e1.printStackTrace();
 			}   		
     	});

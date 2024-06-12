@@ -52,6 +52,7 @@ public class PetInfoListHandler extends BaseHandler{
 	    	}
 		} catch (HaveNoPet e) {
 			// TODO Auto-generated catch block
+			HaveNoPet.showExceptionDialog(e);
 			e.printStackTrace();
 		} catch (Exception e1) {
 			// TODO Auto-generated catch block

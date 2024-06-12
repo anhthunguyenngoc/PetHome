@@ -73,12 +73,13 @@ public class DoctorInfoUpdateHandler extends BaseHandler{
     private void initialize() {
     	
     	try {
-    	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        LocalDate date = LocalDate.parse(user.getDOB(), formatter);
-        dob.setValue(date);
+	    	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+	        LocalDate date = LocalDate.parse(user.getDOB(), formatter);
+	        dob.setValue(date);
     	}
     	catch(Exception e) {
-    		
+    		System.err.println("Lỗi chuyển đổi ngày tháng: " + e.getMessage());
+    		e.printStackTrace();
     	}
     	name.setText(user.getName());
     	address.setText(user.getAddress());

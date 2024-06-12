@@ -53,9 +53,11 @@ public class RegisterHandler extends BaseHandler{
 				register(textFEmail.getText(), textFPass1.getText());
 			} catch (NotSelectUserType e1) {
 				// TODO Auto-generated catch block
+				NotSelectUserType.showExceptionDialog(e1);
 				e1.printStackTrace();
 			} catch (UserNotFound e2) {
 				// TODO Auto-generated catch block
+				UserNotFound.showExceptionDialog(e2);
 				e2.printStackTrace();
 			} catch (Exception e3) {
 				// TODO Auto-generated catch block

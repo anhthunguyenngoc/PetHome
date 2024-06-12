@@ -39,6 +39,7 @@ public class SettingHandler extends BaseHandler{
 		    	this.addCenterContent(homePage.getContent());
 			} catch (InvalidInformation e1) {
 				// TODO Auto-generated catch block
+				InvalidInformation.showExceptionDialog(e1);
 				e1.printStackTrace();
 			}
     	});   	

@@ -61,6 +61,7 @@ public class PetInfoAddHandler extends BaseHandler{
 				this.addCenterContent(screen.getContent());		
 			} catch (InvalidInformation e1) {
 				// TODO Auto-generated catch block
+				InvalidInformation.showExceptionDialog(e1);
 				e1.printStackTrace();
 			} catch (Exception e1) {
 				// TODO Auto-generated catch block

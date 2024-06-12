@@ -18,7 +18,6 @@
       <VBox AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="80.0">
          <children>
             <AnchorPane fx:id="ancPaneCenter" prefWidth="200.0" VBox.vgrow="ALWAYS" />
-            <AnchorPane prefHeight="60.0" prefWidth="1550.0" style="-fx-background-color: #c6def1;" />
          </children>
       </VBox>
       <AnchorPane prefHeight="80.0" prefWidth="1548.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
