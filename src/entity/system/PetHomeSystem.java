@@ -173,7 +173,7 @@ public class PetHomeSystem {
 		return true;
 	}
 	
-	private int getFreeStaffId(String bookDate, ArrayList<User> userList) throws Exception {
+	public int getFreeStaffId(String bookDate, ArrayList<User> userList) throws Exception {
 		List<Integer> generatedNumbers = new ArrayList<>();
 		Random random = new Random();
 		 
